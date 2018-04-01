@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+.reg input{
+	margin:0 10px;
+	
+}
+.reg span{
+	display: inline-block;
+	width:10px;
+	height: 10px;
+	background-color: red;
+	vertical-align: center;
+}

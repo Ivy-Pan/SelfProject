@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Keywords" content="音乐播放器">
+	<meta name="Description" content="pc端音乐播放器制作">
+	<title>音乐播放器</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<!-- div盒子模型：宽高、位置 -->
+	<div id="box_show">
+		<ul>
+			<li class="small" title="爱的太迟" dataSrc="mp3/music1.mp3">
+				<img src="images/1.jpg" alt="">
+			</li>
+			<li class="middle" title="爱的故事上集" dataSrc="mp3/music2.mp3">
+				<img src="images/2.jpg" alt="">
+			</li>
+			<li class="big" title="钟无艳" dataSrc="mp3/music3.mp3">
+				<img src="images/3.jpg" alt="">
+			</li>
+			<li class="middle img4" title="处处吻" dataSrc="mp3/music4.mp3">
+				<img src="images/4.jpg" alt="">
+			</li>
+			<li class="small img5" title="凉凉" dataSrc="mp3/music5.mp3">
+				<img src="images/5.jpg" alt="">
+			</li>
+		</ul>
+	</div>
+
+	<div id="box_player">
+		<div class="pic"><img src="images/1.jpg" alt=""></div>
+		<div class="title">
+			<h3>爱的太迟</h3>
+		</div>
+		<div class="control">
+			<a href="javascript:;" class="prev"></a>
+			<a href="javascript:;" class="play"></a>
+			<a href="javascript:;" class="next"></a>
+		</div>
+		<div class="close"></div>
+	</div>
+	<audio src="mp3/music1.mp3" id="music"></audio>
+	<script src="jquery.min.js"></script>
+	<script>
+	/*
+		1. jquery 通过 .get()方法获得DOM对象
+		2. jQuery的attr()方法：获取和设置元素属性
+		3. DOM方法：play()和pause(),暂停播放
+		4. get()方法：将jQuery对象转为DOM对象
+		5. jQuery的text()方法：获取和设置元素文本内容
+		6. animate({动画：宽高、大小等变化}，持续时间，回调函数),其中，回调函数：动画执行完后要实现什么功能
+	*/
+
+
+
+		// 暂停、播放
+		var onoff = true;
+		var $music = $("#music");
+		var $play = $(".play");
+
+		$play.click(function() {
+			if(onoff) {
+				$music.get(0).play();
+				$(this).css("background-position","-300px -93px");
+				// onoff = false;
+			}else {
+				$music.get(0).pause();
+				$(this).css("background-position","-115px -5px");
+				// onoff = true;
+			}
+			onoff = !onoff;
+		});
+
+
+		// 展开、收起
+		var unfold = true
+		var $close = $(".close");
+		var $box_play = $("#box_player");
+
+		$close.click(function() {
+			if(unfold) {
+				$box_play.animate({
+					"left": "-480px",
+				},800,function() {
+					$close.css("background-position","-46px 0");
+				});
+			}else {
+				$box_play.animate({
+					"left": "0",
+				},800,function() {
+					$close.css("background-position","0 0");
+				});
+			}
+			unfold = !unfold;
+		});
+
+		// 上一首、下一首
+		var n = 1;
+		var $li = $("#box_show ul li");
+		var $title = $(".title h3");
+		var $img = $(".pic img");
+
+		$(".prev").click(function() {
+			n--;
+			if(n < 1)
+				n = 5;
+
+			// 切换上一首并播放
+			$music.attr("src","mp3/music" + n + ".mp3").get(0).play();
+
+			// 切换播放按键图案
+			$play.css("background-position","-300px -93px");
+			onoff = false;
+
+			// 切换上一首歌名
+			$title.text($li.eq(n-1).attr("title"));
+
+			// 切换歌曲图片
+			$img.attr("src",$li.eq(n-1).find("img").attr("src"));
+
+			// 可直接调用musicCut()方法
+			// musicCut();
+		});
+
+		$(".next").click(function() {
+			n++;
+			if(n > 5)
+				n = 1;
+			// 直接调用musicCut()方法
+			musicCut();
+
+			/*
+			$music.attr("src","mp3/music" + n + ".mp3").get(0).play();
+			$title.text($li.eq(n-1).attr("title"));
+			$img.attr("src",$li.eq(n-1).find("img").attr("src"));
+			$play.css("background-position","-300px -93px");
+			onoff = false;
+			*/
+		});
+
+		// 其中，click点击切换的内容有很多都是一样的，所以可以封装一个方法，方便直接调用。
+		function musicCut() {
+			$music.attr("src","mp3/music" + n + ".mp3").get(0).play();
+			$title.text($li.eq(n-1).attr("title"));
+			$img.attr("src",$li.eq(n-1).find("img").attr("src"));
+			$play.css("background-position","-300px -93px");
+			onoff = false;
+		}
+
+		// 点击图片也可以播放
+		$li.click(function() {
+
+			// $this存储$(this)的指针地址
+			var $this = $(this);
+
+			// 让 n 与当前歌曲匹配
+			n = $this.index()+1;
+
+			// 播放歌曲
+			$music.attr("src",$this.attr("dataSrc")).get(0).play();
+
+			// 改变播放按键
+			$play.css("background-position","-300px -93px");
+			onoff = false;
+
+			// 改变播放图片
+			$img.attr("src",$this.find("img").attr("src"));
+
+			// 改变播放歌曲名称
+			$title.text($this.attr("title"));
+		});
+
+		// 代码与性能优化
+		/*
+			1.性能优化：
+				var $music = $("#music")，每次使用$music不用$("#music")，其它的同理：
+					document.getElementById("music")  ==>  $("#music") 等
+				每用一次，就要从文档中搜索一次，会加长响应时间。所以，对于经常用到的$("#music")或是document.getElementById("music")等，要存储起来使其只搜索一次，可以在一定程度上优化加载速率
+
+			2.代码优化：
+				相同多次使用的代码，用函数封装起来，要用时直接调用
+				比如 musicCut()函数，而$li.click()还可以优化：
+					难点：其中 n 已经与当前歌曲匹配，所以 $this就相当于 $li.eq(n-1)；
+				所以， musicCut()函数 改为：
+					function musicCut() {
+						$music.attr("src",$li.eq(n-1).attr("dataSrc")).get(0).play();
+						$title.text($li.eq(n-1).attr("title"));
+						$img.attr("src",$li.eq(n-1).find("img").attr("src"));
+						$play.css("background-position","-300px -93px");
+						onoff = false;
+					}
+				然后相同的部分直接调用它即可。
+
+		*/
+
+	</script>
+</body>
+</html>

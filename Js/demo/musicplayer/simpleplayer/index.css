@@ -1,0 +1,121 @@
+@charset "utf-8";
+
+/*reset*/
+body, div, p, ul, li, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style: none;
+}
+
+
+/*#box_show*/
+#box_show {
+	position: relative;
+	width: 720px;
+	height: 250px;
+	margin: 50px auto;
+	background: url(images/banner_bg.jpg);
+}
+#box_show ul li {
+	cursor: pointer;
+}
+#box_show .small {
+	/*absolute:相对于除了static（默认值）定位以外的最近的一个父元素定位（就近原则）*/
+	position: absolute;
+	top: 20px;
+	left: 50px;
+	width: 70px;
+	height: 70px;
+}
+#box_show .middle {
+	position: absolute;
+	top: 100px;
+	left: 150px;
+	width: 90px;
+	height: 90px;
+}
+#box_show .big {
+	position: absolute;
+	top: 66px;
+	left: 310px;
+	width: 120px;
+	height: 120px;
+}
+#box_show .img4 {
+	position: absolute;
+	top: 25px;
+	left: 480px;
+}
+#box_show .img5 {
+	position: absolute;
+	top: 160px;
+	left: 580px;
+}
+#box_show li img {
+	/*1.一般不要改变图片的大小*/
+	/*2.宽高100%：使其跟随父元素大小*/
+	width: 100%;
+	height: 100%;
+	border-radius: 60%;
+}
+
+/*#box_player*/
+#box_player {
+	position: fixed; /*固定定位：相对于浏览器窗口定位*/
+	bottom: 100px;
+	width: 500px;
+	height: 115px;
+	background-color: #000;
+}
+#box_player div {
+	float: left;
+}
+#box_player .pic {
+	width: 90px;
+	height: 90px;
+	margin: 15px 15px;
+}
+#box_player .pic img {
+	width: 100%;
+}
+#box_player .title {
+	width: 190px;
+	margin-top: 60px;
+}
+#box_player .title h3 {
+	font-size: 16px;
+	color: #fff;
+}
+#box_player .control {
+	width: 130px;
+	height: 35px;
+	margin-top: 40px;
+}
+#box_player .control a {
+	display: inline-block;
+	width: 25px;
+	height: 35px;
+	margin-right: 15px;
+	background: url(images/player_bg.png);
+}
+#box_player .control .prev {
+	background-position: -75px 0;
+}
+#box_player .control .play {
+	background-position: -115px -5px;
+}
+#box_player .control .next {
+	background-position: -155px 0;
+}
+#box_player .close{
+	float: right;
+	width: 20px;
+	height: 100%;
+	cursor: pointer;
+	background: url(images/player_bg.png);
+	background-position: 0 0;
+}
+
+  

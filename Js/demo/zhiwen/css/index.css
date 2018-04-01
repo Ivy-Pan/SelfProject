@@ -1,0 +1,345 @@
+@charset "utf-8";
+
+/*通用*/
+	body,h1,h2,h3,h4,p,ul,ol,form,fieldset,figure,img,input{
+		margin:0;
+		padding:0;	
+	}
+	a{
+		text-decoration : none
+	}
+	ul{
+		list-style: none;
+	}
+
+	body{
+		font:16px Arial,sans-serif;
+		min-width: 1000px;
+		/*max-width: 1280px;*/
+
+	}
+	.clear {
+		clear: both;
+	}
+
+/*header样式*/
+	#header{
+		background:url(../img/header_bg.png) repeat-x;
+		width:100%;
+		height:40px;
+	}
+	#header .head_main{
+		min-width:1000px;
+		max-width: 1240px;
+		height:40px;
+		margin:0 auto;
+		padding:0 20px;
+	}
+	#header h1{
+		font-size:24px;
+		height:40px;
+		line-height:40px;
+		color:#666;
+		float:left;
+		padding:0 15px;
+	}
+
+	/*搜索*/
+	#header .search{
+		float:left;
+		padding:5px 0 0 0;
+		margin:0 0 0 20px;
+	}
+	#header .in_search{
+		width:300px;
+		height:30px;
+		line-height: 30px;
+		border:1px solid #ccc;
+		border-radius: 4px;
+		text-align:left;
+		padding:0;	
+		margin:1px 0 0 0;
+		text-indent: 5px;
+		float:left;
+	}
+	#header .head_btn{
+		float:left;
+		margin:0 5px;
+		font-size:14px;
+
+	}
+	#header .search_btn,#header .question_btn{
+		border-radius:4px;
+	}
+
+	#header .reg_log{
+		float:right;
+		height:40px;
+		line-height: 40px;
+		padding:0 100px;
+		font-size:14px;
+	}
+	#header .reg_log a{
+		color:#555;
+		padding:0 5px;
+	}
+	#header .search_btn,#header .ui-button,#header .ui-corner-all,#header .ui-widget{
+		background: url(../img/ui_header_bg.png);
+	}
+
+/*maincontainer样式*/
+	#main {
+		min-width: 1000px;
+		max-width: 1250px;
+		margin: 0 auto;
+	}
+/*main_left样式*/
+	#main .main_left {
+		float: left;
+		width:65%;
+		padding: 10px;
+	}
+  /*tabs选项卡*/
+	#tabs {
+		/*width:700px;*/
+	}
+	.ui-tabs .ui-tabs-nav li {
+		margin:0;
+	}
+
+  /*convasation内容与评论样式*/
+  	/*内容*/
+	#main .convasation {
+		padding: 0 10px;
+	}
+	#main .convasation section {
+		margin: 20px 0 0 0;
+	}
+	#main .convasation h4,#main .convasation h3,#main .convasation .editor,#main .convasation .bottom{
+		padding: 0 0 10px 5px;
+	}
+	#main .convasation h4 {
+		color:#666;
+		font-weight: normal;		
+	}
+	#main .convasation h3 {
+		color: #369;
+	}
+	#main .convasation .editor {
+		color: #333;
+		line-height: 180%;
+		/*height:135px;*/
+		margin: 0 0 5px 0;
+		overflow: hidden;
+	}
+	#main .convasation .editor p {
+		text-indent: 2em;
+	}
+	#main .convasation .bottom {
+		padding: 0 25px 5px;
+		font-size: 14px;
+	}
+	#main .convasation .hr {
+		color: #ccc;
+		height: 0;
+		margin: 0 0 5px 0;
+	}
+	#main .convasation .up,#main .convasation .down,#main .convasation .all {
+		float: right;
+		color: #369;
+		cursor: pointer; 
+	}
+	#main .convasation .num_comment {
+		color: #369;
+		cursor: pointer;
+	}
+	#main .convasation .all {
+		 display: none;
+	}
+	/*评论*/
+	#main .comment {
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		padding: 5px 10px;
+		display: none;
+	}
+	#main .comment .comment_list dl{
+		margin: 0;
+		padding: 3px 10px 5px 0;
+		border: none;
+		border-bottom: 1px dashed #ccc;
+	}
+	#main .comment .comment_list dt {
+		margin: 0;
+		padding: 10px 0 0 0;
+		color: #369;
+	}
+	#main .comment .comment_list dd {
+		margin: 0;
+		padding: 0;
+		color: #333;
+		line-height: 180%;
+	}
+	#main .comment .comment_list dd.comment_time {
+		color: #666;
+	}
+	#main .comment .my_comment dl {
+		position: relative;
+	}
+	#main .comment .my_comment dt input {
+		width: 85%;
+		height: 40px;
+		size: 300;
+		text-indent: 5px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+	}
+	#main .comment .my_comment dd {
+		position: absolute;
+		top: 4px;
+		right: 20px;
+	}
+
+
+
+/*main_right样式*/
+	#main .main_right {
+		float: right;
+		width:28%;
+		padding: 10px;
+	}
+
+  /*accordion折叠菜单*/
+	#accordion {
+		width:80%;
+	}
+
+
+
+/*弹窗*/
+/*注册与登录对话框框*/
+	#reg,#login{
+		display: none;
+		padding:15px;
+		font-family: Arial;
+	}
+	#reg p,#login p{
+		margin:0 0 15px 0;
+		color: #666;
+		font-family: Arial;
+	}
+	#reg p input,#login p input{
+		width: 180px;
+		border: 1px solid #ccc;
+		border-radius: 4px;
+		font-size: 16px;
+		text-indent: 5px;
+	}
+	#reg p .necessary,#login p .necessary{
+		color:red;
+	}
+	#reg .reg_error,#login .login_error {
+		/*display: inline-block;*/
+		margin:0 0 15px 70px;
+		color:red;
+	}
+	#reg .reg_error li,#login .login_error li{
+		height:25px;
+	}
+	.reg-false{
+		display: inline-block;
+		width: 22px;
+		height: 22px;
+		background: url(../img/error.png) no-repeat;
+	}
+	.reg-right{
+		display: inline-block;
+		width: 22px;
+		height: 22px;
+		background: url(../img/reg_succ.png) no-repeat bottom;
+	}
+	.ui-widget-header{
+		background: url(../img/ui_header_bg.png);
+	}
+
+	#reg .ui-controlgroup-item{
+		border-radius: 4px;
+	}
+
+	/*注册对话框日历样式*/
+	.ui-datepicker-current-day .ui-state-active{
+		border: 1px solid #003eff;
+		color: #fff;
+	}
+	.ui-widget-content .ui-state-hover{
+		color: #007fff;
+	}
+	.ui-widget-content{
+		font-family: Arial;
+	}
+	.ui-datepicker select.ui-datepicker-month, .ui-datepicker select.ui-datepicker-year {
+	    vertical-align: bottom;
+	    height: 25px;
+	    line-height: 25px;
+	    border-radius: 5px;
+	    margin: 5px;
+	    width:43%;
+	}
+	.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+	    top: 6px;
+	}
+	.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover {
+	    top: 6px;
+	}
+
+/*注册提交等待提示*/
+	.loading {
+		display: none;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 28px;
+		text-indent: 40px;
+	}
+	.loading.ui-widget-content {
+		background: url(../img/loading.gif) no-repeat 20px center;
+	}
+
+/*登录等待提示*/
+	.loging {
+		display: none;
+		font-size: 14px;
+		font-weight: bold;
+		line-height: 28px;
+		text-indent: 40px;
+	}
+	.loging.ui-widget-content {
+		background: url(../img/loading.gif) no-repeat 20px center;
+	}
+	#login p #expires {
+		width:20px;
+		margin:15px 0 0 125px;
+		position: relative;
+		top: 2px;
+	}
+
+/*评论button--dialog*/
+	#edui1 {
+		width: auto !important;
+	}
+	#question p label {
+		font-weight: bold;
+	}
+	 #question p:first-child {
+		margin: 10px 0;
+	} 
+	input#title{
+		width:400px;
+	}
+	.question_error.ui-dialog-content {
+		color: red;
+		font-weight: bold;
+		border-radius: 5px;
+	}
+	#uEditorCustom {
+		margin: 10px 0 0 0;
+	}

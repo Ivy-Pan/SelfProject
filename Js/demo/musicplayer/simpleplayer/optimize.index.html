@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Keywords" content="音乐播放器">
+	<meta name="Description" content="pc端音乐播放器制作">
+	<title>音乐播放器</title>
+	<link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+	<div id="box_show">
+		<ul>
+			<li class="small" title="爱的太迟" dataSrc="mp3/music1.mp3"><img src="images/1.jpg" alt=""></li>
+			<li class="middle" title="爱的故事上集" dataSrc="mp3/music2.mp3"><img src="images/2.jpg" alt=""></li>
+			<li class="big" title="钟无艳" dataSrc="mp3/music3.mp3"><img src="images/3.jpg" alt=""></li>
+			<li class="middle img4" title="处处吻" dataSrc="mp3/music4.mp3"><img src="images/4.jpg" alt=""></li>
+			<li class="small img5" title="凉凉" dataSrc="mp3/music5.mp3"><img src="images/5.jpg" alt=""></li>
+		</ul>
+	</div>
+
+	<div id="box_player">
+		<div class="pic"><img src="images/1.jpg" alt=""></div>
+		<div class="title">
+			<h3>爱的太迟</h3>
+		</div>
+		<div class="control">
+			<a href="javascript:;" class="prev"></a>
+			<a href="javascript:;" class="play"></a>
+			<a href="javascript:;" class="next"></a>
+		</div>
+		<div class="close"></div>
+	</div>
+
+	<audio src="mp3/music1.mp3" id="music"></audio>
+	<script src="jquery.min.js"></script>
+
+	<script>
+
+		// musicCut()
+		function musicCut() {
+			$music.attr("src",$li.eq(n-1).attr("dataSrc")).get(0).play();
+			$title.text($li.eq(n-1).attr("title"));
+			$img.attr("src",$li.eq(n-1).find("img").attr("src"));
+			$play.css("background-position","-300px -93px");
+			onoff = false;
+		}
+
+		// 暂停、播放
+		var onoff = true;
+		var $music = $("#music");
+		var $play = $(".play");
+
+		$play.click(function() {
+			if(onoff) {
+				$music.get(0).play();
+				$(this).css("background-position","-300px -93px");
+				// onoff = false;
+			}else {
+				$music.get(0).pause();
+				$(this).css("background-position","-115px -5px");
+				// onoff = true;
+			}
+			onoff = !onoff;
+		});
+
+
+		// 展开、收起
+		var unfold = true
+		var $close = $(".close");
+		var $box_play = $("#box_player");
+
+		$close.click(function() {
+			if(unfold) {
+				$box_play.animate({
+					"left": "-480px",
+				},800,function() {
+					$close.css("background-position","-46px 0");
+				});
+			}else {
+				$box_play.animate({
+					"left": "0",
+				},800,function() {
+					$close.css("background-position","0 0");
+				});
+			}
+			unfold = !unfold;
+		});
+
+		// 上一首、下一首
+		var n = 1;
+		var $li = $("#box_show ul li");
+		var $title = $(".title h3");
+		var $img = $(".pic img");
+
+		$(".prev").click(function() {
+			n--;
+			if(n < 1)
+				n = 5;
+
+			musicCut();
+		});
+
+		$(".next").click(function() {
+			n++;
+			if(n > 5)
+				n = 1;
+			
+			musicCut();
+		});
+
+		// 点击图片也可以播放
+		$li.click(function() {
+			var $this = $(this);
+			n = $this.index()+1;
+			musicCut();
+
+		});
+	</script>
+	
+</body>
+</html>
