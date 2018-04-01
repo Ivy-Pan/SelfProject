@@ -1,0 +1,123 @@
+@charset "utf-8";
+
+#container .ticket{
+	color:#666;
+	font-size: 20px;
+}
+
+#container .ticket h2{
+	font-size: 30px;
+	font-weight: normal;
+	height:40px;
+	line-height: 40px;
+	border-bottom: 1px dashed #999;
+	padding: 0 0 15px 0;
+	margin:10px 0 15px 0;
+}
+
+#container .ticket ul{
+	margin:20px 5px 20px 0;
+	display:block;
+	height:30px;
+	line-height: 30px;
+}
+
+#container .ticket li{
+	float:left;
+	margin:0 30px 0 0;
+}
+
+#container .ticket li a{
+	color:#666;
+	font-size: 20px;
+	display: block;
+	width:60px;
+	text-align: center;
+}
+
+ #container .ticket .form_active,#container .ticket li a:hover{
+ 	background-color: #458b00;
+ 	border-radius: 4px;
+ 	color:#fff;
+ }
+
+#container .ticket .form{
+	display: inline-block;
+	margin:0 25px 40px 0;
+	line-height: 3;
+}
+
+#container .ticket .form input{
+	width:250px;
+	height:40px;
+	border:1px solid #ccc;
+	border-radius:4px;
+	margin:0 0 0 12px;
+	text-indent: 1em;
+	font-size: 18px;
+}
+
+#container .ticket .button{
+	display: inline-block;
+	width:75px;
+}
+
+#container .ticket .submit{
+	display:inline-block;
+	width:70px;
+	height:70px;
+	line-height: 70px;
+	border-radius: 4px;
+	background-color: #f60;
+	color:#fff;
+	font-size: 20px;
+	border:none;
+	cursor: pointer;
+	position:relative;
+	top:-30px;
+	text-align: center;
+}
+
+#container .ticket .book{
+	display:inline-block;
+	width:80px;
+	height:40px;
+	line-height: 40px;
+	border-radius:4px;
+	background-color: #f60;
+	color:#fff;
+	text-align: center;
+}
+
+#container .ticket .new table{
+	width:100%;
+	text-align: center;
+	border:1px solid #ddd;
+	border-collapse: collapse;
+	margin-bottom: 30px;
+}
+
+#container .ticket .new table tr{
+	height:60px;
+}
+
+#container .ticket .new table tr{
+	border-bottom: 1px solid #ddd;
+}
+
+#container .ticket table tr:nth-child(2n){
+	background-color: #fafafa;
+}
+
+#container .ticket table .price{
+	color:#f60;
+	font-weight: bold;
+}
+
+#container .ticket .new .more_ticket{
+	text-align: center;
+	color:#666;
+}
+#container .ticket table tr:hover{
+	background-color: #eee;
+}

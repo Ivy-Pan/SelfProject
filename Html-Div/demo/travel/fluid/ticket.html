@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+	<title>Ivy移动端旅行社</title>
+	<link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+	<header id="header">
+		<nav class="link">
+			<h2 class="none">网站导航</h2>
+			<ul>
+				<li><a href="index.html">首页</a></li>
+				<li><a href="information.html">资讯</a></li>
+				<li><a class="active" href="ticket.html">票务</a></li>
+				<li><a href="about.html">关于</a></li>
+			</ul>
+		</nav>
+	</header>
+
+	<div id="headline">
+		<img src="./img/headline.png" alt="票务订购">
+		<hgroup>
+			<h2>票务订购</h2>
+			<h3>各种机票、火车票、汽车票订购</h3>
+		</hgroup>
+	</div>
+
+	<div class="common ticket">
+		<form action="###">
+			<h2>机票预订</h2>
+			<ul>
+				<li>航班类型</li>
+				<li><a class="form_active" href="#">单程</a></li>
+				<li><a href="#">往返</a></li>
+			</ul>
+			<div class="form left">
+				<p>
+					<label for="from_city">出发城市：</label>
+					<input type="text" name="from_city" placeholder="城市名">
+				</p>
+				<p>
+					<label for="to_city">到达城市：</label>
+					<input type="text" name="to_city" placeholder="城市名">
+				</p>
+			</div>
+			<div class="form right">
+				<p>
+					<label for="from_data">出发时间：</label>
+					<input type="text" name="from_data" placeholder="日期">
+				</p>
+				<p>
+					<label for="to_data">到达时间：</label>
+					<input type="text" name="to_data" placeholder="日期">
+				</p>
+			</div>
+			<div class="button">
+				<button class="submit" type="submit">预订</button>
+			</div>
+		</form>
+		<div class="new">
+			<h2>最新机票</h2>
+			<ul>
+				<li>热门城市</li>
+				<li><a class="form_active" href="#">北京</a></li>
+				<li><a href="#">上海</a></li>
+				<li><a href="#">广州</a></li>
+				<li><a href="#">深圳</a></li>
+				<li><a href="#">重庆</a></li>
+				<li><a href="#">成都</a></li>
+				<li><a href="#">杭州</a></li>
+				<li><a href="#">南京</a></li>
+			</ul>
+			<table>
+				<thead>
+					<tr>
+						<th>路线</th>
+						<th>日期</th>
+						<th>价格</th>
+						<th>保险</th>
+						<th class="min">餐食</th>
+						<th>航班</th>
+						<th>预订</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>北京-成都</td>
+						<td>10-5</td>
+						<td class="price">￥745</td>
+						<td>￥50</td>
+						<td class="min">有</td>
+						<td>南方航空</td>
+						<td><a class="book" href="#">预订</a></td>
+					</tr>
+					<tr>
+						<td>北京-成都</td>
+						<td>10-5</td>
+						<td class="price">￥745</td>
+						<td>￥50</td>
+						<td class="min">有</td>
+						<td>南方航空</td>
+						<td><a class="book" href="#">预订</a></td>
+					</tr>
+					<tr>
+						<td>北京-成都</td>
+						<td>10-5</td>
+						<td class="price">￥745</td>
+						<td>￥50</td>
+						<td class="min">有</td>
+						<td>南方航空</td>
+						<td><a class="book" href="#">预订</a></td>
+					</tr>
+					<tr>
+						<td>北京-成都</td>
+						<td>10-5</td>
+						<td class="price">￥745</td>
+						<td>￥50</td>
+						<td class="min">有</td>
+						<td>南方航空</td>
+						<td><a class="book" href="#">预订</a></td>
+					</tr>
+					<tr>
+						<td>北京-成都</td>
+						<td>10-5</td>
+						<td class="price">￥745</td>
+						<td>￥50</td>
+						<td class="min">有</td>
+						<td>南方航空</td>
+						<td><a class="book" href="#">预订</a></td>
+					</tr>
+				</tbody>
+				<tfoot>
+					<td colspan="7"><a class="more_ticket" href="#">加载更多航班…</a></td>
+				</tfoot>
+			</table>
+		</div>
+		
+	</div>
+
+	<footer id="footer">
+		<div class="top">
+			客户端 | 触屏版 | 电脑版
+		</div>
+		<div class="bottom">
+			Copyright © YCKU 瓢城旅行社 | 苏ICP备120110119号
+		</div>
+	</footer>
+</body>
+</html>

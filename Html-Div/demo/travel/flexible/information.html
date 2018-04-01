@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+	<title>Ivy响应式布局</title>
+	<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+	<header id="header">
+		<div class="nav">
+			<a href="#"  class="logo">
+				<h1 style="display:none;">瓢城俱乐部</h1>
+			</a>
+			<nav class="link">
+				<h2 class="none">网站导航</h2>
+				<ul>
+					<li><a href="index.html">首页</a></li>
+					<li class="active"><a href="./information.html"><span class="xs_hidden">旅游</span>咨询</a></li>
+					<li><a href="./ticket.html">机票预订</a></li>
+					<li class="xs_hidden"><a href="./scenery.html">风景欣赏</a></li>
+					<li><a href="./about.html">关于<span class="xs_hidden">公司</span></a></li>
+				</ul>
+			</nav>		
+		</div>
+	</header>
+
+	<div id="headerline">
+		<img src="./img/headline.jpg" alt="">
+		<hgroup>
+			<h2>旅游咨询</h2>
+			<h3>各种最新旅游信息、要闻、景点攻略等</h3>
+		</hgroup>
+	</div>
+
+	<div id="container">
+		<aside class="sidebar sm-hidden">
+			<div class="sidebox reconmend">
+				<h2>景点推荐</h2>
+				<div class="tag">
+					<a href="###">曼谷</a>
+					<a href="###">西双版纳</a>
+					<a href="###">曼谷</a>
+					<a href="###">西双版纳</a>
+					<a href="###">曼谷</a>
+					<a href="###">西双版纳</a>
+					<a href="###">曼谷</a>
+					<a href="###">西双版纳</a>
+					<a href="###">曼谷</a>
+					<a href="###">西双版纳</a>
+					<a href="###">曼谷</a>
+					<a href="###">西双版纳</a>
+					<a href="###">曼谷</a>
+					<a href="###">西双版纳</a>
+					<a href="###">曼谷</a>
+					<a href="###">西双版纳</a>
+					<a href="###">曼谷</a>
+					<a href="###">西双版纳</a>
+					<a href="###">曼谷</a>
+					<a href="###">西双版纳</a>
+					<a href="###">曼谷</a>
+					<a href="###">西双版纳</a>
+				</div>
+			</div>
+			<div class="sidebox hot">
+				<h2>热门旅游</h2>
+				<div class="figure">
+					<figure>
+						<img src="./img/hot1.jpg" alt="曼谷">
+						<figcaption>曼谷-芭提雅6日游</figcaption>
+					</figure>
+					<figure>
+						<img src="./img/hot1.jpg" alt="曼谷">
+						<figcaption>曼谷-芭提雅6日游</figcaption>
+					</figure>
+					<figure>
+						<img src="./img/hot1.jpg" alt="曼谷">
+						<figcaption>曼谷-芭提雅6日游</figcaption>
+					</figure>
+					<figure>
+						<img src="./img/hot1.jpg" alt="曼谷">
+						<figcaption>曼谷-芭提雅6日游</figcaption>
+					</figure>
+				</div>
+			</div>
+			<div class="sidebox box">
+				<h2>旅游百宝箱</h2>
+				<div class="tbox">
+					<a href="###" class="case1">天气预报</a>
+					<a href="###" class="case2">火车票查询</a>
+					<a href="###" class="case3">飞机票查询</a>
+					<a href="###" class="case4">地铁线路查询</a>
+				</div>
+			</div>
+		</aside>
+		<div class="infor common">
+			<div class="son_nav">
+				<ul class="left">
+					<li><a href="#" class="active">限时特价</a></li>
+					<li><a href="#">热门推荐</a></li>
+				</ul>
+				<ul class="right xs-hidden">
+					<li><a href="#">价格</a></li>
+					<li><a href="#">折扣</a></li>
+					<li><a href="#" class="active">推荐</a></li>
+				</ul>
+			</div>
+			<figure class="tour">
+				<img src="img/tour2.jpg" alt="马尔代夫自助游" title="马尔代夫自助游">
+				<figcaption>
+					<article>
+						<header>
+							<hgroup>
+								<h2>马尔代夫6日自助游</h2>
+								<h3>包团特惠，超丰富景点，升级1 晚国五，无自费，赠送600元成人券...</h3>
+							</hgroup>
+						</header>
+						<ul class="sm-hidden">
+							<li><mark>交通</mark>：春秋航空,杭州出发,无需转机</li>
+							<li><mark>团期</mark>：11/01、11/03、11/08...</li>
+						</ul>
+						<div class="purchase">
+							<div class="price">
+								￥
+								<strong>2468</strong>
+								<s class="xs-hidden">￥3980</s>
+							</div>
+							<div class="buy">
+								<a href="#">立即抢购</a>
+							</div>
+						</div>
+						<div class="discount">
+							<span>4.7折</span>
+						</div>
+						<div class="type">
+							国际长线
+						</div>
+						<footer class="xs-hidden">
+							本团游由瓢城旅行社赞助提供，截止于<time>2015-10-10</time>
+						</footer>
+					</article>
+				</figcaption>
+			</figure>
+			<figure class="tour">
+				<img src="img/tour2.jpg" alt="马尔代夫自助游" title="马尔代夫自助游">
+				<figcaption>
+					<article>
+						<header>
+							<hgroup>
+								<h2>马尔代夫6日自助游</h2>
+								<h3>包团特惠，超丰富景点，升级1 晚国五，无自费，赠送600元成人券...</h3>
+							</hgroup>
+						</header>
+						<ul class="sm-hidden">
+							<li><mark>交通</mark>：春秋航空,杭州出发,无需转机</li>
+							<li><mark>团期</mark>：11/01、11/03、11/08...</li>
+						</ul>
+						<div class="purchase">
+							<div class="price">
+								￥
+								<strong>2468</strong>
+								<s class="xs-hidden">￥3980</s>
+							</div>
+							<div class="buy">
+								<a href="#">立即抢购</a>
+							</div>
+						</div>
+						<div class="discount">
+							<span>4.7折</span>
+						</div>
+						<div class="type">
+							国际长线
+						</div>
+						<footer class="xs-hidden">
+							本团游由瓢城旅行社赞助提供，截止于<time>2015-10-10</time>
+						</footer>
+					</article>
+				</figcaption>
+			</figure>
+			<figure class="tour">
+				<img src="img/tour2.jpg" alt="马尔代夫自助游" title="马尔代夫自助游">
+				<figcaption>
+					<article>
+						<header>
+							<hgroup>
+								<h2>马尔代夫6日自助游</h2>
+								<h3>包团特惠，超丰富景点，升级1 晚国五，无自费，赠送600元成人券...</h3>
+							</hgroup>
+						</header>
+						<ul class="sm-hidden">
+							<li><mark>交通</mark>：春秋航空,杭州出发,无需转机</li>
+							<li><mark>团期</mark>：11/01、11/03、11/08...</li>
+						</ul>
+						<div class="purchase">
+							<div class="price">
+								￥
+								<strong>2468</strong>
+								<s class="xs-hidden">￥3980</s>
+							</div>
+							<div class="buy">
+								<a href="#">立即抢购</a>
+							</div>
+						</div>
+						<div class="discount">
+							<span>4.7折</span>
+						</div>
+						<div class="type">
+							国际长线
+						</div>
+						<footer class="xs-hidden">
+							本团游由瓢城旅行社赞助提供，截止于<time>2015-10-10</time>
+						</footer>
+					</article>
+				</figcaption>
+			</figure>
+			<figure class="tour">
+				<img src="img/tour2.jpg" alt="马尔代夫自助游" title="马尔代夫自助游">
+				<figcaption>
+					<article>
+						<header>
+							<hgroup>
+								<h2>马尔代夫6日自助游</h2>
+								<h3>包团特惠，超丰富景点，升级1 晚国五，无自费，赠送600元成人券...</h3>
+							</hgroup>
+						</header>
+						<ul class="sm-hidden">
+							<li><mark>交通</mark>：春秋航空,杭州出发,无需转机</li>
+							<li><mark>团期</mark>：11/01、11/03、11/08...</li>
+						</ul>
+						<div class="purchase">
+							<div class="price">
+								￥
+								<strong>2468</strong>
+								<s class="xs-hidden">￥3980</s>
+							</div>
+							<div class="buy">
+								<a href="#">立即抢购</a>
+							</div>
+						</div>
+						<div class="discount">
+							<span>4.7折</span>
+						</div>
+						<div class="type">
+							国际长线
+						</div>
+						<footer class="xs-hidden">
+							本团游由瓢城旅行社赞助提供，截止于<time>2015-10-10</time>
+						</footer>
+					</article>
+				</figcaption>
+			</figure>
+			<figure class="tour">
+				<img src="img/tour2.jpg" alt="马尔代夫自助游" title="马尔代夫自助游">
+				<figcaption>
+					<article>
+						<header>
+							<hgroup>
+								<h2>马尔代夫6日自助游</h2>
+								<h3>包团特惠，超丰富景点，升级1 晚国五，无自费，赠送600元成人券...</h3>
+							</hgroup>
+						</header>
+						<ul class="sm-hidden">
+							<li><mark>交通</mark>：春秋航空,杭州出发,无需转机</li>
+							<li><mark>团期</mark>：11/01、11/03、11/08...</li>
+						</ul>
+						<div class="purchase">
+							<div class="price">
+								￥
+								<strong>2468</strong>
+								<s class="xs-hidden">￥3980</s>
+							</div>
+							<div class="buy">
+								<a href="#">立即抢购</a>
+							</div>
+						</div>
+						<div class="discount">
+							<span>4.7折</span>
+						</div>
+						<div class="type">
+							国际长线
+						</div>
+						<footer class="xs-hidden">
+							本团游由瓢城旅行社赞助提供，截止于<time>2015-10-10</time>
+						</footer>
+					</article>
+				</figcaption>
+			</figure>
+			<figure class="tour">
+				<img src="img/tour2.jpg" alt="马尔代夫自助游" title="马尔代夫自助游">
+				<figcaption>
+					<article>
+						<header>
+							<hgroup>
+								<h2>马尔代夫6日自助游</h2>
+								<h3>包团特惠，超丰富景点，升级1 晚国五，无自费，赠送600元成人券...</h3>
+							</hgroup>
+						</header>
+						<ul class="sm-hidden">
+							<li><mark>交通</mark>：春秋航空,杭州出发,无需转机</li>
+							<li><mark>团期</mark>：11/01、11/03、11/08...</li>
+						</ul>
+						<div class="purchase">
+							<div class="price">
+								￥
+								<strong>2468</strong>
+								<s class="xs-hidden">￥3980</s>
+							</div>
+							<div class="buy">
+								<a href="#">立即抢购</a>
+							</div>
+						</div>
+						<div class="discount">
+							<span>4.7折</span>
+						</div>
+						<div class="type">
+							国际长线
+						</div>
+						<footer class="xs-hidden">
+							本团游由瓢城旅行社赞助提供，截止于<time>2015-10-10</time>
+						</footer>
+					</article>
+				</figcaption>
+			</figure>
+			<figure class="tour">
+				<img src="img/tour2.jpg" alt="马尔代夫自助游" title="马尔代夫自助游">
+				<figcaption>
+					<article>
+						<header>
+							<hgroup>
+								<h2>马尔代夫6日自助游</h2>
+								<h3>包团特惠，超丰富景点，升级1 晚国五，无自费，赠送600元成人券...</h3>
+							</hgroup>
+						</header>
+						<ul class="sm-hidden">
+							<li><mark>交通</mark>：春秋航空,杭州出发,无需转机</li>
+							<li><mark>团期</mark>：11/01、11/03、11/08...</li>
+						</ul>
+						<div class="purchase">
+							<div class="price">
+								￥
+								<strong>2468</strong>
+								<s class="xs-hidden">￥3980</s>
+							</div>
+							<div class="buy">
+								<a href="#">立即抢购</a>
+							</div>
+						</div>
+						<div class="discount">
+							<span>4.7折</span>
+						</div>
+						<div class="type">
+							国际长线
+						</div>
+						<footer class="xs-hidden">
+							本团游由瓢城旅行社赞助提供，截止于<time>2015-10-10</time>
+						</footer>
+					</article>
+				</figcaption>
+			</figure>
+			<figure class="tour">
+				<img src="img/tour2.jpg" alt="马尔代夫自助游" title="马尔代夫自助游">
+				<figcaption>
+					<article>
+						<header>
+							<hgroup>
+								<h2>马尔代夫6日自助游</h2>
+								<h3>包团特惠，超丰富景点，升级1 晚国五，无自费，赠送600元成人券...</h3>
+							</hgroup>
+						</header>
+						<ul class="sm-hidden">
+							<li><mark>交通</mark>：春秋航空,杭州出发,无需转机</li>
+							<li><mark>团期</mark>：11/01、11/03、11/08...</li>
+						</ul>
+						<div class="purchase">
+							<div class="price">
+								￥
+								<strong>2468</strong>
+								<s class="xs-hidden">￥3980</s>
+							</div>
+							<div class="buy">
+								<a href="#">立即抢购</a>
+							</div>
+						</div>
+						<div class="discount">
+							<span>4.7折</span>
+						</div>
+						<div class="type">
+							国际长线
+						</div>
+						<footer class="xs-hidden">
+							本团游由瓢城旅行社赞助提供，截止于<time>2015-10-10</time>
+						</footer>
+					</article>
+				</figcaption>
+			</figure>
+			<div class="more">
+				加载更多…
+			</div>	
+		</div>
+	</div>
+	
+	<footer id="footer">
+		<div class="top sm-hidden">
+			<div class="same left">
+				<h3>合作伙伴</h3>
+				<hr>
+				<ul>
+					<li>途牛旅游网</li>
+					<li>驴妈妈旅游网</li>
+					<li>携程旅游</li>
+					<li>中国青年旅行社</li>
+				</ul>
+			</div>
+			<div class="same middle">
+				<h3>旅游FAQ</h3>
+				<hr>
+				<ul>
+					<li>旅游合同签订方式？</li>
+					<li>儿童价是基于什么制定的？</li>
+					<li>旅游的线路品质怎么界定的？</li>
+					<li>单房差是什么？</li>
+					<li>旅游保险有那些种类？</li>
+				</ul>
+			</div>
+			<div class="same right">
+				<h3>联系方式</h3>
+				<hr>
+				<ul>
+					<li>微博：weibo.com/ycku</li>
+					<li>邮件：ycku@ycku.com</li>
+					<li>地址：江苏盐城无名路123号</li>
+				</ul>
+			</div>
+		</div>
+		<div class="version sm-visiable">
+			客户端 | 触屏版 | 电脑版
+		</div>
+		<div class="bottom">
+			Copyright © YCKU 瓢城旅行社 | 苏ICP备120110119号<span class="sm-hidden"> | 旅行社经营许可证：L-YC-BK12345</span>
+		</div>
+	</footer>
+</body>
+</html>
