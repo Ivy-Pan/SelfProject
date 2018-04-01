@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>发表说说：优化版</title>
+
+	<style>
+		/*reset*/
+		body, ul, p {
+			margin: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		textarea, input, ul {
+			margin: 0;
+			padding: 0;
+		}
+
+		/*start*/
+		#say {
+			width: 650px;
+			margin: 15px auto;
+		}
+		.comment {
+			padding: 30px;
+			border-radius: 5px;
+			background-color: #eee;
+			overflow: hidden;
+		}
+		.comment #text {
+			width: 568px;
+			padding: 10px;
+			border-radius: 5px;
+			resize: none;
+			font-size: 16px;
+			color: #333;
+		}
+		.comment .member .memberid {
+			display: block;
+			float: left;
+			width: 60px;
+			height: 60px;
+			border: 1px solid #fff;
+			cursor: pointer;
+		}
+		.comment .member .upload {
+			float: right;
+			margin-top: 29px;
+			padding: 8px 20px;
+			border: none;
+			border-radius: 3px;
+			background-color: #ff5900;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.commentlist {
+			height: 350px;
+			margin-top: 50px;
+			overflow-y: auto;
+		}
+		.commentlist #item{
+			padding: 15px 0 5px 0;
+			border-bottom: 1px solid #ccc;
+			overflow: hidden;
+		}
+		.commentlist .img {
+			float: left;
+		}
+		.commentlist .img img{
+			width: 80px;
+			height: 80px;
+			border: 1px solid #eee;
+			vertical-align: middle;
+		}
+		.commentlist .content {
+			float: right;
+			width: 520px;
+			height: 72px;
+			padding: 5px 10px;
+			font-size: 16px;
+			color: #333;
+		}
+		
+	</style>
+
+</head>
+<body>
+	
+	<div id="say">
+		<!-- comment -->
+		<div class="comment">
+			<div class="commenttxt">
+				<textarea id="text" rows="4" placeholder="写下你的说说……" autofocus></textarea>
+			</div>
+			<div class="member">
+				<img class="memberid" src="img/a1.jpg" alt="member">
+				<input class="upload" type="submit" value="提交"></input>
+			</div>
+		</div>
+
+		<!-- commentlist -->
+		<ul class="commentlist">
+			 
+				<!-- <li class='itemid' id='item'>
+					<div class='img'>
+						<img src='img/a1.jpg' alt='头像'>
+					</div>
+					<p class='content'>123</p>
+				</li>  -->
+			
+		</ul>
+	</div>
+
+	<!-- start script -->
+	<script>
+		
+		var imgId = 1,
+			say = document.getElementById("say"),
+			text = document.getElementById("text"),
+			memberIdArr = say.getElementsByClassName("memberid"),
+			uploadArr = say.getElementsByClassName("upload"),
+			ulList = document.querySelector("#say .commentlist");
+
+		//点击换头像
+		memberIdArr[0].onclick = function() {
+			if(imgId < 4)
+				imgId++;
+			else
+				imgId = 1;
+			this.src = "img/a" + imgId + ".jpg";
+		}
+
+		// 点击提交
+		uploadArr[0].onclick = function() {
+			ulList.innerHTML = "<li id='item'><div class='img'><img src='" + memberIdArr[0].src + "' alt='头像'></div><p class='content'>" + text.value + "</p></li>" + ulList.innerHTML;
+			text.value = "";
+		}
+
+
+	</script>
+</body>
+</html>

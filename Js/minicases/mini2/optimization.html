@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>优化版</title>
+
+	<style>
+		
+		/*reset*/
+		body, ul {
+			margin: 0;
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+
+		/*start*/
+		#box {
+			width: 80px;
+			height: 80px;
+			margin: 30px 0 15px 30px;
+			border: 1px solid #eee;
+			border-radius: 3px;
+			background-color: #ff0;
+		}
+		#btn {
+			margin-left: 30px;
+			padding: 5px 15px;
+			border: none;
+			border-radius: 3px;
+			background-color: #ff8532;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.overlay {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0,0,0,.4);
+			cursor: pointer;
+		}
+		#options {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			margin: auto;
+			width: 305px;
+			height: 112px;
+			padding: 80px 100px;
+			border: 1px solid #eee;
+			background-color: #fff;
+		}
+		#options li {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 15px;
+			text-align: center;
+		}
+		#options li i {
+			padding-right: 15px;
+		}
+		#options li span {
+			display: inline-block;
+			width: 60px;
+			height: 25px;
+			margin: 0 6px;
+			border: 1px solid #ccc;
+			color: #333;
+			line-height: 25px;
+			text-align: center;
+			/*cursor: pointer;*/
+		}
+
+	</style>
+
+</head>
+<body>
+	
+	<div id="box"></div>
+	<div><input type="button" id="btn" value="点我"></div>
+	<div class="overlay">
+		<ul id="options">
+			<li>
+				<i>Color</i>
+				<span style="background:#f00;"></span>
+				<span style="background: #0f0;"></span>
+				<span style="background: #00f;"></span>
+			</li>
+			<li>
+				<i>width</i>
+				<span>100px</span>
+				<span>200px</span>
+				<span>300px</span>
+			</li>
+			<li >
+				<i>height</i>
+				<span>100px</span>
+				<span>200px</span>
+				<span>300px</span>
+			</li>
+		</ul>
+	</div>
+
+	<script>
+		
+		/*
+			1.命名：名称加上“Arr”可以表示该变量的数据类型，易读性更好: spanArr；
+			2.除了getElementById和getElementsByName前面必须是document，其它对象获取方式前面可以是其他对象以更小地限定范围
+			3.注意：获取的对象集合，使用时一定要加下标使用
+		*/
+		var box = document.getElementById("box"),
+			btn = document.getElementById("btn"),
+			overlay = document.getElementsByClassName("overlay")[0],
+			spanArr = overlay.getElementsByTagName("span");
+
+		btn.onclick = function() {
+			overlay.style.display = "block";
+			// console.log("ok");
+		}
+
+		// 可以使用for循环
+		spanArr[0].onclick = function() {
+			box.style.background = this.style.background;
+		}
+		spanArr[1].onclick = function() {
+			box.style.background = this.style.background;
+		}
+		spanArr[2].onclick = function() {
+			box.style.background = this.style.background;
+		}
+		spanArr[3].onclick = function() {
+			box.style.width = this.innerHTML;
+		}
+		spanArr[4].onclick = function() {
+			box.style.width = this.innerHTML;
+		}
+		spanArr[5].onclick = function() {
+			box.style.width = this.innerHTML;
+		}
+		spanArr[6].onclick = function() {
+			box.style.height = this.innerHTML;
+		}
+		spanArr[7].onclick = function() {
+			box.style.height = this.innerHTML;
+		}
+		spanArr[8].onclick = function() {
+			box.style.height = this.innerHTML;
+		}
+
+		// 双击关闭
+		overlay.ondblclick = function() {
+			this.style.display = "none";
+		}
+
+
+	</script>
+
+</body>
+</html>

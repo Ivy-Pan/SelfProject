@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>demo</title>
+	<link rel="stylesheet" type="text/css" href="demo.css">
+	<style>
+		
+		/*移入移出*/
+		.title {
+			position: relative;
+			background-color: #333;
+		}
+		.title p {
+			width: 50px;
+			height: 38px;
+			line-height: 38px;
+			margin: 0 auto;
+			text-align: center;
+			cursor: pointer;
+		}
+		.title p a {
+			color: #fff;
+			text-decoration: none;
+		}
+		.box1 {
+			display: none;
+			position: absolute;
+			top: 38px;
+			left: 48%;
+			width: 200px;
+			height: 200px;
+			border: 1px solid #ccc;
+			background-color: pink;
+		}
+
+		.case {
+			margin-top: 100px;
+		}
+		.case .case1 {
+			width: 80px;
+			height: 80px;
+			border: 2px solid #ccc;
+			background-color: #f0f;
+		}
+		.case .clickme {
+			margin-top: 15px;
+			cursor: pointer;
+		}
+		.container {
+			display: none;
+			position: fixed;
+			top: 40%;
+			left: 35%;
+			width: 300px;
+			margin: 0 auto;
+			padding: 30px 50px;
+			border: 2px solid #ccc;
+			background-color: #fff;
+			text-align: center;
+		}
+		.container .item {
+			padding: 5px;
+		}
+		.container span {
+			display: inline-block;
+			width: 50px;
+			height: 24px;
+			margin-left: 15px;
+			border: 1px solid #ccc;
+			cursor: pointer;
+		}
+		.container .red {
+			background-color: #f00;
+		}
+		.container .green {
+			background-color: #0f0;
+		}
+		.container .blue {
+			background-color: #00f;
+		}
+		.container .ensure {
+			margin-top: 20px;
+			cursor: pointer;
+		}
+		/*遮罩*/
+		.shade {
+			display: none;
+			position:fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0,0,0,.3);
+		}
+
+	</style>
+</head>
+<body>
+	<div class="title">
+		<p class="box"><a href="optimization.html">优化</a></p>
+		<div class="box1"></div>			
+	</div>
+
+
+	<div class="shade"></div>
+	<div class="case">
+		<div class="case1"></div>
+
+		<input class="clickme" type="button" value="点我"></input>
+
+		<div class="container">
+			<!-- 优化：颜色直接设置行内样式，通过JS获取，这样易于维护 -->
+			<div class="item">
+				颜色
+				<span class="red"></span>
+				<span class="green"></span>
+				<span class="blue"></span>
+			</div>
+			<div class="item">
+				宽度
+				<span class="w100px">100px</span>
+				<span class="w200px">200px</span>
+				<span class="w300px">300px</span>
+			</div>
+			<div class="item">
+				高度
+				<span class="h100px">100px</span>
+				<span class="h200px">200px</span>
+				<span class="h300px">300px</span>
+			</div>
+			<input class="ensure" type="button" value="确定"></input>
+		</div>
+	</div>
+
+	
+
+	<script>
+
+		// 移入移出效果
+		var box = document.getElementsByClassName("box"),
+			box1 = document.getElementsByClassName("box1");
+
+		box[0].onmouseenter = function() {
+			box1[0].style.display = "block";
+		}
+		box[0].onmouseleave = function() {
+			box1[0].style.display = "none";
+		}
+
+		// 点击换色、改大小
+			// 1. 点我：container出现
+			// 2. 点颜色，case1 换颜色
+			// 3. 点大小，case1 改大小
+			// 4. 点确定，container 隐藏
+			
+		var case1 = document.getElementsByClassName("case1"),
+			clickMe = document.getElementsByClassName("clickme"),
+			container = document.getElementsByClassName("container"),
+			items = document.querySelectorAll(".item span"),
+			ensure = document.getElementsByClassName("ensure"),
+			shade = document.getElementsByClassName("shade");
+
+			clickMe[0].onclick = function() {
+				container[0].style.display = "block";
+				shade[0].style.display = "block";
+			}
+
+			// 优化：直接设置样式的值，要更改时，既要改html，又要逐个改JS，导致代码灵活性不强，不易于维护；
+			// 所以，可以使直接获取再赋值,这样易于修改，只要改一处（html）就可以了；
+			items[0].onclick = function() {
+				case1[0].style.backgroundColor = "#f00";
+			}
+			items[1].onclick = function() {
+				case1[0].style.backgroundColor = "#0f0";
+			}
+			items[2].onclick = function() {
+				case1[0].style.backgroundColor = "#00f";
+			}
+			items[3].onclick = function() {
+				case1[0].style.width = "100px";
+			}
+			items[4].onclick = function() {
+				case1[0].style.width = "200px";
+			}
+			items[5].onclick = function() {
+				case1[0].style.width = "300px";
+			}
+			items[6].onclick = function() {
+				case1[0].style.height = "100px";
+			}
+			items[7].onclick = function() {
+				case1[0].style.height = "200px";
+			}
+			items[8].onclick = function() {
+				case1[0].style.height = "300px";
+			}
+
+			ensure[0].onclick = function() {
+				container[0].style.display = "none";
+				shade[0].style.display = "none";
+			}
+
+
+		// 发表说说
+
+
+	</script>
+
+</body>
+</html>

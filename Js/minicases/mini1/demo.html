@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Ivy">
+	<title>发表说说</title>
+
+	<style>
+		/*reset*/
+		body, ul {
+			margin: 0;
+		}
+		ul {
+			list-style: none;
+		}
+		textarea, input, ul {
+			margin: 0;
+			padding: 0;
+		}
+
+		/*start*/
+		p a{
+			float: right;
+			padding-right: 30px;
+			font-size: 18px;
+			color: #f0f;
+		}
+		#say {
+			width: 650px;
+			margin: 15px auto;
+		}
+		.comment {
+			padding: 30px;
+			border-radius: 5px;
+			background-color: #eee;
+			overflow: hidden;
+		}
+		.comment #text {
+			width: 568px;
+			padding: 10px;
+			border-radius: 5px;
+			resize: none;
+			font-size: 16px;
+			color: #333;
+		}
+		.comment .member .memberid {
+			display: block;
+			float: left;
+			width: 60px;
+			height: 60px;
+			border: 1px solid #fff;
+			cursor: pointer;
+		}
+		.comment .member .upload {
+			float: right;
+			margin-top: 29px;
+			padding: 8px 20px;
+			border: none;
+			border-radius: 3px;
+			background-color: #ff5900;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.commentlist {
+			height: 350px;
+			margin-top: 50px;
+			overflow-y: auto;
+		}
+		.commentlist #item{
+			display: none;
+			overflow: hidden;
+			padding: 15px 0 5px 0;
+			border-bottom: 1px solid #ccc;
+		}
+		.commentlist .img {
+			float: left;
+		}
+		.commentlist .img .itemid{
+			width: 80px;
+			height: 80px;
+			border: 1px solid #eee;
+			vertical-align: middle;
+		}
+		.commentlist .content {
+			float: right;
+			width: 520px;
+			height: 72px;
+			padding: 5px 10px;
+			font-size: 16px;
+			color: #333;
+		}
+		
+	</style>
+	
+</head>
+<body>
+	<p><a href="optimization.html">优化</a></p>
+	<div id="say">
+		<!-- comment -->
+		<div class="comment">
+			<div class="commenttxt">
+				<textarea id="text" rows="4" placeholder="写下你的说说……" autofocus></textarea>
+			</div>
+			<div class="member">
+				<img class="memberid" src="img/a1.jpg" alt="member">
+				<input class="upload" type="submit" value="提交"></input>
+			</div>
+		</div>
+
+		<!-- commentlist -->
+		<ul class="commentlist">
+			
+		</ul>
+	</div>
+	 
+	 
+	<script>
+		var adds;
+			memberImg = 1,
+			num = 0,
+			say = document.getElementById("text"),
+			memberId = document.getElementsByClassName("memberid"),
+			upLoad = document.getElementsByClassName("upload"),
+			ul = document.getElementsByClassName("commentlist");
+
+		// add() 函数：插入li并获取该li及对应的相关对象
+		function add() {
+			var adds,
+				itemId,
+				content,
+				li;
+
+			// 向ul里面插入一个完整的 li；
+			// 缺点：这样插入不够灵活，应该在要改变的地方直接用变量表示，方便更改，这样也不用再多此一举去获取变化的对象
+
+			// 变化的地方就用变量表示，变量可以获取得到或自己定义，哪个灵活方便用哪个
+
+			ul[0].innerHTML += "<li class='item" + num +"' id='item'><div class='img'><img class='itemid' src='' alt='头像'></div><p class='content'></p></li>";
+
+			// 获取对应的li对象
+			li = document.querySelector(".item" + num);
+			// 获取对应li下的头像对象
+			itemId = document.querySelector(".item" + num + " .itemid");
+			// 获取对应li下的内容对象
+			content = document.querySelector(".item" + num + " .content");
+			
+			// 插入了一个li，下一个插入的li类名序号要+1
+			num++;
+
+			// 存储并返回要获取的对象
+			adds = [itemId,content,li];
+
+			return adds;
+		};
+			
+		// 点击换头像
+		memberId[0].onclick = function() {
+			if(memberImg < 4)
+				memberImg++;
+			else 
+				memberImg = 1;
+			this.src = "img/a" + memberImg + ".jpg";
+		};
+
+		// 点击提交，展示对应内容
+		upLoad[0].onclick = function() {
+			if(say.value) {
+				adds = add();
+				adds[1].innerHTML = say.value;
+				say.value = "";
+				adds[0].src = memberId[0].src;
+				adds[2].style.display = "block";
+			}else {
+				alert("请写下你的说说！");
+			}
+		};
+
+
+	</script>
+
+
+</body>
+</html>
