@@ -1,0 +1,28 @@
+@charset "utf-8";
+
+#container .about h2{
+	font-size: 30px;
+	font-weight: normal;
+	height:40px;
+	line-height: 40px;
+	border-bottom: 1px dashed #999;
+	padding: 0 0 15px 0;
+	color:#666;
+	margin:10px 0 15px 0;
+}
+
+#container .about section{
+	margin:0 0 50px 0;
+	font-size: 20px;
+	color:#666;
+	line-height: 2;
+}
+
+#container .about section p{
+	margin:20px 0;
+}
+
+#container .about address{
+	font-style: normal;
+	line-height: 1.6
+}

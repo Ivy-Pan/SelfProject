@@ -1,0 +1,466 @@
+@charset "utf-8";
+
+/*重置*/
+body, p, div, h1, h2, h3, ul, li {
+	margin: 0;
+	padding: 0;
+}
+ul, ol, li {
+	list-style: none;
+}
+a {
+	text-decoration: none;
+}
+
+body {
+	min-width: 1024px;
+}
+
+/*header start*/
+#header {
+	height: 768px;
+	background: url(../img/header/banner.jpg) no-repeat center top;
+}
+.h-main {
+	position: relative;
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+}
+/* 导航：navigation*/
+.navigation {
+	height: 38px;
+	padding-top: 25px;
+}
+
+.navigation .logo {
+	width: 210px;
+	height: 100%;
+	float: left;
+}
+#header .nav {
+	width: 790px;
+	height: 100%;
+	float: right;
+}
+#header .nav ul {
+	height: 100%;  
+}
+#header .nav ul li {
+	float: left;
+	line-height: 38px;
+	padding-left: 40px;
+}
+#header .nav li a {
+	display: block;
+	font-size: 16px;
+	color: #fff;
+	transition: color 1s; /*css3,用1秒的时间来实现颜色的变化*/
+}
+#header .nav li.active a, #header .nav li a:hover {
+	color: #09cbd7;
+}
+/*主题文字：hteme*/
+#header .theme {
+	margin-top: 225px;
+}
+#header .theme .p1 {
+	width: 691px;
+	height: 82px;
+	background: url("../img/header/WEB.png");
+}
+#header .theme .p2 {
+	width: 382px;
+	height: 44px;
+	margin-top: 50px;
+	background: url("../img/header/HTML5.png");
+}
+#header .theme .p3 {
+	width: 224px;
+	height:65px;
+	border-radius: 5px;
+	margin-top: 50px;
+	background: #09cbd7 url("../img/header/MORE.png") no-repeat center center;
+}
+#header .theme .p3 a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+/*切换：bg_switch*/
+#header .bg_switch {
+	position: absolute;
+	bottom: 50px;
+	left: 50%;
+	width: 68px;
+	margin-left: -40px;
+}
+#header .bg_switch .tab {
+	width: 28px;
+	height: 5px;
+	border-radius: 3px;
+	background: #fff;
+	cursor: pointer;
+}
+#header .bg_switch .left {
+	float: left;
+}
+#header .bg_switch .right {
+	float: right;
+}
+#header .bg_switch .on {
+	background: #09cbd7;
+}
+
+/*技术服务：service*/
+#service {
+	background: #fff;
+}
+
+/*start same*/
+.main {
+	width: 1200px;
+	height: 100%;
+	margin: 0 auto;
+}
+.title {
+	margin: 0 auto;
+	padding-top: 118px;
+}
+.title h2 {
+	font-size: 30px;
+	font-weight: normal;
+	text-align: center;
+}
+.title p {
+	height: 12px;
+	margin-top: 15px;
+}
+.content {
+	padding-top: 100px;
+	padding-bottom: 100px;
+}
+/*end same*/
+#service .serviceTxt {
+	background: url("../img/service/txt.png") no-repeat center center;
+}
+#service .content ul {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+#service .content .circle {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 204px;
+	height: 204px;
+	border-radius: 50%;
+	background: #f3f9fe;
+}
+#service .content .circle:hover .imgslide {
+	top: -100%;
+}
+#service .content .img {
+	position: relative;
+	overflow: hidden;
+}
+#service .content .pc {
+	width: 110px;
+	height: 95px;
+}#service .content .mobile {
+	width: 65px;
+	height: 110px;
+}#service .content .game {
+	width: 122px;
+	height: 86px;
+}#service .content .vip {
+	width: 109px;
+	height: 95px;
+}
+#service .content .imgslide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: top .3s;
+}
+#service .content .imgslide img {
+	/*消除上下两张图片之间的间距*/
+	display: block;
+}
+#service .content .txt {
+	font-size: 24px;
+	padding-top: 35px;
+	text-align: center;
+}
+
+/*视频：video*/
+#video {
+	background: #f5f6f7;
+}
+#video .videoTxt {
+	background: url("../img/video/video.png") no-repeat center center;
+}
+#video .videos {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+#video .content a {
+	position: relative;
+	display: block;
+	margin-bottom: 30px;
+}
+#video .content a img {
+	display: block;
+}
+#video .content a p {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 44px;
+	line-height: 44px;
+	text-indent: 45px;
+	color: #fff;
+	background: rgba(0,0,0,.5) url("../img/video/btn.png") no-repeat 10px 10px;
+}
+/*more*/
+.more {
+	padding-top: 50px;
+}
+.more a {
+	display: block;
+	width: 150px;
+	height: 50px;
+	line-height: 50px;
+	margin: 0 auto;
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: 200;
+	text-align: center;
+	transition: .2s;
+}
+#video .more a {
+	border: 1px solid #bbb;
+	color: #000;
+}
+#video .more a:hover {
+	color: #fff;
+	background: #bbb;
+}
+
+/*金牌讲师：lecturer*/
+#lecturer {
+	background: url("../img/speaker/bg.png") repeat;
+}
+#lecturer .content {
+	position: relative;
+}
+#lecturer .title h2 {
+	color: #fff;
+}
+#lecturer .title .lecturerTxt {
+	background: url("../img/speaker/speakers.png") no-repeat center center;
+}
+#lecturer .teachers ul {
+	display: flex;
+	justify-content: space-around;
+}
+#lecturer .teachers ul li {
+	position: relative;
+	overflow: hidden;
+}
+#lecturer .teachers li img {
+	display: block;
+}
+#lecturer .teachers li:hover .instrution {
+	transform: translate(0,-100%);
+	top: 384px;
+}
+#lecturer .teachers .instrution {
+	position: absolute;
+	top: 320px;
+	left: 0;
+	transition: .5s;
+	padding: 10px 15px 30px 15px;
+	background: rgba(0,0,0,.5);
+	font-size: 14px;
+	color: #fff;
+}
+#lecturer .instrution h3 {
+	font-size: 22px;
+	font-weight: normal;
+}
+#lecturer .instrution .job {
+	font-size: 16px;
+	margin-bottom: 15px;
+}
+#lecturer .more a {
+	border: 1px solid #aaa;
+	color: #fff;
+}
+#lecturer .sign p {
+	position: absolute;
+	top: 255px;
+	width: 68px;
+	height: 68px;
+	border-radius: 50%;
+	cursor: pointer;
+	background: rgba(255,255,255,.1) no-repeat center center;
+}
+#lecturer .sign .leftsign {
+	left: -90px;
+	background-image: url(../img/speaker/left.png);
+}
+#lecturer .sign .rightsign {
+	right: -90px;
+	background-image: url(../img/speaker/right.png);
+}
+
+/*前端知识库：knowledge*/
+#knowledge {
+	background: #fff;
+}
+#knowledge .content li {
+	overflow: hidden;
+	margin-bottom: 60px;
+}
+#knowledge .title .knowledgeTxt {
+	background: url("../img/knowledge/knowledge.png") no-repeat center center;
+}
+#knowledge .spec {
+	float: left;
+	width: 770px;
+	height: 162px;
+	padding: 50px;
+	border-radius: 5px;
+	box-shadow: 2px 2px 3px #bbb;
+	background-color: #f5f6f7;
+}
+#knowledge .spec h3 {
+	font-size: 24px;
+}
+#knowledge .spec .txt {
+	padding: 30px 0;
+	color: #777;
+	font-size: 16px;
+}
+#knowledge .spec a {
+	display: block;
+	width: 100px;
+	height: 34px;
+	border:1px solid #bbb;
+	border-radius: 3px;
+	text-align: center;
+	line-height: 34px;
+	color: #000;
+}
+#knowledge .specimg {
+	float: right;
+	width: 300px;
+}
+
+/*web前端时代：web*/
+#web {
+	background: url(../img/transition/bg.jpg) no-repeat center center;
+}
+#web .main {
+	height: 600px;
+	background: url(../img/transition/txt.png) no-repeat center center;
+}
+
+/*vip学员：vip*/
+#vip {
+	background: #f5f6f7;
+}
+#vip .title .vipTxt {
+	background: url(../img/vip/VIP.png) no-repeat center center;
+}
+#vip .content {
+	overflow: hidden;
+}
+#vip .content li {
+	float: left;
+	width: 300px;
+	height: 700px;
+	background-color: #000;
+}
+#vip .content li a {
+	float: left;
+}
+#vip .content li a:hover {
+	opacity: .5;
+}
+#vip .content li a img {
+	display: block;
+}
+
+/*学员作品：works*/
+#works .title .worksTxt {
+	background: url(../img/works/works.png) no-repeat center center;
+}
+#works .tab ul {
+	display: flex;
+	justify-content: space-around;
+	padding-bottom: 80px;
+}
+#works .tab ul li {
+	width: 160px;
+	height: 50px;
+	line-height: 50px;
+	border: 1px solid #cfcfcf;
+	border-radius: 5px;
+	font-size: 16px;
+	text-align: center;
+}
+#works .tab ul li.on, #works .tab ul li:hover {
+	border-color: #09cbd7;
+	background-color: #09cbd7;
+	color: #fff;
+}
+#works .vipworks {
+	overflow: hidden;
+}
+#works .vipworks li {
+	position: relative;
+	float: left;
+}
+#works .vipworks li:hover .hide {
+	opacity: 1;
+	background-color: rgba(0,0,0,.5);
+	transition: .3s;
+}
+#works .vipworks img {
+	display: block;
+	width: 400px;
+	height: 300px;
+}
+#works .vipworks .hide {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 300px;
+	line-height: 300px;
+	font-size: 36px;
+	color: #fff;
+	text-align: center;
+	opacity: 0;
+}
+
+/*footer*/
+#footer {
+	padding: 80px;
+	background: #1a1a1a;
+	font-size: 14px;
+}
+#footer .link a {
+	color: #999;
+	padding: 0 15px;
+}
+#footer .copy {
+	padding-top: 30px;
+	padding-left: 15px;
+	color: #999;
+}

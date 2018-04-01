@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Keywords" content="div基础">
+	<meta name="Description" content="div基础，静态网站">
+	<meta name="author" content="Ivy">
+	<title>div基础：咸鱼联盟</title>
+
+	<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+	<!-- 布局注意：
+		1. 先看整体结构，看整体分为哪几部分，有什么特点：宽高、位置、颜色等 ,
+		2. 然后再布置各部分的盒子的位置，大小等
+		3. 思考怎样布局比较方便代码优化
+	-->
+	
+	<!-- header start -->
+	<div id="header">
+		<div class="h-main">
+
+			<!-- logo和导航:navigation -->
+			<div class="navigation">
+				<!-- logo -->
+				<div class="logo">
+					<a href="#"><img src="img/logo.png" alt="咸鱼联盟"></a>
+				</div>
+				<!-- 导航:nav -->
+				<div class="nav">
+					<ul>
+						<li class="active"><a href="#">前端工程师</a></li>
+						<li><a href="#">全栈工程师</a></li>
+						<li><a href="#">授课讲师</a></li>
+						<li><a href="#">课程体系</a></li>
+						<li><a href="#">免费公开课</a></li>
+						<li><a href="#">联系我们</a></li>
+						<li><a href="#">论坛</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<!-- 主题文字：theme -->
+			<div class="theme">
+				<p class="p1"></p>
+				<p class="p2"></p>
+				<p class="p3"><a href="#"></a></p>
+			</div>
+
+			<!-- 背景图切换按钮： bg_switch -->
+			<div class="bg_switch">
+				<div class="left tab on"></div>
+				<div class="right tab"></div>
+			</div>
+		</div>
+	</div>	
+	<!-- header end -->
+
+	<!-- service start -->
+	<!-- 技术服务中图片切换要点（纯css）：
+		1. 一个显示图片的div；
+		2. 一个放置图片的div:定位、超出隐藏、hover时向上（向下）移动（position：height百分比）
+	 -->
+	<div id="service">
+		<div class="main">
+
+			<!-- 标题部分 -->
+			<div class="title">
+				<h2>技术服务</h2>
+				<p class="serviceTxt"></p>
+			</div>
+
+			<div class="content">
+				<ul>
+					<li>
+						<div class="circle">
+							<div class="img pc">
+								<div class="imgslide">
+									<img src="img/service/pc.png" alt="" style="padding:2px 0">
+									<img src="img/service/pc2.png" alt="">
+								</div>
+							</div>
+						</div>
+						<p class="txt">PC端开发</p>
+					</li>
+					<li>
+						<div class="circle">
+							<div class="img mobile">
+								<div class="imgslide">
+									<img src="img/service/moblie.png" alt="" style="padding:0 1px">
+									<img src="img/service/moblie2.png" alt="">
+								</div>
+							</div>
+						</div>
+						<p class="txt">移动端开发</p>
+					</li>
+					<li>
+						<div class="circle">
+							<div class="img game">
+								<div class="imgslide">
+									<img src="img/service/game.png" alt="" style="padding:1.5px 1px">
+									<img src="img/service/game2.png" alt="">
+								</div>
+							</div>
+						</div>
+						<p class="txt">游戏开发</p>
+					</li>
+					<li>
+						<div class="circle">
+							<div class="img vip">
+								<div class="imgslide">
+									<img src="img/service/vip.png" alt="" style="padding:1.5px 1px">
+									<img src="img/service/vip2.png" alt="">
+								</div>
+							</div>
+						</div>
+						<p class="txt">学员博客</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- service end -->
+
+	<!-- start video -->
+	<!-- 盒子布局要点：
+		1. 要么用flex布局；
+		2. 如果用float布局，则前面用float：left；最后一组用float：right，以免用padding或margin间隔盒子时因为几像素的误差而使盒子掉下来
+	 -->
+	<div id="video">
+		<div class="main">
+
+			<!-- title -->
+			<div class="title">
+				<h2>潭州视频</h2>
+				<p class="videoTxt"></p>
+			</div>
+			<!-- content -->
+			<div class="content">
+
+				<!-- videos -->
+				<div class="videos">
+					<div class="left">
+						<a href="#" title="">
+							<img src="img/video/video1.jpg" alt="">
+							<p>潭州教育宣传视频</p>
+						</a>
+					</div>
+					<div class="center">
+						<a href="#" title="">
+							<img src="img/video/video2.jpg" alt="">
+							<p>潭州设计学院辉煌一周年</p>
+						</a>
+						<a href="#" title="">
+							<img src="img/video/video3.jpg" alt="">
+							<p>选择潭州携手成就梦想</p>
+						</a>
+					</div>
+					<div class="right">
+						<a href="#" title="">
+							<img src="img/video/video4.jpg" alt="">
+							<p>潭州教育平面设计交流分享</p>
+						</a>
+						<a href="#" title="">
+							<img src="img/video/video5.jpg" alt="">
+							<p>前端大神经验分享</p>
+						</a>
+					</div>
+				</div>
+
+				<!-- 更多：more -->
+				<div class="more">
+					<a href="#" title="更多视频">more</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end video -->
+
+	<!-- start lecturer -->
+	<!-- 讲师部分要点：
+		1. 要移动自身大小的位置：一般用translate：100%；
+		2. transition：一般没有具体数值的或没有明确的开始和结尾（center、top等）位置，不能产生动画；
+			如：height：0；到height：auto；这是设置transition：height .5s；不会有动画
+	 -->
+	<div id="lecturer">
+		<div class="main">
+
+			<!-- title -->
+			<div class="title">
+				<h2>金牌讲师</h2>
+				<p class="lecturerTxt"></p>
+			</div>
+			<!-- content -->
+			<div class="content">
+				<div class="teachers">
+					<ul>
+						<li>
+							<img src="img/speaker/afei.jpg">
+							<div class="instrution">
+								<h3>阿飞老师</h3>
+								<p class="job">前端VIP教学总监</p>
+								<p class="summary">毕业于中南大学，精通各种框架技术，特别对 node.js 和 Angular.js有深厚的功底，一直热忠于原生javascript开发，专注于高级算法与数据结构，插件封装原理，高级设计模式，框架开发技术的研究，可以独立开发各种特效插件、组件、架构框架模型及html5游戏和webApp项目开发。讲课非常幽默风趣，深得学生的喜欢。老师心中的“代码王子”，学员心中的“小污鬼”。</p>
+							</div>
+						</li>
+						<li>
+							<img src="img/speaker/haiya.jpg">
+							<div class="instrution">
+								<h3>海牙老师</h3>
+								<p class="job">前端学院首席技术官</p>
+								<p class="summary">8年WEB网站架构经验,曾任某地方政府传媒技术总监、中国解放军高级工程师，现任潭州集团前端首席架构师，阿里云大学讲师，曾带领45人团队开发跨平台微服架构，以及线上直播教学系统，精通原生JavaScript与HTML5 API开发。致力于高并发大数据处理与前端工程化部署,精通 PHP,Node c# 等开发语言。对微信开发 MINA框架等开发高性能和高可用性的网络应用有深入研究。</p>
+							</div>
+						</li>
+						<li>
+							<img src="img/speaker/xiaolong.jpg">
+							<div class="instrution">
+								<h3>小龙老师</h3>
+								<p class="job">前端全栈开发工程师</p>
+								<p class="summary">6年开发经验。对于处理前后台数据交互，数据高并发处理，架构，API设计方面有丰富得经验。精通Java-Script,OOP，Python，Node.js，HTML5, Shell编程，曾负责某大型物流公司订单API设计与开发，对于Restful 风格的API设计有丰富经验</p>
+							</div>
+						</li>
+						<li>
+							<img src="img/speaker/xuanwu.jpg">
+							<div class="instrution">
+								<h3>玄武老师</h3>
+								<p class="job">前端学院院长</p>
+								<p class="summary">玄武老师现任软件前端学院首席技术官，担任WEB前端技术总监。熟悉html、javascript、html5、Vue.js、Backbone.js、React.js 、java、php、数据库等多门语言， 尤其在前端领域有较深的造诣。2015年初在学院董事长的特邀下加入， 并充分支持及认可在线教育的发展趋势，全身心投入到教学工作中。 为人谦卑、随和，讲课细致深入、幽默诙谐，深受广大学子的爱戴！</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="more">
+					<a href="#" title="更多内容">more</a>
+				</div>
+				<div class="sign">
+					<p class="leftsign"></p>
+					<p class="rightsign"></p>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end lecturer -->
+
+	<!-- start knowledge -->
+	<div id="knowledge">
+		<div class="main">
+			<div class="title">
+				<h2>前端知识库</h2>
+				<p class="knowledgeTxt"></p>
+			</div>
+			<div class="content">
+				<ul>
+					<li>
+						<div class="spec">
+							<h3>基础专题</h3>
+							<p class="txt">通过实战与原理结合,学习pc及移动网站页面布局构建。HTML+CSS网站页面搭建,CSS核心与PC端征战页面开发,HTML5移动端页面...</p>
+							<a href="#">更多</a>
+						</div>
+						<div class="specimg">
+							<img src="img/knowledge/html.jpg">
+						</div>
+					</li>
+					<li>
+						<div class="spec">
+							<h3>核心专题</h3>
+							<p class="txt">前端核心技术原生JavaScript学习,进阶前端大神必经之路。 ECMAScript、BOM、DOM、AJAX、JsonDom， 正则表达式,上下文,词法作用域运动框架,核心算法,闭包,高级函数,插件封装JQuery...</p>
+							<a href="">更多</a>
+						</div>
+						<div class="specimg">
+							<img src="img/knowledge/js.jpg">
+						</div>
+					</li>
+					<li>
+						<div class="spec">
+							<h3>高级专题</h3>
+							<p class="txt">HTML5核心与高级JS实战开发。原生业务框架开发大数据可视化,WEB APP底层交互开发,LBS定位系统,通讯,微信SDK等.ES6标准,高级算法与数据结构,插件封装原理,高级设计模式,框架开发技术...</p>
+							<a href="">更多</a>
+						</div>
+						<div class="specimg">
+							<img src="img/knowledge/h5.jpg">
+						</div>
+					</li>
+					<li>
+						<div class="spec">
+							<h3>企业级专题</h3>
+							<p class="txt">WEB开发必备技能,项目协作等就业必备技能。 JQeury、Bootstrap、swiper、iscroll、less、sass、git/github、ps切图,网站上线,项目重构,性能测试...</p>
+							<a href="">更多</a>
+						</div>
+						<div class="specimg">
+							<img src="img/knowledge/syn.jpg">
+						</div>
+					</li>
+					<li>
+						<div class="spec">
+							<h3>2018新增课程体系</h3>
+							<p class="txt">网站建设部署与发布与动态网站搭建；云服务器管理运维与CDN网站提速、实时可视化数据大屏搭建；电影评价数据采集与LBS热点店铺搜索；云上网络安全与数据安全；PWA、TypeScript、threeJs、WebRTC</p>
+							<a href="">更多</a>
+						</div>
+						<div class="specimg">
+							<img src="img/knowledge/cooperate.jpg">
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- end knowledge -->
+
+	<!-- start web -->
+	<div id="web">
+		<div class="main"></div>
+	</div>
+	<!-- start web -->
+
+	<!-- start vip -->
+	<div id="vip">
+		<div class="main">
+			<!-- title -->
+			<div class="title">
+				<h2>vip学员</h2>
+				<p class="vipTxt"></p>
+			</div>
+			<!-- content -->
+			<div class="content">
+				<ul>
+					<li>
+						<a href=""><img src="img/vip/1.jpg" alt=""></a>
+						<a href=""><img src="img/vip/2.jpg" alt=""></a>
+						<a href=""><img src="img/vip/3.jpg" alt=""></a>
+						<a href=""><img src="img/vip/4.jpg" alt=""></a>
+						<a href=""><img src="img/vip/5.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/vip/6.jpg" alt=""></a>
+						<a href=""><img src="img/vip/7.jpg" alt=""></a>
+						<a href=""><img src="img/vip/8.jpg" alt=""></a>
+						<a href=""><img src="img/vip/9.jpg" alt=""></a>
+						<a href=""><img src="img/vip/10.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/vip/11.jpg" alt=""></a>
+						<a href=""><img src="img/vip/12.jpg" alt=""></a>
+						<a href=""><img src="img/vip/13.jpg" alt=""></a>
+						<a href=""><img src="img/vip/14.jpg" alt=""></a>
+						<a href=""><img src="img/vip/15.jpg" alt=""></a>
+					</li>
+					<li>
+						<a href=""><img src="img/vip/16.jpg" alt=""></a>
+						<a href=""><img src="img/vip/17.jpg" alt=""></a>
+						<a href=""><img src="img/vip/18.jpg" alt=""></a>
+						<a href=""><img src="img/vip/19.jpg" alt=""></a>
+						<a href=""><img src="img/vip/20.jpg" alt=""></a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!-- end vip -->
+
+	<!-- start works -->
+	<div id="works">
+		<div class="main">
+			<!-- title -->
+			<div class="title">
+				<h2>学员作品</h2>
+				<p class="worksTxt"></p>
+			</div>
+			<!-- content -->
+			<div class="content">
+				<div class="tab">
+					<ul>
+						<li class="on">PC端</li>
+						<li>移动端</li>
+						<li>游戏开发</li>
+						<li>学员博客</li>
+					</ul>
+				</div>
+				<div class="vipworks">
+					<ul>
+						<li>
+							<a href=""><img src="img/works/1.jpg"></a>
+							<div class="hide">小米官网</div>
+						</li>
+						<li>
+							<a href=""><img src="img/works/2.jpg"></a>
+							<div class="hide">360度拖拽效果</div>
+						</li>
+						<li>
+							<a href=""><img src="img/works/3.jpg"></a>
+							<div class="hide">JS动态登录页</div>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a href=""><img src="img/works/4.jpg"></a>
+							<div class="hide">新年祝福语</div>
+						</li>
+						<li>
+							<a href=""><img src="img/works/6.jpg"></a>
+							<div class="hide">唱吧切入动画</div>
+						</li>
+						<li>
+							<a href=""><img src="img/works/7.jpg"></a>
+							<div class="hide">爱心表白神器</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- end works -->
+
+	<!-- footer -->
+	<footer id="footer">
+		<div class="link">
+			<p>
+				<a href="">潭州教育商城</a>
+				<a href="">潭州教育官网</a>
+				<a href="">潭州教育招聘</a>
+				<a href="">天猫旗舰店</a>
+				<a href="">SEO研究中心</a>
+				<a href="">潭州教育博</a>
+				<a href="">时光钥匙官网</a>
+				<a href="">趣创无忧</a>
+			</p>
+		</div>
+		<div class="copy">
+			<p>Copyright © 2013-2017 All Rights Reserved 版权所有：湖南潭州教育网络科技有限公司 备案号：湘ICP备 15014315号 湘公网安备: 43019002000436号</p>
+		</div>
+	</footer>
+
+</body>
+</html>
