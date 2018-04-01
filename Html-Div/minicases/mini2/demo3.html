@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Ivy">
+	<title>案例一：小僵尸</title>
+	<style>
+		/*reset*/
+		body, ul, h3, p {
+			margin: 0;
+		}
+		ul {
+			padding: 0;
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+		}
+
+		/*start*/
+		p {
+			height: 38px;
+			line-height: 38px;
+			background-color: #333;
+			text-align: center;
+		}
+		p a {
+			padding: 0 30px;
+			font-size: 16px;
+			transition: .5s;
+		}
+		p a:link {
+			color: #fff;
+		}
+		p a:visited {
+			color: #f0f;
+		}
+		p a:hover {
+			color: #00f;
+		}
+		p a:active, p a.active {
+			color: #f00;
+		}
+
+		.videolist {
+			width: 270px;
+			margin: 30px auto;
+		}
+		.vl-item {
+			width: 250px;
+			margin-bottom: 15px;
+			padding: 10px;
+			border: 1px solid #d3cdca;
+			border-radius: 5px;
+			box-shadow: 2px 2px 4px #f3f2f0;
+		}
+		.vl-item .img img {
+			width: 250px;
+			height: 188px;
+		}
+		.vl-item h3 {
+			height: 42px;
+			line-height: 42px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+		.vl-item .name a {
+			font-size: 16px;
+			color: #333;
+		}
+		.vl-item .name a:hover {
+			color: #fe266b;
+		}
+		.vl-item .tag {
+			padding-bottom: 8px;
+			color: #666;
+			font-size:14px;
+		}
+		.vl-item .tag span {
+			color: #fe266b;
+			font-weight: bold;
+		}
+		.vl-item .time {
+			padding-bottom: 8px;
+			color: #999;
+			font-size: 13px;
+		}
+		.vl-item .actions {
+			overflow: hidden;
+		}
+		.vl-item .actions li {
+			float: left;
+			color: #999;
+			font-size: 13px;
+		}
+		.vl-item .actions span {
+			padding-right: 15px;
+			color: #fe266b;
+		}
+		.vl-item .icon {
+			width: 16px;
+			height: 16px;
+			background: url("img/play.png") no-repeat left center;
+		}
+
+	</style>
+</head>
+<body>
+
+	<p>
+		<a href="demo1.html" class="active">一</a>
+		<a href="demo2.html">二</a>
+		<a href="#" class="active">三</a>
+		<a href="demo4.html">四</a>
+	</p>
+
+	<ul class="videolist">
+		<li class="vl-item">
+			<div class="img">
+				<a href="#" title="小僵尸"><img src="img/pic1.jpg" alt="小僵尸"></a>
+			</div>
+			<div class="name">
+				<h3><a href="#">动画便利店X果壳网《西门子洗碗机》由动画便利店和果壳网共同合作,制作的科技科普类视频</a></h3>
+			</div>
+			<div class="tag">
+				<span>原创作品</span>-影视-Motion Graphic
+			</div>
+			<div class="time">
+				<span>3小时前上传</span>
+			</div>
+			<ul class="actions">
+				<li class="popularity"><span>1284</span>人气 | </li>
+				<li class="comments"><span>12</span>评论 | </li>
+				<li class="recommend"><span>58</span>推荐</li>
+			</ul>
+			<div class="icon"></div>
+		</li>
+		<li class="vl-item">
+			<div class="img">
+				<a href="#" title="小僵尸"><img src="img/pic2.jpg" alt="小僵尸"></a>
+			</div>
+			<div class="name">
+				<h3><a href="#">动画便利店X果壳网《西门子洗碗机》由动画便利店和果壳网共同合作,制作的科技科普类视频</a></h3>
+			</div>
+			<div class="tag">
+				<span>原创作品</span>-影视-Motion Graphic
+			</div>
+			<div class="time">
+				<span>3小时前上传</span>
+			</div>
+			<ul class="actions">
+				<li class="popularity"><span>1284</span>人气 | </li>
+				<li class="comments"><span>12</span>评论 | </li>
+				<li class="recommend"><span>58</span>推荐</li>
+			</ul>
+			<div class="icon"></div>
+		</li>
+	</ul>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>07作业</title>
+
+	<style>
+		
+	/*reset*/
+		body, h3, h4, ul, p {
+			margin: 0;
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+		a {
+			text-decoration: none;
+		}
+
+		/*start*/
+		h3 {
+			margin-bottom: 30px;
+			font-size: 18px;
+			color: #333;
+			text-align: center;
+		}
+		.task {
+			padding: 30px 0;
+			border: 1px solid #ccc;
+		}
+
+		/*作业一*/
+		#task1 {
+			background-color: #ccc;
+		}
+		#task1 .box {
+			width: 170px;
+			height: 170px;
+			margin: 0 auto;
+			border-radius: 50%;
+			background: url("img/demo1/7.jpg") no-repeat center center/170px 170px;
+			cursor: pointer;
+		}
+		#task1 .box:hover a {
+			display: block;
+		}
+		#task1 .box a {
+			display: none;
+			width: 100%;
+			height: 112px;
+			padding-top: 58px;
+			border-radius: 50%;
+			background-color: rgba(0,0,0,.4);
+		}
+		#task1 .box p {
+			padding-bottom: 10px;
+			text-align: center;
+			color: #fff;
+		}
+
+		/*作业二*/
+		#task2 ul {
+			width: 350px;
+			margin: 0 auto;
+		}
+		#task2 ul li {
+			display: flex;
+			align-items: center;
+			padding: 15px 0;
+			border-bottom: 1px solid #ccc;
+		}
+		#task2 li img {
+			width: 100px;
+			height: 100px;
+			border: 3px solid #ccc;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		#task2 li img:hover {
+			border-color: #fe961b;
+		}
+		#task2 .content {
+			width: 230px;
+			margin-left: 20px;
+			color: #000;
+			font-size: 15px;
+			vertical-align: middle;
+		}
+		#task2 .name {
+			margin-bottom: 10px;
+			cursor: pointer;
+		}
+		#task2 .introduction {
+			cursor: pointer;
+		}
+		#task2 .name:hover, #task2 .introduction:hover {
+			color: #fe961b;
+		}
+
+		/*作业三*/
+		#task3 .subnav {
+			width: 60px;
+			margin: 0 auto;
+			padding-bottom: 5px;
+			border: 1px solid #ff5688;
+		}
+		#task3 li {
+			text-align: center;
+		}
+		#task3 .hp {
+			padding: 10px;
+			background-color: #ff5688;
+			color: #fff;
+			font-size: 16px;
+		}
+		#task3 li a {
+			display: block;
+			height:20px;
+			padding: 36px 0 4px 0;
+			/*border: 1px solid green;*/
+			background: url(img/bg.jpg) no-repeat;
+			color: #aaa;
+			font-size: 12px;
+			line-height: 20px;
+			text-align: center;
+		}
+		#task3 .daily a {
+			background-position: 0 0;
+		}
+		#task3 .daily a:hover {
+			background-position: -88px 0;
+			color: #ff5688;
+		}
+		#task3 .explosion a {
+			background-position: -176px -63px;
+			color: #fff;
+		}
+		#task3 .new a {
+			background-position: 0 -126px;
+		}
+		#task3 .new a:hover {
+			background-position: -88px -126px;
+			color: #ff5688;
+		}
+		#task3 .brand a {
+			background-position: 0 -189px;
+		}
+		#task3 .brand a:hover {
+			background-position: -88px -189px;
+			color: #ff5688;
+		}
+
+	</style>
+</head>
+<body>
+	<div class="task" id="task1">
+		<h3>作业一</h3>
+		<div class="box">
+			<a href="#">
+				<p>新品试用</p>
+				<p>IPSA明星王牌套装</p>
+			</a>
+		</div>
+	</div>
+	
+	<div class="task" id="task2">
+		<h3>作业二</h3>
+		<ul>
+			<li>
+				<img src="img/demo2/1.jpg" alt="头像">
+				<div class="content">
+					<h4 class="name">Amy Roiland</h4>
+					<p class="introduction">[Amy Roiland] 美国洛杉矶 风格复古又新潮，总能在清新、性感和复古中轻松切换。</p>
+				</div>
+			</li>
+			<li>
+				<img src="img/demo2/2.jpg" alt="头像">
+				<div class="content">
+					<h4 class="name">EvaVelt</h4>
+					<p class="introduction">[EvaVelt] 时尚博主</p>
+				</div>
+			</li>
+			<li>
+				<img src="img/demo2/3.jpg" alt="头像">
+				<div class="content">
+					<h4 class="name">Amy Roiland</h4>
+					<p class="introduction">[Amy Roiland] 美国洛杉矶</p>
+				</div>
+			</li>
+			<li>
+				<img src="img/demo2/4.jpg" alt="头像">
+				<div class="content">
+					<h4 class="name">Amy Roiland</h4>
+					<p class="introduction">[Amy Roiland] 美国洛杉矶 风格复古又新潮，总能在清新、性感和复古中轻松切换。</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+	<!-- 作业三 -->
+	<div class="task" id="task3">
+		<h3>作业三</h3>
+		<ul class="subnav">
+			<li class="hp">聚美首页</li>
+			<li class="daily">
+				<a href="#">每日必看</a>
+			</li>
+			<li class="explosion">
+				<a href="#">爆款榜</a>
+			</li>
+			<li class="new">
+				<a href="#">上新单品</a>
+			</li>
+			<li class="brand">
+				<a href="#">品牌团</a>
+			</li>
+		</ul>
+	</div>
+
+</body>
+</html>

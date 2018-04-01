@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Ivy">
+	<title>案例二：列表</title>
+	<style>
+		/*reset*/
+		body, ul, h3, p {
+			margin: 0;
+		}
+		ul {
+			list-style: none;
+			padding: 0;
+		}
+		a {
+			text-decoration: none;
+		}
+
+		/*start*/
+		p {
+			height: 38px;
+			line-height: 38px;
+			background-color: #333;
+			text-align: center;
+		}
+		p a {
+			padding: 0 30px;
+			font-size: 16px;
+			transition: .5s;
+		}
+		p a:link {
+			color: #fff;
+		}
+		p a:visited {
+			color: #f0f;
+		}
+		p a:hover {
+			color: #00f;
+		}
+		p a:active, p a.active {
+			color: #f00;
+		}
+
+		.goods {
+			width: 255px;
+			margin: 30px auto;
+			border: 2px solid #d90000;
+			border-radius: 3px;
+		}
+		.goods .all{
+			height: 45px;
+			line-height: 45px;
+			background-color: #d90000;
+			color: #fff;
+			font-size: 18px;
+			text-align: center;
+		}
+		.goods .category {
+			padding: 0 10px 10px 10px;
+		}
+		.category li {
+			padding: 15px 15px 5px 15px;
+			border-bottom: 1px dotted #aaa;
+		}
+		.category .g-item a {
+			display: block;
+			width: 120px;
+			height: 38px;
+			line-height: 38px;
+			background: none no-repeat left center;
+			color: #333;
+			font-size: 16px;
+			font-weight: bold;
+			text-indent: 30px;
+		}
+		.category .g-item a.pro {
+			background-image: url("img/pro.png");
+		}
+		.category .g-item a.wen {
+			background-image: url("img/wen.png");
+		}
+		.category .g-item a.face {
+			background-image: url("img/face.png");
+		}
+		.category .g-item a.body {
+			background-image: url("img/body.png");
+		}
+		.category h3 {
+			padding: 5px 0;
+			font-size: 15px;
+			font-weight: normal;
+		}
+		.category h3 a {
+			height: 30px;
+			line-height: 30px;
+			padding-right: 5px;
+			color: #999;
+		}
+		.category h3 a span {
+			color: #da0d10;
+		}
+		.category h3 a:hover {
+			color: #da0d10;
+			text-decoration: underline;
+		}
+
+
+	</style>
+</head>
+<body>
+	<p>
+		<a href="demo1.html">一</a>
+		<a href="demo2.html">二</a>
+		<a href="demo3.html">三</a>
+		<a href="#" class="active">四</a>
+	</p>
+
+	<div class="goods">
+		<div class="all">全部产品</div>
+		<ul class="category">
+			<li>
+				<div class="g-item"><a href="#" class="pro">产口系列</a></div>
+				<h3>
+					<a href="#"><span>豆乳补水</span></a>
+					<a href="#">大米修复</a>
+					<a href="#">樱花退黄</a>
+					<a href="#">小麦清润</a>
+					<a href="#"><span>苹果籽-孕纹护理</span></a>
+					<a href="#">洋甘菊-舒缓修复</a>
+					<a href="#">其它单品</a>
+				</h3>
+			</li>
+			<li>
+				<div class="g-item"><a href="#" class="wen">产品功效</a></div>
+				<h3>
+					<a href="#"><span>保湿补水</span></a>
+					<a href="#">美白亮肤</a>
+					<a href="#">紧致抗皱</a>
+					<a href="#"><span>妊娠纹-防护</span></a>
+					<a href="#">小麦清润</a>
+					<a href="#">眼部护理</a>
+					<a href="#">护唇</a>
+				</h3>
+			</li>
+			<li>
+				<div class="g-item"><a href="#" class="face">面部护理</a></div>
+				<h3>
+					<a href="#"><span>去角质</span></a>
+					<a href="#">眼霜</a>
+					<a href="#">樱花退黄</a>
+					<a href="#">面霜</a>
+					<a href="#"><span>苹果籽-孕纹护理</span></a>
+					<a href="#">洋甘菊-舒缓修复</a>
+					<a href="#">其它单品</a>
+				</h3>
+			</li>
+			<li>
+				<div class="g-item"><a href="#" class="body">身体护理</a></div>
+				<h3>
+					<a href="#"><span>洗发护发</span></a>
+					<a href="#">身体洗护</a>
+					<a href="#">樱花退黄</a>
+					<a href="#">小麦清润</a>
+				</h3>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>

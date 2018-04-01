@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="Ivy">
+	<title>作业一</title>
+	<style>
+		
+		/*reset*/
+		body, ul, p {
+			margin: 0;
+		}
+		ul {
+			padding: 0;
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+		}
+
+		/*start*/
+		p {
+			height: 38px;
+			line-height: 38px;
+			background-color: #333;
+			text-align: center;
+		}
+		p a {
+			padding: 0 30px;
+			font-size: 16px;
+			transition: .5s;
+		}
+		p a:link {
+			color: #fff;
+		}
+		p a:visited {
+			color: #f0f;
+		}
+		p a:hover {
+			color: #00f;
+		}
+		p a:active, p a.active {
+			color: #f00;
+		}
+
+		ul {
+			width: 40px;
+			margin: 50px auto;
+		}
+		ul li {
+			width: 40px;
+			height: 40px;
+			margin-bottom: 5px;
+			background: url("img/bg.png") no-repeat;
+			cursor: pointer;
+			transition: .2s;
+		}
+		ul .icon1 {
+			background-position: -80px -279px;
+		}
+		ul .icon2 {
+			background-position: 0 -200px;
+		}
+		ul .icon3 {
+			background-position: 0 -241px;
+		}
+		ul .icon4 {
+			background-position: 0 -318px;
+		}
+		ul .icon5 {
+			background-position: 0 -2px;
+		}
+		ul .icon1:hover {
+			background-position: -120px -279px;
+		}
+		ul .icon2:hover {
+			background-position: -40px -200px;
+		}
+		ul .icon3:hover {
+			background-position: -40px -241px;
+		}
+		ul .icon4:hover {
+			background-position: -40px -318px;
+		}
+		ul .icon5:hover {
+			background-position: -40px -2px;
+		}
+	</style>
+</head>
+<body>
+	
+	<p>
+		<a href="#" class="active">一</a>
+		<a href="demo2.html">二</a>
+		<a href="demo3.html">三</a>
+		<a href="demo4.html">四</a>
+	</p>
+	
+	<ul>
+		<li class="icon1"></li>
+		<li class="icon2"></li>
+		<li class="icon3"></li>
+		<li class="icon4"></li>
+		<li class="icon5"></li>
+	</ul>
+</body>
+</html>

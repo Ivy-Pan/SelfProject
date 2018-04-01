@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>作业二</title>
+	<style>
+		
+		/*reset*/
+		body, ul, p, h3 {
+			margin: 0;
+		}
+		ul {
+			padding: 0;
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+		}
+
+		/*start*/
+		p {
+			height: 38px;
+			line-height: 38px;
+			background-color: #333;
+			text-align: center;
+		}
+		p a {
+			padding: 0 30px;
+			font-size: 16px;
+			transition: .5s;
+		}
+		p a:link {
+			color: #fff;
+		}
+		p a:visited {
+			color: #f0f;
+		}
+		p a:hover {
+			color: #00f;
+		}
+		p a:active, p a.active {
+			color: #f00;
+		}
+		
+		div.pic {
+			width: 205px;
+			margin: 50px auto;
+		}
+		.pic  h3 {
+			height: 38px;
+			line-height: 38px;
+		}
+		.pic h3 a {
+			padding: 1px 0 1px 36px;
+			background: url("img/bg1.png") no-repeat -65px -300px ;
+			color: #333;
+			font-size: 16px;
+			font-weight: normal;
+			transition: .3s;
+		}
+		.pic h3 a:hover {
+			color: #e7b47a;
+		}
+		.pic ul li {
+			margin-bottom: 5px;
+			padding: 5px 10px;
+			background-color: #ccc;
+			color: #000;
+			font-size: 14px;
+			cursor: pointer;
+			transition: .3s;
+		}
+		.pic ul li:hover {
+			background-color: #e7b47a;
+			color: #fff;
+		}
+
+	</style>
+</head>
+<body>
+	
+	<p>
+		<a href="demo1.html">一</a>
+		<a href="#" class="active">二</a>
+		<a href="demo3.html">三</a>
+		<a href="demo4.html">四</a>
+	</p>
+
+	<div class="pic">
+		<h3><a href="#">美图赏析</a></h3>
+		<ul>
+			<li>美女人像</li>
+			<li>风光人物</li>
+			<li>动物微距</li>
+			<li>鸟类摄影</li>
+			<li>综合摄影</li>
+		</ul>
+	</div>
+</body>
+</html>
