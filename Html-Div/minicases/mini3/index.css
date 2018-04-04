@@ -1,0 +1,308 @@
+@charset "UTF-8";
+
+/*reset*/
+body, h3, h4, ul, p, hr {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style-type: none;
+}
+a {
+    text-decoration: none;
+}
+
+/*common*/
+body {
+    font-family: arial, sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+.clear::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/*--start--*/
+/*#main*/
+#main {
+    margin: 80px auto 100px;
+}
+/*bannerbox*/
+.banner-box {
+    position: relative;
+    width: 1050px;
+    margin: 0 auto 100px;
+    border-top: 2px solid #e8e6e3;
+}
+.banner-box .banner-title {
+    position: absolute;
+    top: -43px;
+    left: 50%;
+    width: 400px;
+    height: 87px;
+    margin-left: -200px;
+    background: url("./img/1.jpg") no-repeat  left bottom;
+}
+.banner-box .banner-content {
+    height: 463px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.5);
+}
+/*menu*/
+.banner-box .menu {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 250px;
+    /*border: 1px solid #285c00;*/
+    color: #fff;
+}
+.menu .menu-name {
+    height: 49px;
+    padding-left: 15px;
+    background-color: #1D8DEC;
+    font-size: 18px;
+    line-height: 49px;
+}
+.menu .menulist {
+    background-color: rgba(16,118,186,.8);
+    cursor: pointer;
+}
+.menu .menulist .item {
+    padding: 10px 15px;
+    border-top: 1px solid #6EB2D5;
+}
+.menu .menulist .item:hover .course-content {
+    display: block;
+}
+.menu .course h3 {
+    font-size: 16px;
+    font-weight: normal;
+}
+.menu .course h3 i {
+    float: right;
+    width: 10px;
+    height: 20px;
+    background: url("./img/3.png") no-repeat -163px -158px;
+    opacity: .3;
+}
+.menu .course h4 {
+    height: 27px;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 27px;
+}
+.menu .course h4 a {
+    padding-right: 10px;
+}
+.menu .course a {
+    color: rgba(255,255,255,.9);
+}
+.menu .menulist .course-content {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 250px;
+    z-index: 9;
+    width: 800px;
+    height: 463px;
+}
+.menu .menulist .course1 {
+    background-color: #ffdc2e;
+}
+.menu .menulist .course2 {
+    background-color: #d35400;
+}
+.menu .menulist .course3 {
+    background-color: #4eb305;
+}
+.menu .menulist .course4 {
+    background-color: #d90000;
+}
+.menu .menulist .course5 {
+    background-color: #2D64B3;
+}
+.menu .menulist .course6 {
+    background-color: #7a43b6;
+}
+/*banner*/
+.banner-box .banner {
+    position: relative;
+    width: 800px;
+    margin: 65px 0 0 250px;
+    background-color: crimson;
+}
+.banner .banner-slide {
+    position: relative;
+}
+.banner .banner-top img {
+    width: 800px;
+    height: 400px;
+    vertical-align: middle;
+}
+.banner .arrow {
+    position: absolute;
+    top: 200px;
+    width: 30px;
+    height: 45px;
+    background: url("./img/3.png") no-repeat;
+    opacity: .8;
+    cursor: pointer;
+}
+.banner .banner-bottom {
+    position: absolute;
+    bottom: -63px;
+    width: 700px;
+    padding: 25px 50px;
+    background-color: rgba(0,0,0,.65);
+    color: #EAEAE6;
+}
+.banner .banner-bottom .sum {
+    display: inline-block;
+    width: 240px;
+    padding-right: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+.banner .banner-bottom .desc {
+    display: inline-block;
+    width: 408px;
+    padding-left: 15px;
+    border-left: 2px solid #EAEAE6;
+    font-size: 14px;
+    vertical-align: middle;
+}
+.banner .arrow.left {
+    left: 10px;
+    background-position: -10px -92px;
+}
+.banner .arrow.right {
+    right: 10px;
+    background-position: -16px -165px;
+}
+.banner .btn-circle {
+    position: absolute;
+    bottom: -110px;
+    left: 30%;
+}
+.banner .btn-circle .circle {
+    display: inline-block;
+    width: 10px;
+    height:10px;
+    border-radius: 50%;
+    background-color: #ccc;
+}
+.banner .btn-circle .circle:hover, .banner .btn-circle .circle.active {
+    background-color: #E20000;
+}
+
+/*hot*/
+.hot {
+    position: relative;
+    width: 250px;
+    margin: 0 auto;
+    padding: 10px;
+    border: 10px solid #F3F1EF;
+}
+.hot h3 {
+    position: absolute;
+    top: 25px;
+    margin-left: 55px;
+    padding: 0 15px;
+    background-color: #fff;
+    font-size: 24px;
+    font-weight: normal;
+    text-align: center;
+}
+.hot .hotlist {
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid #DECFC4;
+}
+.hot .hotlist li {
+    margin: 10px 0;
+    text-indent: 30px;
+    background: url("./img/bg.png") no-repeat;
+}
+.hot .hotlist li.item1 {
+    background-position: -5px 3px;
+}
+.hot .hotlist li.item2 {
+    background-position: -5px -30px;
+}
+.hot .hotlist li.item3 {
+    background-position: -5px -62px;
+}
+.hot .hotlist li.item4 {
+    background-position: -5px -95px;
+}
+.hot .hotlist li.item5 {
+    background-position: -5px -133px;
+}
+.hot .hotlist li.item6 {
+    background-position: -5px -170px;
+}
+.hot .hotlist li.item7 {
+    background-position: -5px -206px;
+}
+.hot .hotlist a {
+    color: #333;
+    font-size: 14px;
+    line-height: 25px;
+    white-space: nowrap;
+    transition: padding 1s;
+}
+.hot .hotlist a:hover {
+    padding-left: 15px;
+    color: #FF0007;
+}
+
+/*aside-fixed*/
+#aside-fixed {
+    position: fixed;
+    right: 0;
+    bottom: 30px;
+    color: #fff;
+    font-size: 14px;
+}
+#aside-fixed .qr {
+    width: 165px;
+    height: 150px;
+    background: url("./img/fdTop.png") no-repeat left top;
+}
+#aside-fixed .qr p {
+    margin-left: 30px;
+    padding-top: 113px;
+    background: url("./img/ewm.png") no-repeat 3px 30px;
+}
+#aside-fixed .consult {
+    padding: 0 40px 0 20px;
+    background: url("./img/fdBottom.png") no-repeat 18px 0;
+}
+#aside-fixed .consult a {
+    display: block;
+    height: 38px;
+    background: url("./img/qq.png") no-repeat 8px 8px;
+    color: #fff;
+    text-indent: 38px;
+    line-height: 38px;
+}
+#aside-fixed .consult hr {
+    height: 2px;
+    border: none;
+    background: url("./img/line.png") no-repeat center;
+}
+#aside-fixed .consult p {
+    margin: 5px 0;
+    text-align: center;
+}
+#aside-fixed .to-top {
+    padding: 10px 0 15px;
+    padding-top: 20px;
+    background: url("./img/fdToTop.png") no-repeat 43px 3px;
+    cursor: pointer;
+}
+
+
