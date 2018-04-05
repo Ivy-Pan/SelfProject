@@ -263,7 +263,7 @@ body {
 #aside-fixed {
     position: fixed;
     right: 0;
-    bottom: 30px;
+    bottom: 15px;
     color: #fff;
     font-size: 14px;
 }
@@ -299,10 +299,7 @@ body {
     text-align: center;
 }
 #aside-fixed .to-top {
-    padding: 10px 0 15px;
-    padding-top: 20px;
-    background: url("./img/fdToTop.png") no-repeat 43px 3px;
+    padding: 25px 0 10px;
+    background: url("./img/fdToTop.png") no-repeat 43px 10px;
     cursor: pointer;
 }
-
-
