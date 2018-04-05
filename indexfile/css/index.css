@@ -27,7 +27,7 @@ a {
 /*body*/
 body {
     background: url("../img/mainbg.jpg") no-repeat fixed;
-    background-size: cover;
+    /*background-size: cover;*/
 }
 
 /*navbar*/
@@ -41,7 +41,9 @@ body {
     box-shadow: 2px 2px 5px #888;
 }
 #navbar .nav {
-    width: 355px;
+    display: flex;
+    justify-content: center;
+    width: 1200px;
     margin: 0 auto;
 }
 #navbar .nav li {
@@ -64,7 +66,8 @@ body {
 /*header*/
 #header {
     position: relative;
-    margin-top: 70px;
+    width: 1200px;
+    margin: 70px auto 0;
     text-align: center;
 }
 #header .logo {
@@ -138,10 +141,13 @@ body {
     background-color: #fff;
     color: #0f4682;
 }
-#main .type a:hover, #main .type a.active{
+#main .type .active {
     border-color: #fff;
     background-color: #00afe1;
     color: #fff;
+}
+#main .itemlist.itemhide, #main .js-basic {
+    display: none;
 }
 #main .itemlist {
     display: flex;
