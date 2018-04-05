@@ -104,7 +104,7 @@
 			</div>
 			<div class="member">
 				<img class="memberid" src="img/a1.jpg" alt="member">
-				<input class="upload" type="submit" value="提交"></input>
+				<input class="upload" type="submit" value="提交">
 			</div>
 		</div>
 
@@ -116,14 +116,14 @@
 	 
 	 
 	<script>
-		var adds;
+		var adds,
 			memberImg = 1,
 			num = 0,
 			say = document.getElementById("text"),
 			memberId = document.getElementsByClassName("memberid"),
 			upLoad = document.getElementsByClassName("upload"),
 			ul = document.getElementsByClassName("commentlist");
-
+ 
 		// add() 函数：插入li并获取该li及对应的相关对象
 		function add() {
 			var adds,
@@ -152,7 +152,7 @@
 			adds = [itemId,content,li];
 
 			return adds;
-		};
+		}
 			
 		// 点击换头像
 		memberId[0].onclick = function() {

@@ -220,52 +220,52 @@
 		</div>
 	</div>
 	<!--end main-->
-	
-	<!--script-->
 	<script>
-	
-		/* logo */
-		var logo = document.querySelector("#header img"),
-			readme = document.querySelector("#header .readme");
+        /* logo */
+        var logo = document.querySelector("#header img"),
+            readme = document.querySelector("#header .readme");
 
 		logo.onmouseenter = function () {
 			readme.style.display = "block";
     	};
+
         logo.onmouseleave= function () {
             readme.style.display = "none";
         };
 
-     	/*more*/
-     	var divBase = document.querySelector(".practice .div-base"),
+        /*more*/
+        var divBase = document.querySelector(".practice .div-base"),
             jsBase = document.querySelector(".practice .js-base"),
             divBasic = document.querySelector(".practice .div-basic"),
             jsBasic = document.querySelector(".practice .js-basic"),
-     		divItemHide = document.querySelector(".div-basic .itemhide"),
-     		jsItemHide = document.querySelector(".js-basic .itemhide"),
-     		divMore = document.querySelector(".div-basic .more"),
-     		jsMore = document.querySelector(".js-basic .more");
+            divItemHide = document.querySelector(".div-basic .itemhide"),
+            jsItemHide = document.querySelector(".js-basic .itemhide"),
+            divMore = document.querySelector(".div-basic .more"),
+            jsMore = document.querySelector(".js-basic .more");
 
-     		divBase.onmouseenter = function() {
-				this.classList.add("active");
-				jsBase.classList.remove("active");
-				jsBasic.style.display = "none";
-				divBasic.style.display = "block";
-     		};
-        	jsBase.onmouseenter = function() {
-            	this.classList.add("active");
-            	divBase.classList.remove("active");
-            	divBasic.style.display = "none";
-            	jsBasic.style.display = "block";
-	        };
+        divBase.onmouseenter = function() {
+            this.classList.add("active");
+            jsBase.classList.remove("active");
+            jsBasic.style.display = "none";
+            divBasic.style.display = "block";
+        }
 
-     		divMore.onclick = function () {
-     			divItemHide.style.display = "flex";
-     			this.style.display = "none";
-            };
-			jsMore.onclick = function () {
-				jsItemHide.style.display = "flex";
-				this.style.display = "none";
-			}
+        jsBase.onmouseenter = function() {
+            this.classList.add("active");
+            divBase.classList.remove("active");
+            divBasic.style.display = "none";
+            jsBasic.style.display = "block";
+        }
+
+        divMore.onclick = function () {
+            divItemHide.style.display = "flex";
+            this.style.display = "none";
+        }
+
+        jsMore.onclick = function () {
+            jsItemHide.style.display = "flex";
+            this.style.display = "none";
+        }
 	</script>
 
 </body>
