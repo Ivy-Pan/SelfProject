@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="循环">
+    <meta name="Description" content="循环语句">
+    <title>循环语句应用</title>
+    <style>
+
+        body {
+            margin: 0;
+        }
+        .clear::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #banner {
+            position: relative;
+            width: 500px;
+            margin: 100px auto;
+        }
+        #banner .play {
+            position: absolute;
+            top: -38px;
+            left: 0;
+        }
+        #banner .play span {
+            display: inline-block;
+            height: 38px;
+            padding: 0 15px;
+            background-color: rgba(0,0,0,.35);
+            color: #fff;
+            text-align: center;
+            line-height: 38px;
+            cursor: pointer;
+        }
+        #banner .play .active {
+            background-color: #FF9547;
+        }
+        #banner .msg {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            background-color: rgba(0,0,0,.3);
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+            line-height: 30px;
+        }
+        #banner .msg.m-top {
+            top: 0;
+        }
+        #banner .msg.m-bottom {
+            bottom: 0;
+        }
+        #banner .arrow {
+            position: absolute;
+            top: 50%;
+            width: 25px;
+            height: 40px;
+            margin-top: -20px;
+            background: url("./img/arrow.png") no-repeat;
+            cursor: pointer;
+        }
+        #banner .arrow.left {
+            left: 10px;
+            background-position: -125px -150px;
+        }
+        #banner .arrow.right {
+            right: 10px;
+            background-position: -150px -150px;
+        }
+        #banner .show-box {
+            width: 500px;
+            height: 300px;
+        }
+        #banner .show-box .img {
+            width: 500px;
+            height: 300px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="banner" class="clear">
+        <div class="play">
+            <span class="loop active">循环播放</span><span class="single">单向播放</span>
+        </div>
+        <div class="msg m-top"><span class="current">1</span> / 6</div>
+        <div class="msg m-bottom">第 <span class="current">1</span> 张</div>
+        <div class="show-box">
+            <img class="img" src="./img/pic1.png" alt="第1张图片">
+        </div>
+        <div class="arrow left"></div>
+        <div class="arrow right"></div>
+    </div>
+
+    <!--script-->
+    <script>
+        var i = 1,
+            play = "loop",
+            banner = document.getElementById("banner"),
+            playLoop = banner.querySelector(".play .loop"),
+            playSingle = banner.querySelector(".play .single"),
+            currentArr = banner.getElementsByClassName("current"),
+            img = banner.querySelector(".show-box .img"),
+            left = banner.querySelector(".left"),
+            right = banner.querySelector(".right");
+
+        playLoop.onclick = function() {
+            this.classList.add("active");
+            playSingle.classList.remove("active");
+            play = "loop";
+        };
+        playSingle.onclick = function() {
+            this.classList.add("active");
+            playLoop.classList.remove("active");
+            play = "single";
+        };
+        left.onclick = function() {
+            if(play === "loop") {
+                if(i > 1) {
+                    i--;
+                }else {
+                    i = 6;
+                }
+                img.src = "./img/pic" + i + ".png";
+                for(k = 0;k < currentArr.length;k++){
+                    currentArr[k].innerHTML = i;
+                }
+            }else {
+                if(i > 1){
+                    i--;
+                    img.src = "./img/pic" + i + ".png";
+                    for(k = 0;k < currentArr.length;k++){
+                        currentArr[k].innerHTML = i;
+                    }
+                }else {
+                    alert("已经是第一张了！");
+                }
+            }
+        };
+        right.onclick = function() {
+            if(play === "loop") {
+                if(i < 6) {
+                    i++;
+                }else {
+                    i = 1;
+                }
+                img.src = "./img/pic" + i + ".png";
+                for(k = 0;k < currentArr.length;k++){
+                    currentArr[k].innerHTML = i;
+                }
+            }else {
+                if(i < 6){
+                    i++;
+                    img.src = "./img/pic" + i + ".png";
+                    for(k = 0;k < currentArr.length;k++){
+                        currentArr[k].innerHTML = i;
+                    }
+                }else {
+                    alert("已经是最后一张了！");
+                }
+            }
+        };
+
+    </script>
+
+</body>
+</html>
