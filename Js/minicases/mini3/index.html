@@ -119,8 +119,8 @@
             playLoop.classList.remove("active");
             play = "single";
         };
+        var i = 1;
         left.onclick = function() {
-            var i = 1;
             if(play === "loop") {
                 if(i > 1) {
                     i--;
@@ -144,7 +144,6 @@
             }
         };
         right.onclick = function() {
-            var i = 1;
             if(play === "loop") {
                 if(i < 6) {
                     i++;
