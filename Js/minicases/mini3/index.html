@@ -100,8 +100,7 @@
 
     <!--script-->
     <script>
-        var i = 1,
-            play = "loop",
+        var play = "loop",
             banner = document.getElementById("banner"),
             playLoop = banner.querySelector(".play .loop"),
             playSingle = banner.querySelector(".play .single"),
@@ -121,6 +120,7 @@
             play = "single";
         };
         left.onclick = function() {
+            var i = 1;
             if(play === "loop") {
                 if(i > 1) {
                     i--;
@@ -128,7 +128,7 @@
                     i = 6;
                 }
                 img.src = "./img/pic" + i + ".png";
-                for(k = 0;k < currentArr.length;k++){
+                for(var k = 0;k < currentArr.length;k++){
                     currentArr[k].innerHTML = i;
                 }
             }else {
@@ -144,6 +144,7 @@
             }
         };
         right.onclick = function() {
+            var i = 1;
             if(play === "loop") {
                 if(i < 6) {
                     i++;
@@ -151,7 +152,7 @@
                     i = 1;
                 }
                 img.src = "./img/pic" + i + ".png";
-                for(k = 0;k < currentArr.length;k++){
+                for(var k = 0;k < currentArr.length;k++){
                     currentArr[k].innerHTML = i;
                 }
             }else {
