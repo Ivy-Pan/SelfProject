@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="practice">
+    <meta name="Description" content="practice">
+    <title>practice</title>
+    <style>
+        /*reset */
+        body, input {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        /*stsrt*/
+        .box {
+            position: relative;
+            height: 520px;
+            background: url("./img/dlbg.jpg") no-repeat center top;
+        }
+        #login {
+            position: absolute;
+            top: 50px;
+            right: 200px;
+            width: 400px;
+            background-color: #f8ebe7;
+        }
+        #login input {
+            vertical-align: middle;
+        }
+        #login .account {
+            padding: 30px 45px;
+            border-bottom: 1px solid #e0ded9;
+        }
+        #login .account .name {
+            margin-bottom: 30px;
+        }
+        #login .account .icon {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: url("./img/zhanghao.jpg") no-repeat center center;
+            vertical-align: middle;
+        }
+        #login .account .name .icon {
+            background-image: url("./img/zhanghao.jpg");
+        }
+        #login .account .password .icon {
+            background-image: url("./img/mima.jpg");
+        }
+        #login .account .name input, #login .account .password input {
+            width: 260px;
+            height: 38px;
+            border: 1px solid #e0ded9;
+            background-color: #f8ebe7;
+            color: #666;
+            line-height: 38px;
+            font-size: 16px;
+            text-indent: 10px;
+        }
+        #login .rem {
+            display: inline-block;
+            padding: 30px 0;
+            font-size: 14px;
+        }
+        #login .forget {
+            float: right;
+            margin-top: 28px;
+        }
+        #login .forget a {
+            margin-left: 10px;
+            padding: 5px;
+            color: #666;
+            font-size: 14px;
+        }
+        #login .forget a:hover {
+            color: #e90225;
+        }
+        #login .btn button {
+            display: block;
+            width: 100%;
+            height: 40px;
+            border:none;
+            border-radius: 5px;
+            line-height: 40px;
+            background-color: #e90225;
+            color: #fff;
+            font-size: 18px;
+        }
+        #login .others {
+            padding: 10px 45px;
+            text-align: center;
+        }
+        #login .others a {
+            display: inline-block;
+            width: 32px;
+            height: 32px;
+            margin: 0 5px;
+            background: url("./img/qqlogin.png") no-repeat center center;
+        }
+        #login .others .qq {
+            background-image: url("./img/qqlogin.png");
+        }
+        #login .others .wechat {
+            background-image: url("./img/weixin.png");
+        }
+        #login .others .taobao {
+            background-image: url("./img/taobao.png");
+        }
+
+        /*register*/
+        #register {
+            width: 370px;
+            margin: 100px auto;
+            padding: 15px 45px;
+            border: 1px solid #d0cdc7;
+            border-radius: 10px;
+            color: #333;
+            font-size: 14px;
+        }
+        #register div {
+            position: relative;
+            margin: 30px 0;
+        }
+        #register label {
+            display: inline-block;
+            width: 65px;
+            margin-right: 5px;
+            text-align: right;
+        }
+        #register input {
+            width: 290px;
+            height: 40px;
+            border: 1px solid #d0cdc7;
+            border-radius: 5px;
+            line-height: 40px;
+            text-indent: 10px;
+        }
+        #register .tips {
+            display: none;
+            position: absolute;
+            top: -12px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #0eadd0;
+            color: #fff;
+        }
+        #register .name-tip {
+            right: -268px;
+        }
+        #register .pass-tip {
+            right: -120px;
+        }
+        #register .email-tip {
+            right: -134px;
+        }
+        #register .tips span {
+            position: absolute;
+            left: -20px;
+            border: 10px solid transparent;
+            border-right-color: #0eadd0;
+        }
+        #register .btn {
+            margin-bottom: 20px;
+            text-align: right;
+        }
+        #register .btn button {
+            margin-left: 30px;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1b6baa;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <!--login-->
+    <div class="box">
+        <div id="login">
+            <div class="account">
+                <div class="name">
+                    <span class="icon"></span><label for="account-name"><input type="text" id="account-name" placeholder="用户名/邮箱地址/手机号"></label>
+                </div>
+                <div class="password">
+                    <span class="icon"></span><label for="account-pass"><input type="password" id="account-pass" placeholder="填写密码"></label>
+                </div>
+                <div class="rem">
+                    <label for="rem-pass"><input type="checkbox" id="rem-pass">记住密码</label>
+                </div>
+                <p class="forget"><a href="#">立即注册！</a><a href="#">忘记密码？</a></p>
+                <div class="btn">
+                    <button type="submit">登录</button>
+                </div>
+            </div>
+            <div class="others">
+                <p>
+                    合作网站账号登录：
+                    <a class="qq" href="#"></a>
+                    <a class="wechat" href="#"></a>
+                    <a class="taobao" href="#"></a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!--register-->
+    <div id="register">
+        <div>
+            <label for="username">用户名</label>
+            <input type="text" id="username" placeholder="请输入英文字母或数字">
+            <p class="name-tip tips">用户名必须为4~16位英文字母或数字<span></span></p>
+        </div>
+        <div>
+            <label for="pass">密码</label>
+            <input type="password" id="pass" value="123456">
+        </div>
+        <div>
+            <label for="pass-again">确认密码</label>
+            <input type="password" id="pass-again" value="123456">
+            <p class="pass-tip tips">密码必须一致<span></span></p>
+        </div>
+        <div>
+            <label for="email">邮箱</label>
+            <input type="text" id="email" placeholder="12345678@qq.com">
+            <p class="email-tip tips">邮箱格式要正确<span></span></p>
+        </div>
+        <div>
+            <label for="petname">昵称</label>
+            <input type="text" id="petname" placeholder="请输入英文字母或数字">
+        </div>
+        <div class="btn">
+            <button type="submit">注册</button>
+            <button type="button">我有账号，我要登录</button>
+        </div>
+    </div>
+
+</body>
+</html>

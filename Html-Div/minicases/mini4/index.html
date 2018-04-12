@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="practice">
+    <meta name="Description" content="practice">
+    <title>practice</title>
+    <style>
+        /*reset*/
+        body, h4, p, ul {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        .clear::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /*#makeup*/
+        #makeup {
+            width: 875px;
+            margin: 50px;
+            font-size: 14px;
+            color: #97938e;
+        }
+        #makeup li {
+            border-top: 1px solid #d0cdc7;
+            border-bottom: 1px solid #d0cdc7;
+            padding: 20px 0;
+        }
+        #makeup li:hover {
+            background-color: #f9f9f9;
+        }
+        #makeup .pic, #makeup .synopsis {
+            display: inline-block;
+            height: 130px;
+            vertical-align: middle;
+        }
+        #makeup .pic {
+            width: 200px;
+            margin-right: 20px;
+        }
+        #makeup .pic img {
+            width: 200px;
+            height: 130px;
+            vertical-align: middle;
+        }
+        #makeup .synopsis {
+            width: 650px;
+        }
+        #makeup .synopsis h4 {
+            height: 40px;
+            color: #000;
+            line-height: 40px;
+            font-size: 20px;
+            font-weight: normal;
+        }
+        #makeup .tags {
+            height: 45px;
+            line-height: 45px;
+        }
+        #makeup .tags span {
+            font-size: 16px;
+            color: #eaa552;
+        }
+        #makeup .tags a {
+            margin-right: 10px;
+            padding: 5px;
+            background-color: #f2f1ef;
+            color: #97938e;
+        }
+        #makeup .msg {
+            height: 45px;
+            line-height: 45px;
+        }
+        #makeup .msg .sponsor {
+            margin-right: 20px;
+            padding: 5px 10px;
+            border: 1px solid #eee;
+            border-radius: 20px;
+        }
+
+        /*#subnav*/
+        #subnav {
+            position: relative;
+            width: 1000px;
+            height: 40px;
+            margin-left: 30px;
+            margin-bottom: 300px;
+            border: 1px solid #ddd;
+            background-color: #fcfcfc;
+            color: #333;
+            font-size: 14px;
+        }
+        #subnav .item {
+            float: left;
+            margin-top: -1px;
+            margin-left: -1px;
+            border-top: 5px solid transparent;
+        }
+        #subnav .item.active {
+             border-right: 1px solid #ddd;
+             border-left: 1px solid #ddd;
+             border-top-color: #f37a02;
+            background-color: #fff;
+         }
+        #subnav .item-title {
+            display: inline-block;
+            padding: 7px 15px 11px 15px;
+            color: #333;
+        }
+        #subnav .active .piclist {
+            display: flex;
+        }
+        #subnav .piclist {
+            display: none;
+            justify-content: space-between;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 1000px;
+        }
+        #subnav .piclist li {
+            position: relative;
+            width: 196px;
+            border: 1px solid transparent;
+        }
+        #subnav .piclist li:hover {
+            border-color: #f37a02;
+        }
+        #subnav .piclist li img {
+            width: 196px;
+            height: 130px;
+            vertical-align: middle;
+        }
+        #subnav .piclist p {
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 32px;
+            line-height: 32px;
+            background-color: rgba(0,0,0,.8);
+            color: #fff;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- start makeup-->
+    <ul id="makeup">
+        <li>
+            <div class="pic">
+                <img src="img/pic%20(1).jpg" alt="">
+            </div>
+            <div class="synopsis">
+                <h4>不只有看肤色挑唇色，选对口红衣服更美</h4>
+                <p class="tags">
+                    <span>标签：</span>
+                    <a href="">唇膏</a><a href="">衣服</a><a href="">粉色</a><a href="">化妆</a><a href="">美容美体</a>
+                </p>
+                <p class="msg">
+                    <span class="sponsor">悦己self</span>
+                    <span class="time">2018-03-15</span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <div class="pic">
+                <img src="img/pic%20(2).jpg" alt="">
+            </div>
+            <div class="synopsis">
+                <h4>不只有看肤色挑唇色，选对口红衣服更美</h4>
+                <p class="tags">
+                    <span>标签：</span>
+                    <a href="">唇膏</a><a href="">衣服</a><a href="">粉色</a><a href="">化妆</a><a href="">美容美体</a>
+                </p>
+                <p class="msg">
+                    <span class="sponsor">悦己self</span>
+                    <span class="time">2018-03-15</span>
+                </p>
+            </div>
+        </li>
+        <li>
+            <div class="pic">
+                <img src="img/pic%20(3).jpg" alt="">
+            </div>
+            <div class="synopsis">
+                <h4>不只有看肤色挑唇色，选对口红衣服更美</h4>
+                <p class="tags">
+                    <span>标签：</span>
+                    <a href="">唇膏</a><a href="">衣服</a><a href="">粉色</a><a href="">化妆</a><a href="">美容美体</a>
+                </p>
+                <p class="msg">
+                    <span class="sponsor">悦己self</span>
+                    <span class="time">2018-03-15</span>
+                </p>
+            </div>
+        </li>
+    </ul>
+    <!--end makeup-->
+
+    <!--start -->
+    <ul class="clear" id="subnav">
+        <li class="item active">
+            <a class="item-title" href="#">猜你喜欢</a>
+            <ul class="piclist">
+                <li>
+                    <img src="./img/img%20(2).jpg" alt="">
+                    <p>美女洗车，但这车好像不对劲</p>
+                </li>
+                <li>
+                    <img src="./img/img%20(1).gif" alt="">
+                    <p>美女洗车，但这车好像不对劲</p>
+                </li>
+                <li>
+                    <img src="./img/img%20(3).jpg" alt="">
+                    <p>美女洗车，但这车好像不对劲</p>
+                </li>
+                <li>
+                    <img src="./img/img%20(1).jpg" alt="">
+                    <p>美女洗车，但这车好像不对劲</p>
+                </li>
+                <li>
+                    <img src="./img/img%20(4).jpg" alt="">
+                    <p>美女洗车，但这车好像不对劲</p>
+                </li>
+            </ul>
+        </li>
+        <li class="item">
+            <a class="item-title" href="#">猜你喜欢</a>
+            <ul class="piclist">
+                <li>
+                    <img src="./img/img%20(1).jpg" alt="">
+                    <p>美女洗车，但这车好像不对劲</p>
+                </li>
+                <li>
+                    <img src="./img/img%20(1).gif" alt="">
+                    <p>美女洗车，但这车好像不对劲</p>
+                </li>
+                <li>
+                    <img src="./img/img%20(4).jpg" alt="">
+                    <p>美女洗车，但这车好像不对劲</p>
+                </li>
+                <li>
+                    <img src="./img/img%20(2).jpg" alt="">
+                    <p>美女洗车，但这车好像不对劲</p>
+                </li>
+                <li>
+                    <img src="./img/img%20(3).jpg" alt="">
+                    <p>美女洗车，但这车好像不对劲</p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <div class="arrow">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <!--end-->
+
+</body>
+</html>
