@@ -461,7 +461,7 @@ $(function() {
 			$(value).next().find('.down').show();
 		});
 		$(value).next().find('.num_comment').click(function() {
-			if($.cookie('user')) {
+			/*if($.cookie('user')) {*/
 				$('.comment').eq(index).toggle();
 				$('.comment').find('.comment_submit').eq(index).click(function() {
 					alert($('.comment').eq(index).find('input').val());
@@ -470,13 +470,13 @@ $(function() {
 						type: 'POST' ,
 					});*/
 				});
-			}else {
+			/*}else {
 				$('.question_error').dialog('open');
 				setTimeout(function() {
 					$('.question_error').dialog('close');
 					$('#login').dialog('open');
 				},1000);
-			}
+			}*/
 		});
 	});	
 	// 提交评论按钮
