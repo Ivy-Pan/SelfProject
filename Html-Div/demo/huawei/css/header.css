@@ -1,0 +1,186 @@
+@charset "UTF-8";
+
+/*header*/
+/*top-banner*/
+#header .top-banner .banner-img img {
+    position: relative;
+    left: 50%;
+    margin-left: -960px;
+}
+#header .top-banner .layout {
+    position: relative;
+}
+#header .top-banner .close-btn {
+    position: absolute;
+    top: -80px;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background: url("../img/header/icons.png") no-repeat 0 -385px;
+}
+
+/*shortcut*/
+#header .shortcut ul {
+    z-index: 2;
+}
+#header .shortcut  li {
+    position: relative;
+    padding: 5px 8px;
+}
+#header .shortcut li::before {
+    content: '';
+    position: absolute;
+    top: 11px;
+    left: 0;
+    width: 1px;
+    height: 10px;
+    background-color: #e4e4e4;
+}
+#header .shortcut .top-nav li:first-child::before, #header .shortcut .mini-cart li:first-child::before {
+    display: none;
+}
+#header .shortcut .dropdown {
+    position: relative;
+    background-color: #fff;
+}
+#header .shortcut .dropdown:hover {
+    box-shadow: 0 10px 0 #fff, -2px 0 6px rgba(121,121,121,.26),2px 0 6px rgba(121,121,121,.26);
+}
+#header .shortcut .dropdown:hover::before {
+    visibility: hidden;
+}
+#header .shortcut .dropdown a {
+    padding-right: 15px;
+}
+#header .shortcut .top-nav .dropdown a::after {
+    content: '';
+    position: absolute;
+    top: 12px;
+    right: 8px;
+    border: 4px solid transparent;
+    border-top: 6px solid #9a9a9a;
+}
+#header .shortcut .top-nav .dropdown:hover a::after {
+    border-top: transparent;
+    border-bottom: 6px solid #9a9a9a;
+
+}
+#header .shortcut .dropdown:hover .dr-content {
+    display: block;
+}
+#header .shortcut .dr-content {
+    display: none;
+    position: absolute;
+    top: 31px;
+    right: 0;
+    z-index: -1;
+    box-shadow: 2px 2px 6px rgba(121,121,121,.26), -2px -2px 6px rgba(121,121,121,.26);
+}
+#header .shortcut .top-nav .dr-content {
+    width: 160px;
+    height: 264px;
+    padding: 10px;
+}
+#header .shortcut .top-nav .dr-content .dr-desc {
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e4e4e4;
+}
+#header .shortcut .top-nav .dr-content p {
+    line-height: 32px;
+}
+#header .shortcut .top-nav .dr-content .qr-code {
+    padding-top: 22px;
+}
+#header .shortcut .top-nav .dr-content .qr-code img {
+    width: 76px;
+    height: 76px;
+}
+#header .shortcut .top-nav .dr-content .qr-code .download {
+    color: #333;
+}
+#header .shortcut .top-nav .dr-content .qr-code .download:hover {
+    color: #ca141d;
+}
+#header .shortcut .mini-cart .login {
+    margin-right: 10px;
+}
+#header .shortcut .mini-cart .cart a {
+    padding-left: 30px;
+}
+#header .shortcut .mini-cart .cart a::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+    background: url("../img/header/icon-h.png") no-repeat 0 -1px;
+}
+#header .shortcut .mini-cart .dr-content {
+    width: 460px;
+    height: 130px;
+    padding: 50px 0;
+}
+#header .shortcut .mini-cart .dr-content .cart-icon {
+    height: 100px;
+    margin-bottom: 15px;
+    background: url("../img/header/car.png") no-repeat center;
+}
+#header .shortcut .mini-cart .dr-content p {
+    color: #a4a4a4;
+}
+
+/*navbar*/
+#header .navbar .layout {
+    padding: 10px 0;
+}
+#header .navbar .logo img {
+    width: 240px;
+    height: 50px;
+}
+#header .navbar .nav {
+    margin-left: 30px;
+    padding-top: 2px;
+    height: 40px;
+    line-height: 40px;
+}
+#header .navbar .nav li {
+    padding-right: 20px;
+}
+#header .navbar .nav a {
+    padding-bottom: 6px;
+}
+#header .navbar .nav a:hover {
+    border-bottom: 2px solid #ca141d;
+}
+#header .navbar .search-box {
+    position: relative;
+    width: 330px;
+    padding: 8px;
+    border-bottom: 1px solid #e4e4e4;
+}
+#header .navbar .search-box .search-tag {
+    position: absolute;
+    bottom: 7px;
+    right: 35px;
+}
+#header .navbar .search-box .search-tag a {
+    margin: 0 8px;
+    padding: 0 5px;
+    background-color: #f5f5f5;
+}
+#search {
+    width: 305px;
+    border: none;
+    outline: none;
+}
+#search:focus+p.search-tag {
+    display: none;
+}
+#submit {
+    width: 20px;
+    height: 20px;
+    border: none;
+    background: url("../img/header/icon-h.png") no-repeat 0 -25px;
+    outline: none;
+}

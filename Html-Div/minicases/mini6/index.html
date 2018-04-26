@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="table">
+    <meta name="Description" content="table">
+    <title>table</title>
+    <style>
+        body, h2 {
+            margin: 0;
+        }
+        /*table*/
+        .schedule {
+            padding: 100px 0;
+            background-color: #ddd;
+        }
+        .schedule table {
+            width: 700px;
+            margin: auto;
+            border-collapse: collapse;
+            color: #333;
+            font-size: 16px;
+        }
+        .schedule table, .schedule tr, .schedule td, .schedule th {
+            padding: 6px 10px;
+            border: 1px solid #fff;
+        }
+        .schedule table tr:nth-child(even) {
+            background-color: #EAEDF1;
+        }
+        .schedule table tr:nth-child(odd), .schedule table tr:nth-child(8) {
+            background-color: #D0D9E6;
+        }
+        .schedule table th {
+            height: 30px;
+            background-color: #357FB7;
+            color: #fff;
+        }
+        .schedule table td.text-center{
+            text-align: center;
+        }
+        .schedule table td[colspan="2"] {
+            height: 21px;
+        }
+
+        /*express-table*/
+        .express-table {
+            width: 580px;
+            margin: 100px auto;
+            padding: 20px;
+            background-color: #504F4D;
+            color: #fff;
+            font-size: 16px;
+        }
+        .express-table h2 {
+            text-align: center;
+        }
+        .express-table fieldset {
+            border: 2px solid #fff;
+            padding: 15px;
+            margin: 25px 0;
+        }
+        .express-table table {
+            border-spacing: 0 20px;
+        }
+        .express-table td input[type="text"] {
+            width: 150px;
+            height: 24px;
+            margin-right: 45px;
+            border: none;
+        }
+        .express-table td:nth-child(odd) {
+            padding-right: 10px;
+        }
+        #area {
+            width: 200px;
+            height: 24px;
+            border: none;
+        }
+        .express-table #number, .express-table #weight {
+            width: 50px;
+            margin-right: 20px;
+        }
+        .express-table #name {
+            width: 250px;
+        }
+        .express-table .btn {
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="schedule">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="2">课程一《静态网站开发》</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td class="text-center">第一章</td>
+                <td>《基础班》开学典礼</td>
+            </tr>
+            <tr>
+                <td colspan="2">（互联网概述 | 什么是网站 | 什么是网页 | 构成网页的元素 | 网站制作流程详解 | 怎样才能学好拿高薪 | 前端开发职业的前途 | web前端开发课程目标）</td>
+            </tr>
+            <tr>
+                <td class="text-center">第二章</td>
+                <td>Html常用标签+背景</td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td class="text-center">第三章</td>
+                <td>元素选择符</td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+            </tr>
+            <tr>
+                <td class="text-center" rowspan="3">第四章</td>
+                <td>css样式</td>
+            </tr>
+            <tr>
+                <td>特殊符号</td>
+            </tr>
+            <tr>
+                <td>Font——Text</td>
+            </tr>
+            <tr>
+                <td colspan="2"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <div class="express-table">
+        <h2>增加快递信息</h2>
+        <form action="#">
+            <fieldset>
+                <legend>发货单</legend>
+                <table>
+                    <tr>
+                        <td><label for="consignor">发货人：</label></td>
+                        <td><input type="text" id="consignor"></td>
+                        <td><label for="consignor-address">地址：</label></td>
+                        <td><input type="text" id="consignor-address"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="consignor-phone">电话：</label></td>
+                        <td><input type="text" id="consignor-phone"></td>
+                        <td><label for="consignor-code">邮编：</label></td>
+                        <td><input type="text" id="consignor-code"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>收货单</legend>
+                <table>
+                    <tr>
+                        <td><label for="consignee">收货人：</label></td>
+                        <td><input type="text" id="consignee"></td>
+                        <td><label for="consignee-adress">地址：</label></td>
+                        <td><input type="text" id="consignee-adress"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="consignee-phone">电话：</label></td>
+                        <td><input type="text" id="consignee-phone"></td>
+                        <td><label for="consignee-code">邮编：</label></td>
+                        <td><input type="text" id="consignee-code"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="area">地区：</label></td>
+                        <td colspan="3">
+                            <select name="area" id="area">
+                                <option value="beijing" selected>北京</option>
+                                <option value="beijing">上海</option>
+                                <option value="beijing">广州</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>包装：</td>
+                        <td class="pack" colspan="4">
+                            <label for="carton"><input type="checkbox" id="carton" name="pack">纸箱</label>
+                            <label for="wooden"><input type="checkbox" id="wooden" name="pack">木箱</label>
+                            <label for="bag"><input type="checkbox" id="bag" name="pack">快递袋</label>
+                            <label for="other"><input type="checkbox" id="other" name="pack">其它</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>付款方式：</td>
+                        <td class="pay" colspan="4">
+                            <label for="cash"><input type="radio" id="cash" name="pay">现金</label>
+                            <label for="alipay"><input type="radio" id="alipay" name="pay">支付宝</label>
+                            <label for="bank"><input type="radio" id="bank" name="pay">网银</label>
+                            <label for="atm"><input type="radio" id="atm" name="pay">ATM</label>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            <fieldset>
+                <legend>货物信息</legend>
+                <table class="goods">
+                    <tr>
+                        <td><label for="name">货物名称:</label></td>
+                        <td colspan="5"><input type="text" id="name"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="number">数量:</label></td>
+                        <td><input type="text" id="number"></td>
+                        <td><label for="weight">重量:</label></td>
+                        <td><input type="text" id="weight"></td>
+                        <td><label for="time">返货时间:</label></td>
+                        <td><input type="text" id="time"></td>
+                    </tr>
+                </table>
+            </fieldset>
+            <div class="btn">
+                <button type="submit">确定</button>
+                <button type="button">取消</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
+

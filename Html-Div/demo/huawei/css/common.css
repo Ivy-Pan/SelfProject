@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+body, h1, h2, h3, h4, h5, h6, p, ul, input {
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-width: 1200px;
+    font-family: "Microsoft YaHei","simsun","Helvetica Neue",Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5em;
+    overflow-x: hidden;
+}
+ul {
+    list-style: none;
+}
+a, a:hover, a:focus {
+    text-decoration: none;
+}
+.hc-red a:hover {
+    color: #ca141d;
+}
+img {
+    vertical-align: middle;
+}
+.c-3a a {
+    color: #3a3a3a;
+}
+.c-a4 a {
+    color: #a4a4a4;
+}
+.fs12px {
+    font-size: 12px;
+}
+.fs14px {
+    font-size: 14px;
+}
+.fs16px {
+    font-size: 16px;
+}
+.t-center {
+    text-align: center;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.layout {
+    width: 1200px;
+    margin: auto;
+}
+
+/*辅助*/
+.b-red {
+    border: 1px solid red;
+}
+.b-blue {
+    border: 1px solid blue;
+}
+.bgc {
+    background-color: pink;
+}
