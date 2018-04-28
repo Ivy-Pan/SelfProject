@@ -1,9 +1,11 @@
 @charset "UTF-8";
 
+body {
+    background-color: #fafafa;
+}
 /*common*/
 #content {
     margin-bottom: 200px;
-    background-color: #fafafa;
 }
 #content .banner {
     position: relative;
@@ -149,3 +151,44 @@
 }
 
 /*msg*/
+#content .msg {
+    height: 98px;
+    border: 1px solid #eee;
+    border-top: none;
+    background-color: #fff;
+}
+#content .msg .msg-left {
+    width: 288px;
+    height: 72px;
+    padding: 13px 0;
+}
+#content .msg .msg-left img {
+    width: 59px;
+    height: 59px;
+    padding: 6px 0 0 22px;
+}
+#content .msg .msg-left .tip {
+    height: 72px;
+    padding-right: 15px;
+    border-right: 1px solid #ccc;
+}
+#content .msg .msg-left .tip .log, #content .msg .msg-left .tip .reg {
+    color: #3a3a3a;
+    text-decoration: underline;
+}
+#content .msg .msg-left .channel {
+    margin-top: 5px;
+}
+#content .msg .msg-left .channel a {
+    margin-right: 15px;
+    padding: 0 10px;
+    color: #ca141d;
+    border: 1px solid #ca141d;
+ }
+#content .msg-middle {
+    width: 602px;
+
+}
+#content .msg-middle li {
+    float: left;
+}
