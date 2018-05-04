@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="css3动画">
+    <meta name="Description" content="Description">
+    <title>动画</title>
+    <style>
+        .box {
+            width: 800px;
+            height: 600px;
+            position: relative;
+            background-color: lawngreen;
+        }
+        .box .leave {
+            width: 100px;
+            height: 300px;
+            position: absolute;
+            top:150px;
+            left: 350px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom,#fff 0%, pink 50%, deeppink 100%);
+            box-shadow: 0 0 6px rgba(255,255,255,.3);
+            opacity: .85;
+            transform-origin: bottom center;
+        }
+        .box:hover .leave:nth-child(8), .box:hover .leave:nth-child(10) {
+            animation: blooming 6s forwards;
+        }
+        @keyframes blooming {
+            0% {
+                transform: rotateZ(0);
+            }
+            100% {
+                transform: rotateZ(-70deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p class="leave"></p>
+        <p class="leave"></p>
+        <p class="leave"></p>
+        <p class="leave"></p>
+        <p class="leave"></p>
+        <p class="leave"></p>
+        <p class="leave"></p>
+        <p class="leave"></p>
+        <p class="leave l9"></p>
+        <p class="leave"></p>
+        <p class="leave"></p>
+        <p class="leave"></p>
+        <p class="leave"></p>
+        <p class="leave"></p>
+        <p class="leave"></p>
+        <p class="leave"></p>
+        <p class="leave"></p>
+    </div>
+</body>
+</html>

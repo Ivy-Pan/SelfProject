@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="html5">
+    <meta name="Description" content="纯css制作tab选项卡">
+    <title>纯css制作tab选项卡</title>
+    <style>
+        body, ul, input, p {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        body {
+            background-color: #eee;
+        }
+        .tab {
+            position: relative;
+            margin: 50px;
+            color: #fff;
+            font-size: 18px;
+        }
+        .tab li {
+            float: left;
+        }
+        .tab li label {
+            padding: 15px;
+            background-color: #559d52;
+            cursor: pointer;
+            transition: .3s;
+        }
+        .tab li input {
+            display: none;
+        }
+        .tab li input:checked + label {
+            padding-top: 18px;
+            background-color: #20692b;
+            text-decoration: underline;
+        }
+        .tab li .box {
+            display: none;
+            position: absolute;
+            top: 24px;
+            left: -20px;
+            width: 250px;
+            margin-top: 15px;
+            padding: 30px;
+            background-color: #20692b;
+        }
+        .tab li .box p {
+            padding: 10px 0;
+        }
+        .tab li input:checked ~ .box {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <ul>
+            <li>
+                <input type="radio" id="tab1" name="tab" checked>
+                <label for="tab1">头条</label>
+                <div class="box">
+                    <p>苏宁足球俱乐部旗舰店</p>
+                    <p>苏宁足球俱乐部旗舰店</p>
+                    <p>苏宁足球俱乐部旗舰店</p>
+                    <p>苏宁足球俱乐部旗舰店</p>
+                </div>
+            </li>
+            <li>
+                <input type="radio" id="tab2" name="tab">
+                <label for="tab2">公告</label>
+                <div class="box">
+                    <p>少年足球春季班</p>
+                    <p>少年足球春季班</p>
+                    <p>少年足球春季班</p>
+                    <p>少年足球春季班</p>
+                </div>
+            </li>
+            <li>
+                <input type="radio" id="tab3" name="tab">
+                <label for="tab3">最热</label>
+                <div class="box">
+                    <p>开学季50元券限量抢</p>
+                    <p>苏宁足球开学季50元券限量抢</p>
+                    <p>苏宁足球开学季50元券限量抢</p>
+                    <p>苏宁足球开学季50元券限量抢</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
