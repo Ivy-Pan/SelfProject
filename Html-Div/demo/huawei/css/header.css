@@ -24,7 +24,6 @@
     z-index: 2;
 }
 #header .shortcut  li {
-    position: relative;
     padding: 5px 8px;
 }
 #header .shortcut li::before {
@@ -41,9 +40,14 @@
 }
 #header .shortcut .dropdown {
     position: relative;
-    background-color: #fff;
+    z-index: 1;
+    padding: 0;
 }
-#header .shortcut .dropdown:hover {
+#header .shortcut .dropdown .dr-btn {
+    padding: 5px 8px;
+}
+#header .shortcut .dropdown:hover .dr-btn {
+    background-color: #fff;
     box-shadow: 0 10px 0 #fff, -2px 0 6px rgba(121,121,121,.26),2px 0 6px rgba(121,121,121,.26);
 }
 #header .shortcut .dropdown:hover::before {
@@ -52,7 +56,7 @@
 #header .shortcut .dropdown a {
     padding-right: 15px;
 }
-#header .shortcut .top-nav .dropdown a::after {
+#header .shortcut .top-nav .dr-btn a::after {
     content: '';
     position: absolute;
     top: 12px;
@@ -74,6 +78,7 @@
     top: 31px;
     right: 0;
     z-index: -1;
+    background-color: #fff;
     box-shadow: 2px 2px 6px rgba(121,121,121,.26), -2px -2px 6px rgba(121,121,121,.26);
 }
 #header .shortcut .top-nav .dr-content {
