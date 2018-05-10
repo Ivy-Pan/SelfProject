@@ -1010,7 +1010,7 @@ var utils = UE.utils = {
     },
     /**
      * 只针对border,padding,margin做了处理，因为性能问题
-     * @public
+     * @common
      * @function
      * @param {String}    val style字符串
      */
@@ -1657,7 +1657,7 @@ EventBase.prototype = {
  * @module UE
  * @since 1.2.6.1
  * @method getListener
- * @public
+ * @common
  * @param { Object } obj  查询监听器的对象
  * @param { String } type 事件类型
  * @param { Boolean } force  为true且当前所有type类型的侦听器不存在时，创建一个空监听器数组
