@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="Keywords">
+    <meta name="Description" content="Description">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="./index.css">
+    <script>
+        (function(win,doc){
+            var docEl = doc.documentElement || document.body;
+            var resize = 'orientationchange' in win ? 'orientationchange':'resize';
+
+            function rem(){
+                docEl.style.fontSize= docEl.clientWidth/10+'px';
+            }
+            doc.addEventListener('DOMContentLoaded',rem,false);
+            win.addEventListener(resize,rem,false);
+        })(window,document)
+    </script>
+    <title>天猫移动端</title>
+</head>
+<body>
+    <div id="header">
+        <div class="h-top">
+            <div class="nav-icon"></div>
+            <div class="logo"><img src="./img/2.png" alt=""></div>
+            <div class="login"><a href="#">登录</a></div>
+        </div>
+        <div class="search">
+            <div class="search-icon">搜索商品、品牌</div>
+        </div>
+    </div>
+    <div id="nav">
+        <ul>
+            <li>
+                <a href="#">
+                    <img src="images/4.png"/>
+                    <p>苏宁易购</P>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/5.png"/>
+                    <p>天猫超市</P>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/6.png"/>
+                    <p>天猫国际</P>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/7.png"/>
+                    <p>聚划算</P>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="images/8.png"/>
+                    <p>分类</P>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

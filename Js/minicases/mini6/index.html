@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="Keywords">
+    <meta name="Description" content="Description">
+    <title>Title</title>
+    <style>
+        /*reset*/
+        body, p, ul, input, button {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+        img {
+            vertical-align: middle;
+        }
+
+        /*点击切换图片*/
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+        .container img {
+            display: none;
+            width: 400px;
+            cursor: pointer;
+        }
+        .container img.show {
+            display: inline-block;
+        }
+
+        /*发表评论*/
+        .comment {
+            width: 450px;
+            margin: 50px auto 200px;
+            border: 1px solid #ccc;
+        }
+        .comment .entry {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-bottom: 30px;
+            padding: 15px;
+            background-color: #eee;
+        }
+        .comment .sculpture img {
+            display: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .comment form {
+            visibility: hidden;
+        }
+        .comment form .input-box {
+            width: 200px;
+            height: 30px;
+            outline: none;
+            text-indent: 5px;
+        }
+        .comment form .btn {
+            padding: 0 8px;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        .comment .show-form span {
+            padding: 10px 15px;
+            border-radius: 50%;
+            background-color: rgba(0,0,0,.1);
+            cursor: pointer;
+        }
+        .comment .export {
+            padding: 15px;
+        }
+        .comment .export .list li {
+            padding: 15px 0 30px 0;
+            border-top: 1px dotted #ccc;
+        }
+        .comment .list .pic, .comment .list p {
+            display: inline-block;
+        }
+        .comment .list .pic {
+            margin-right: 15px;
+        }
+        .comment .list .pic img {
+            width: 35px;
+            height: 35px;
+        }
+        .comment .list p {
+            height: 35px;
+            line-height: 35px;
+        }
+    </style>
+</head>
+<body>
+
+    <!--点击切换图片-->
+    <div class="container">
+        <img style="display: inline-block;" src="./img/1.jpg" alt="点击切换图片">
+        <img src="./img/2.jpg" alt="点击切换图片">
+    </div>
+
+    <!--发表评论-->
+    <div class="comment">
+        <div class="entry">
+            <div class="sculpture">
+                <img class="entry-pic" style="display: inline-block;" src="./img/01.jpg" alt="头像图片">
+                <img class="entry-pic" src="./img/02.jpg" alt="头像图片">
+            </div>
+            <form action="javascrit:void(0);">
+                <input class="input-box" type="text">
+                <button class="btn">发表</button>
+            </form>
+            <div class="show-form">
+                <span>+</span>
+            </div>
+        </div>
+        <div class="export">
+            <ul class="list">
+                <!--<li>
+                    <div class="pic"><img src="./img/01.jpg" alt="头像"></div>
+                    <p>努力学前端</p>
+                </li>-->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        /*点击切换图片*/
+        var picBox = document.getElementsByClassName('container')[0],
+            picArr = picBox.getElementsByTagName('img');
+
+        for(current = 0; current < picArr.length; current++) {
+            picArr[current].index = current;
+            picArr[current].onclick = function () {
+                this.style.display = 'none';
+                var picNext = this.index + 1;
+                if(picNext >= picArr.length) {
+                    picNext = 0;
+                }
+                picArr[picNext].style.display = 'inline-block';
+            }
+        }
+
+        /*发表评论*/
+        var formShow = false,
+            currentPic = 0,
+            comment = document.getElementsByClassName('comment')[0],
+            sculptureArr = comment.getElementsByClassName('entry-pic'),
+            formBox = comment.getElementsByTagName('form')[0],
+            inputBox = comment.getElementsByClassName('input-box')[0],
+            formBtn = comment.getElementsByClassName('show-form')[0].getElementsByTagName('span')[0],
+            btn = comment.getElementsByClassName('btn')[0],
+            list = comment.getElementsByClassName('list')[0];
+        
+        for(picIndex = 0; picIndex < sculptureArr.length; picIndex++) {
+            sculptureArr[picIndex].index = picIndex;
+            sculptureArr[picIndex].onclick = function () {
+                this.style.display = 'none';
+                var picNext = this.index + 1;
+                if(picNext >= sculptureArr.length) {
+                    picNext = 0;
+                }
+                sculptureArr[picNext].style.display = 'inline-block';
+                currentPic = picNext;
+            }
+        }
+        formBtn.onclick = function () {
+            if(formShow) {
+                formBox.style.visibility = 'hidden';
+                formShow = false;
+            }else {
+                formBox.style.visibility = 'visible';
+                formShow = true;
+            }
+        }
+
+        btn.onclick = function() {
+            list.innerHTML += '<li><div class="pic"><img src="' + sculptureArr[currentPic].src + '" alt="头像"></div> <p>' + inputBox.value + '</p></li>';
+            inputBox.value = '';
+        }
+    </script>
+</body>
+</html>

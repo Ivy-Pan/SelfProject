@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="Keywords">
+    <meta name="Description" content="Description">
+    <title>demo</title>
+    <style>
+        body, ul, p {
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        .layout {
+            width: 400px;
+            margin: 50px auto;
+        }
+        .entry {
+
+        }
+        #text {
+            box-sizing: border-box;
+            width: 100%;
+            height: 150px;
+            margin-bottom: 15px;
+            padding: 10px;
+            resize: none;
+            outline: none;
+            font-size: 14px;
+            line-height: 24px;
+        }
+        .entry .btn {
+            padding-bottom: 5px;
+            border-bottom: 1px solid #07c27f;
+            text-align: right;
+        }
+        .entry .btn button {
+            cursor: pointer;
+        }
+        .export {
+            margin: 30px 0;
+        }
+        .export .list li {
+            margin: 15px 0;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <div class="entry">
+            <textarea name="entry-box" id="text"></textarea>
+            <p class="btn">
+                <button>提交</button>
+            </p>
+        </div>
+        <div class="export">
+            <ul class="list">
+
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        var text = document.getElementById('text'),
+            entryBox = document.getElementsByClassName('entry')[0],
+            btn = entryBox.getElementsByTagName('button')[0],
+            exportBox = document.getElementsByClassName('export')[0],
+            list = exportBox.getElementsByClassName('list')[0];
+
+        btn.onclick = function () {
+            list.innerHTML += '<li>' + text.value + '</li>';
+            text.value = '';
+        }
+    </script>
+</body>
+</html>

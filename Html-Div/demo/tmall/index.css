@@ -1,0 +1,58 @@
+@charset "UTF-8";
+
+/*reset*/
+body, p, ul, h1, h2, h3, h4 {
+    margin: 0;
+    padding: 0;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+}
+
+/*header*/
+#header {
+    padding:.133333333rem .26666667rem;
+    background-color: #f00007;
+}
+#header .h-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: .9rem;
+    margin-bottom: .13333333rem;
+    padding: 0 .13333333rem;
+}
+#header .nav-icon {
+    width: .8rem;
+    height: .8rem;
+    background: url("./img/01.png") 0 .16rem/7.52rem .8rem;
+}
+#header .logo img {
+    height: .85333333rem;
+}
+#header .login {
+    height: .8rem;
+    line-height: .8rem;
+}
+#header .login a {
+    color: #fff;
+    font-size: .32rem;
+}
+#header .search {
+    width: 9.46666667rem;
+    height: .93333333rem;
+    background-color: #fff;
+}
+#header .search .search-icon {
+    height: .93333333rem;
+    padding-top: .21rem;
+    background: url("./img/3.png") no-repeat .26666667rem .26666667rem/.42666667rem .42666667rem;
+    color: #a4a4a4;
+    font-size: .37333333rem;
+    text-indent: .88rem;
+}
+
+/*nav*/
