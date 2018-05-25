@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="Keywords">
+    <meta name="Description" content="Description">
+    <title>图片切换</title>
+    <style>
+        /*reset*/
+        body, p, ul {
+        margin: 0;
+        padding: 0;
+        }
+        ul {
+        list-style: none;
+        }
+        a {
+        text-decoration: none;
+        }
+        img {
+        vertical-align: middle;
+        }
+
+        #banner {
+            width: 500px;
+            margin: 50px auto;
+            color: #fff;
+            font-size: 14px;
+            text-align: center;
+        }
+        #banner .mode:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+        #banner .mode span {
+            float: left;
+            width: 100px;
+            height: 38px;
+            background-color: rgba(0,0,0,.4);
+            line-height: 38px;
+            cursor: pointer;
+        }
+        #banner .mode span.active {
+            background-color: #06a550;
+        }
+        #banner .b-box {
+            position: relative;
+            height: 300px;
+        }
+        #banner .pic-list li {
+            display: none;
+            width: 100%;
+            height: 300px;
+        }
+        #banner .pic-list li.on {
+            display: block;
+        }
+        #banner .pic-list img {
+            width: 100%;
+            height: 100%;
+        }
+        #banner .msg p {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 30px;
+            line-height: 30px;
+            background-color: rgba(0,0,0,.3);
+        }
+        #banner .msg p.num {
+            top: 0;
+        }
+        #banner .msg p.name {
+            bottom: 0;
+        }
+        #banner .arrow span {
+            position: absolute;
+            top: 50%;
+            height: 30px;
+            margin-top: -15px;
+            padding: 0 10px;
+            background-color: rgba(0,0,0,.2);
+            line-height: 30px;
+            cursor: pointer;
+        }
+        #banner .arrow span:hover {
+            background-color: rgba(0,0,0,.3);
+        }
+        #banner .arrow span.prev {
+            left: 0;
+        }
+        #banner .arrow span.next {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!--banner-->
+    <div id="banner">
+        <div class="mode">
+            <span class="loop active">循环播放</span>
+            <span class="single">单向播放</span>
+        </div>
+        <div class="b-box">
+            <ul class="pic-list">
+                <li class="on" name="图片描述：第一张图片"><img src="./img/pic1.png" alt="图片切换"></li>
+                <li name="图片描述：第二张图片"><img src="./img/pic2.png" alt="图片切换"></li>
+                <li name="图片描述：第三张图片"><img src="./img/pic3.png" alt="图片切换"></li>
+                <li name="图片描述：第四张图片"><img src="./img/pic4.png" alt="图片切换"></li>
+                <li name="图片描述：第五张图片"><img src="./img/pic5.png" alt="图片切换"></li>
+            </ul>
+            <div class="msg">
+                <p class="num">第<span class="pic-num"> 1 </span>张</p>
+                <p class="name">图片描述：第一张图片</p>
+            </div>
+            <div class="arrow">
+                <span class="prev">上一张</span>
+                <span class="next">下一张</span>
+            </div>
+        </div>
+    </div>
+
+    <!--script-->
+    <script>
+        var mode = 'loop',
+            picOn = 0,
+            banner = document.getElementById('banner'),
+            loopMode = banner.getElementsByClassName('loop')[0],
+            singleMode = banner.getElementsByClassName('single')[0],
+            picArr = banner.querySelectorAll('.pic-list li'),
+            prevBtn = banner.getElementsByClassName('prev')[0],
+            nextBtn = banner.getElementsByClassName('next')[0],
+            picNum = banner.querySelector('.msg .num'),
+            picName = banner.querySelector('.msg .name');
+        
+        function getPicOn() {
+            return banner.querySelector('.pic-list .on');
+        }
+        function setPicOn() {
+            getPicOn().classList.remove('on');
+            picArr[picOn].classList.add('on');
+            picNum.innerHTML = picOn + 1;
+            picName.innerHTML = picArr[picOn].getAttribute('name');
+        }
+
+        loopMode.onclick = function() {
+            singleMode.classList.remove('active');
+            loopMode.classList.add('active');
+            mode = 'loop';
+        }
+        singleMode.onclick = function() {
+            loopMode.classList.remove('active');
+            singleMode.classList.add('active');
+            mode = 'single';
+        }
+
+        prevBtn.onclick = function () {
+           picOn--;
+            if (picOn < 0) {
+                if (mode === 'loop') {
+                    picOn = picArr.length - 1;
+                    setPicOn();
+                }else {
+                    alert('已经是第一张啦！');
+                }
+            }else {
+                setPicOn();
+            }
+        }
+        nextBtn.onclick = function () {
+            picOn++;
+            if (picOn >= picArr.length) {
+                if (mode === 'loop') {
+                    picOn = 0;
+                    setPicOn();
+                }else {
+                    alert('已经是最后一张啦！');
+                }
+            }else {
+                setPicOn();
+            }
+        }
+    </script>
+
+</body>
+</html>

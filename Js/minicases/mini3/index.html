@@ -85,6 +85,7 @@
     </style>
 </head>
 <body>
+
     <div id="banner" class="clear">
         <div class="play">
             <span class="loop active">循环播放</span><span class="single">单向播放</span>
@@ -119,14 +120,16 @@
             playLoop.classList.remove("active");
             play = "single";
         };
+
         var i = 1;
         left.onclick = function() {
             if(play === "loop") {
-                if(i > 1) {
+                /*if(i > 1) {
                     i--;
                 }else {
                     i = 6;
-                }
+                }*/
+                i > 1 ? i-- : i = 6;
                 img.src = "./img/pic" + i + ".png";
                 for(var k = 0;k < currentArr.length;k++){
                     currentArr[k].innerHTML = i;
@@ -145,11 +148,12 @@
         };
         right.onclick = function() {
             if(play === "loop") {
-                if(i < 6) {
+                /*if(i < 6) {
                     i++;
                 }else {
                     i = 1;
-                }
+                }*/
+                i < 6 ? i++ : i = 1;
                 img.src = "./img/pic" + i + ".png";
                 for(var k = 0;k < currentArr.length;k++){
                     currentArr[k].innerHTML = i;
