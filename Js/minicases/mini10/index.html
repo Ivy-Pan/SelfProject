@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="Keywords">
+    <meta name="Description" content="Description">
+    <title>内容可编辑、全选、反选</title>
+    <style>
+        /*reset*/
+        body, p, ul, h1, h2, h3, h4, h5, h6, input {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        /*start*/
+        #edit-box {
+            width: 500px;
+            margin: 50px auto;
+            padding: 5px 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #edit-box li {
+            padding: 8px 0;
+            border-bottom: 1px solid #ccc;
+        }
+        #edit-box li .content {
+            width: 442px;
+            border: none;
+            background: #fff;
+            outline: none;
+            text-indent: 5px;
+        }
+        #edit-box li .edit-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            background: #00a488;
+            outline: none;
+            color: #fff;
+            cursor: pointer;
+        }
+        #edit-box li .edit-btn.active {
+            background-color: #f06923;
+        }
+
+        /*表单*/
+        #orderlist {
+            width: 800px;
+            margin: 30px auto 200px;
+        }
+        #orderlist table {
+            width: 100%;
+            border: 1px solid #f0f;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        #orderlist table img {
+            width: 80px;
+        }
+        #orderlist table thead tr {
+            height: 38px;
+            background: #f0f;
+            line-height: 38px;
+        }
+        #orderlist table tbody tr {
+            height: 100px;
+        }
+        #orderlist table th, #orderlist table td {
+            border: 1px solid #f0a;
+        }
+        #orderlist table .num {
+            width: 60px;
+            height: 22px;
+            text-align: center;
+            line-height: 22px;
+            vertical-align: top;
+        }
+        #orderlist table .decrease, #orderlist table .increase {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border: 1px solid #ccc;
+            background: #eee;
+            text-align: center;
+            line-height: 24px;
+            cursor: pointer;
+        }
+        #orderlist .summary {
+            height: 32px;
+            margin-top: 15px;
+            background-color: #f0f;
+            color: #fff;
+            font-size: 14px;
+            text-align: right;
+            line-height: 32px;
+        }
+        #orderlist .summary p {
+            display: inline-block;
+            margin-right: 30px;
+        }
+        #orderlist .summary p span {
+            color: yellow;
+            font-weight: bold;
+        }
+
+        /*全选、反选、全不选*/
+        #select-box {
+            width: 300px;
+            margin: 0 auto 300px;
+        }
+        #select-box .options {
+            margin-bottom: 15px;
+            color: #333333;
+            font-size: 14px;
+        }
+        .options li {
+            padding-left: 15px;
+            border: 1px dashed #ccc;
+            height: 38px;
+            line-height: 38px;
+            cursor: pointer;
+        }
+        .options li span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin-bottom: -2px;
+            margin-right: 10px;
+            border: 1px solid #999;
+        }
+        .options li.selected span {
+            background: #f00;
+        }
+        .items button {
+            border: 1px solid #aaa;
+            border-radius: 5px;
+            outline: none;
+            cursor: pointer;
+        }
+        .items button.select {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="edit-box">
+        <ul>
+            <li>
+                <label><input class="content" type="text" value="内容可编辑" disabled></label>
+                <button class="edit-btn">编辑</button>
+            </li>
+            <li>
+                <label><input class="content" type="text" value="内容可编辑" disabled></label>
+                <button class="edit-btn">编辑</button>
+            </li><li>
+                <label><input class="content" type="text" value="内容可编辑" disabled></label>
+                <button class="edit-btn">编辑</button>
+            </li><li>
+                <label><input class="content" type="text" value="内容可编辑" disabled></label>
+                <button class="edit-btn">编辑</button>
+            </li><li>
+                <label><input class="content" type="text" value="内容可编辑" disabled></label>
+                <button class="edit-btn">编辑</button>
+            </li>
+        </ul>
+    </div>
+    <div id="orderlist">
+        <table>
+            <thead>
+            <tr>
+                <th>商品</th>
+                <th>单价(元)</th>
+                <th>数量</th>
+                <th>小计(元)</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="./img/pic%20(1).jpg" alt="商品">
+                    </td>
+                    <td>
+                        <span class="price">12.5</span>
+                    </td>
+                    <td>
+                        <span class="decrease">-</span>
+                        <input class="num" type="text" value="0">
+                        <span class="increase">+</span>
+                    </td>
+                    <td>
+                        <span class="total">0</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="./img/pic%20(2).jpg" alt="商品">
+                    </td>
+                    <td>
+                        <span class="price">10</span>
+                    </td>
+                    <td>
+                        <span class="decrease">-</span>
+                        <input class="num" type="text" value="0">
+                        <span class="increase">+</span>
+                    </td>
+                    <td>
+                        <span class="total">0</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="./img/pic%20(3).jpg" alt="商品">
+                    </td>
+                    <td>
+                        <span class="price">15</span>
+                    </td>
+                    <td>
+                        <span class="decrease">-</span>
+                        <input class="num" type="text" value="0">
+                        <span class="increase">+</span>
+                    </td>
+                    <td>
+                        <span class="total">0</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <img src="./img/pic%20(4).jpg" alt="商品">
+                    </td>
+                    <td>
+                        <span class="price">8</span>
+                    </td>
+                    <td>
+                        <span class="decrease">-</span>
+                        <input class="num" type="text" value="0">
+                        <span class="increase">+</span>
+                    </td>
+                    <td>
+                        <span class="total">0</span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="summary">
+            <p>已选中商品: <span class="s-num">0</span> 个</p>
+            <p>合计费用： <span class="s-price">0</span> ￥</p>
+        </div>
+    </div>
+    <div id="select-box">
+        <div class="options">
+            <ul>
+                <li><span></span>option1</li>
+                <li><span></span>option2</li>
+                <li><span></span>option3</li>
+                <li><span></span>option4</li>
+                <li><span></span>option5</li>
+                <li><span></span>option6</li>
+                <li><span></span>option7</li>
+                <li><span></span>option8</li>
+            </ul>
+        </div>
+        <div class="items">
+            <button type="button" class="select-all">全选</button>
+            <button type="button" class="no-select select">全不选</button>
+            <button type="button" class="inverse">反选</button>
+        </div>
+    </div>
+
+    <script>
+        var oEditBox = document.getElementById('edit-box'),
+            aEditBtn = oEditBox.querySelectorAll('li .edit-btn'),
+            aContent = oEditBox.querySelectorAll('li .content');
+
+        for (var i=0; i<aEditBtn.length; i++) {
+            aEditBtn[i].index = i;
+            aEditBtn[i].ifEdit = false;
+            aEditBtn[i].onclick = function () {
+                if (!this.ifEdit) {
+                    this.classList.add('active');
+                    this.innerHTML = '确定';
+                    aContent[this.index].disabled = false;
+                    this.ifEdit = true;
+                }else {
+                    this.classList.remove('active');
+                    this.innerHTML = '编辑';
+                    aContent[this.index].disabled = true;
+                    this.ifEdit = false;
+                }
+            }
+        }
+
+    //    表单
+        var oOder = document.getElementById('orderlist'),
+            oSNum = oOder.querySelector('.s-num'),
+            oSPrice = oOder.querySelector('.s-price'),
+            aDecrease = oOder.getElementsByClassName('decrease'),
+            aIncrease = oOder.getElementsByClassName('increase'),
+            aNum = oOder.querySelectorAll('table .num'),
+            aTotal = oOder.querySelectorAll('table .total'),
+            aPrice = oOder.querySelectorAll('table .price');
+
+        function summary() {
+            var sNum = 0,
+                sPrice = 0;
+            for (var i=0; i<aNum.length; i++) {
+                sNum += parseFloat(aNum[i].value);
+                sPrice += parseFloat(aTotal[i].innerHTML);
+            }
+            oSNum.innerHTML = sNum;
+            oSPrice.innerHTML = sPrice;
+        }
+
+        for (var j=0; j<aDecrease.length; j++) {
+            aDecrease[j].index = j;
+            aIncrease[j].index = j;
+            aDecrease[j].onclick = function () {
+                if (aNum[this.index].value > 0) {
+                    aNum[this.index].value --;
+                }
+                aTotal[this.index].innerHTML = parseFloat(aPrice[this.index].innerHTML) * aNum[this.index].value;
+                summary();
+            }
+            aIncrease[j].onclick = function () {
+                aNum[this.index].value ++;
+                aTotal[this.index].innerHTML = parseFloat(aPrice[this.index].innerHTML) * aNum[this.index].value;
+                summary();
+            }
+        }
+    </script>
+    <script>
+        /*
+        *思路：
+        * 1、以 isSelect = false/true 表示是否选中
+        * 2、以 selectCount 记录选中的个数，与 列表选项个数比较，来确定全选、全不选
+        *
+        * 优化：
+        * 1、性能消耗上：变量 = 对象 < 对象的属性、方法 <  DOM < DOM 的属性等，另外，局部变量或对象 < 全局变量或对象
+        * 2、尽量选择性能消耗小的：
+        *   1）尽量减少对DOM的操作，对多次要用到的DOM对象，赋值个变量再操作，如：oLiList.length
+        *   2）函数中，优先使用this代表当前对象
+        * */
+
+        /*全选与反选*/
+        let selectBox = document.getElementById('select-box'),
+            oLiList = selectBox.getElementsByTagName('li'),
+            oBtn = selectBox.getElementsByTagName('button'),
+            selectCount = 0, //选中的个数
+            oLiLength = oLiList.length;
+
+        // 判断是否符合全选、全不选
+        let isSelectAll = function (selectCount) {
+            switch(selectCount) {
+                case oLiLength:
+                    oBtn[0].classList.add('select');
+                    oBtn[1].classList.remove('select');
+                    break;
+                case 0:
+                    oBtn[1].classList.add('select');
+                    oBtn[0].classList.remove('select');
+                    break;
+                default:
+                    oBtn[0].classList.remove('select');
+                    oBtn[1].classList.remove('select');
+            }
+        };
+
+
+        for (let i=0; i<oLiLength; i++) {
+            //isSelect:选中状态
+            oLiList[i].isSelect = false;
+
+            oLiList[i].onclick = function () {
+                /*if (this.isSelect) {
+                    this.isSelect = !this.isSelect;
+                    selectCount--;
+                    this.classList.remove('selected');
+                }else {
+                    this.isSelect = !this.isSelect;
+                    selectCount++;
+                    this.classList.add('selected');
+                }*/
+                // 代码优化优化为：
+                selectCount = this.isSelect ? --selectCount : ++selectCount;
+                this.isSelect = !this.isSelect;
+                this.classList.toggle('selected');
+
+                /*
+                * 判断是否符合全选、全不选，要用到多次，封装为一个函数：isSelectAll
+                switch(selectCount) {
+                    case oLiLength:
+                        oBtn[0].classList.add('select');
+                        oBtn[1].classList.remove('select');
+                        break;
+                    case 0:
+                        oBtn[1].classList.add('select');
+                        oBtn[0].classList.remove('select');
+                        break;
+                    default:
+                        oBtn[0].classList.remove('select');
+                        oBtn[1].classList.remove('select');
+                }
+                */
+                isSelectAll();
+            }
+        }
+
+        oBtn[0].onclick =function () {
+            selectCount = oLiLength;
+            isSelectAll();
+            for (let i=0; i<oLiLength; i++) {
+                oLiList[i].isSelect = true;
+                oLiList[i].classList.add('selected');
+            }
+        };
+        
+        oBtn[1].onclick =function () {
+            selectCount = 0;
+            isSelectAll();
+            for (let i=0; i<oLiLength; i++) {
+                oLiList[i].isSelect = false;
+                oLiList[i].classList.remove('selected');
+            }
+        };
+
+        oBtn[2].onclick =function () {
+            for (let i=0; i<oLiLength; i++) {
+                /*if (oLiList[i].isSelect) {
+                    selectCount--;
+                }else {
+                    selectCount++;
+                }*/
+                selectCount = this.isSelect ? --selectCount : ++selectCount;
+                oLiList[i].isSelect = !oLiList[i].isSelect;
+                oLiList[i].classList.toggle('selected');
+            }
+            isSelectAll();
+        }
+    </script>
+</body>
+</html>

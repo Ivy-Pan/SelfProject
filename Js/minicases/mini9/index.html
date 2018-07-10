@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="Keywords">
+    <meta name="Description" content="Description">
+    <title>Title</title>
+    <style>
+        /*reset*/
+        body, p, ul, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        /*start*/
+        #checkbox {
+            width: 400px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+        }
+        #checkbox .list li {
+            height: 38px;
+            border-bottom: 1px solid #eee;;
+            line-height: 38px;
+            text-indent: 50px;
+        }
+        #checkbox .all {
+            height: 38px;
+            line-height: 38px;
+            text-indent: 50px;
+        }
+        #checkbox .check {
+            background: url("./img/ck.png") no-repeat 15px 9px;
+        }
+        #checkbox .checked {
+            background-image: url("./img/cked.jpg");
+        }
+    </style>
+</head>
+<body>
+    <div id="checkbox">
+        <ul class="list">
+            <li class="check">商品1</li>
+            <li class="check">商品2</li>
+            <li class="check">商品3</li>
+            <li class="check">商品4</li>
+            <li class="check">商品5</li>
+            <li class="check">商品6</li>
+        </ul>
+        <div class="check all">全选</div>
+    </div>
+
+    <script>
+        var oCheckbox = document.getElementById('checkbox'),
+            aCheck = oCheckbox.querySelectorAll('.check'),
+            oCheckAll = oCheckbox.getElementsByClassName('all')[0];
+            oCheckAll.count = 0;
+
+        for (var i=0; i<aCheck.length; i++) {
+            aCheck[i].ifCheck = false;
+            aCheck[i].onclick = function () {
+                if (!this.ifCheck) {
+                    this.classList.add('checked');
+                    this.ifCheck = true;
+                    oCheckAll.count ++;
+                }else {
+                    this.classList.remove('checked');
+                    this.ifCheck = false;
+                    oCheckAll.count --;
+                }
+                if (oCheckAll.count == aCheck.length) {
+                    oCheckAll.classList.add('checked');
+                }else {
+                    oCheckAll.classList.remove('checked');
+                }
+            }
+        }
+        oCheckAll.onclick = function () {
+            if (this.count == aCheck.length) {
+                for (var j=0; j<aCheck.length; j++) {
+                    aCheck[j].classList.remove('checked');
+                    aCheck[j].ifCheck = false;
+                    oCheckAll.count = 0;
+                }
+                this.classList.remove('checked');
+            }else {
+                for (var k=0; k<aCheck.length; k++) {
+                    aCheck[k].classList.add('checked');
+                    aCheck[k].ifCheck = true;
+                    oCheckAll.count = aCheck.length;
+                }
+                this.classList.add('checked');
+            }
+        }
+    </script>
+</body>
+</html>

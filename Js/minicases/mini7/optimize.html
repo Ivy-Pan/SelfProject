@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="Keywords">
+    <meta name="Description" content="Description">
+    <title>简易计算器</title>
+    <style>
+        /*reset*/
+        body, p, ul, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        /*start*/
+        #calculator {
+            width: 300px;
+            margin: 100px auto;
+            border: 1px solid #aaa;
+            border-radius: 8px;
+            background-color: #fefefe;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            overflow: hidden;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, .3);
+        }
+        .panel {
+            padding: 5px 10px;
+            background-color: #999;
+            color: #fff;
+            text-align: right;
+        }
+        .panel p {
+            height: 32px;
+            line-height: 32px;
+            letter-spacing: .1em;
+            overflow: hidden;
+        }
+        .keyboard {
+            text-align: center;
+        }
+        .keyboard::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .keyboard li {
+            float: left;
+            width: 25%;
+            height: 60px;
+            border: 1px solid #ccc;
+            line-height: 60px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        .keyboard .clear, .keyboard .zero {
+            width: 50%;
+        }
+        .keyboard .operator {
+            background-color: #f06923;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+<div id="calculator">
+    <div class="panel">
+        <p class="expression"></p>
+        <p class="result">0</p>
+    </div>
+    <ul class="keyboard">
+        <li class="clear">C</li>
+        <li class="percent">%</li>
+        <li class="equal">=</li>
+        <li class="operator">/</li>
+        <li class="num">7</li>
+        <li class="num">8</li>
+        <li class="num">9</li>
+        <li class="operator">*</li>
+        <li class="num">4</li>
+        <li class="num">5</li>
+        <li class="num">6</li>
+        <li class="operator">-</li>
+        <li class="num">1</li>
+        <li class="num">2</li>
+        <li class="num">3</li>
+        <li class="operator">+</li>
+        <li class="zero num">0</li>
+        <li class="num">.</li>
+    </ul>
+</div>
+
+    <script>
+
+        (function () {
+            let oCalculator = document.getElementById('calculator'),
+                oExpression = oCalculator.getElementsByClassName('expression')[0],
+                oResult = oCalculator.getElementsByClassName('result')[0],
+                oClear = oCalculator.getElementsByClassName('clear')[0],
+                oPercent = oCalculator.getElementsByClassName('percent')[0],
+                oEqual = oCalculator.getElementsByClassName('equal')[0],
+                aNum = oCalculator.getElementsByClassName('num'),
+                aOperator = oCalculator.getElementsByClassName('operator'),
+                num = '',
+                symbol = '',
+                arrExpression = [],
+                result = '';
+
+            // 获取进制: 10 ** decimal
+            let getDecimal = function (x, y) {
+                let xIsInt = Number.isInteger(x * 1),
+                    yIsInt = Number.isInteger(y * 1);
+
+
+                if (xIsInt && yIsInt) {
+                    return 1;
+                } else {
+                    let xString = String(x),
+                        yString = String(y),
+                        xDecimal = xIsInt ? 0 : xString.length - 1 - xString.indexOf('.'),
+                        yDecimal = yIsInt ? 0 : yString.length - 1 - yString.indexOf('.');
+                    return xDecimal > yDecimal ? 10 ** xDecimal : 10 ** yDecimal;
+                }
+            };
+
+            // 根据进制，进行二元运算
+            let doOperation = function (x, y, operator, decimal) {
+                switch (operator) {
+                    case '*':
+                        return (x * decimal) * (y * decimal) / decimal ** 2;
+
+                    case '/':
+                        return (x * decimal) / (y * decimal);
+
+                    case '+':
+                        return ((x * decimal) + y * decimal) / decimal;
+
+                    case '-':
+                        return ((x * decimal) - y * decimal) / decimal;
+
+                    // no default
+                }
+            };
+
+			// 计算
+			let calculate = function (arrData, start = 0, end = arrData.length - 1) {
+
+				let arrDataCopy = arrData.slice(start,  end + 1),   // arrData 副本
+					priorityOne = arrDataCopy.filter(value => (value === '*' || value === '/')), // 运算符按优先级分类
+					priorityTwo = arrDataCopy.filter(value => (value === '+' || value === '-')),
+					index,
+                    numOne,
+                    numTwo;
+
+				while(true) {
+
+					// 依次取出运算符
+					let operator = priorityOne.shift() || priorityTwo.shift();
+
+					if (!operator) {
+						// 计算结束，退出循环
+						break;
+                    }
+
+					index = arrDataCopy.indexOf(operator);
+					numOne = arrDataCopy[index - 1];
+					numTwo = arrDataCopy[index + 1];
+					arrDataCopy.splice(index - 1, index + 2, doOperation(numOne, numTwo, operator, getDecimal(numOne, numTwo)));
+				}
+
+				// 得到最后的计算结果后返回
+				return arrDataCopy.shift();
+			};
+
+			// 数字点击
+			for(let index = 0; index < aNum.length; index++) {
+				aNum[index].onclick = function () {
+
+					// 点击了数字，说明，运算符点击完毕
+					if (symbol !== '') {
+						arrExpression.push(symbol);
+						oExpression.innerHTML += symbol;
+						symbol = '';
+					}
+
+					num += this.innerHTML;
+					oExpression.innerHTML += this.innerHTML;
+
+					console.log(arrExpression);
+				};
+			}
+
+			// 运算符点击
+			for(let index = 0; index < aOperator.length; index++) {
+				aOperator [index].onclick = function () {
+
+					// 如果已经计算过一次了（result不为空），那么表达式重置为结果值，并清空结果
+					if(result !== '') {
+						oExpression.innerHTML = result;
+						result = '';
+					}
+
+					// 点击了运算符，说明数字已经输入完毕
+					if (symbol === '') {
+
+                        // 当还没有点击数字时就先就点击了运算符，让 num = 0；
+						if (num === '') {
+							num = 0;
+							oExpression.innerHTML += num;
+						}
+						arrExpression.push(num);
+						num = '';
+					}
+					symbol = this.innerHTML;
+
+					console.log(arrExpression)
+				};
+			}
+
+			// 百分号点击
+			oPercent.onclick = function () {
+				if (num === '') {
+					num = 0;
+				}
+				num /= 100 ;
+				if(result !== '') {
+					oExpression.innerHTML = result;
+					result = '';
+				}
+				oExpression.innerHTML += this.innerHTML;
+			};
+
+			// = 号点击
+			oEqual.onclick =function () {
+				if (num === '') {
+					num = 0;
+				}
+				arrExpression.push(num);
+				result = calculate(arrExpression);
+				oResult.innerHTML = result;
+
+				// 在计算结果出来后，接着计算，就让结果 = num；并且让 arrExpression 清空
+				num = result;
+				symbol = '';
+				arrExpression.length = 0;
+			};
+
+			// clear 清除点击
+			oClear.onclick = function () {
+				num = '';
+				symbol = '';
+				result = '';
+				arrExpression.length = 0;
+				oExpression.innerHTML = '';
+				oResult.innerHTML = 0;
+			};
+        }());
+
+
+
+    </script>
+</body>
+</html>

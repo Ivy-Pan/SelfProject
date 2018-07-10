@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="Keywords">
+    <meta name="Description" content="Description">
+    <title>查找、替换</title>
+    <style>
+        /*reset*/
+        body, p, ul, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        /*start*/
+        #f-and-r {
+            width: 800px;
+            margin: 100px auto;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #333;
+            font-size: 14px;
+        }
+        #f-and-r .options {
+            padding: 10px 0;
+        }
+        #f-and-r .content p {
+            line-height: 1.5em;
+        }
+        #f-and-r .content span {
+            background-color: pink;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="f-and-r">
+        <div class="options">
+            <input type="text" placeholder="匹配项">
+            <input type="text" placeholder="替换项">
+            <button type="button">查找</button>
+            <button type="button">替换</button>
+        </div>
+        <div class="content">
+            <p>选择一个朋友，选择一个伴侣，和不一样的人在一起，就会有不一样的人生。一个年轻人认为自己整天不高兴，像是患上了抑郁症，于是他去看医生。医生在听了他的陈述之后，开了一个药方给他。药方上写着：去探望一个每天都很开心的朋友，早中晚各一次。 年轻人看了之后很郁闷，这算什么方子，既没有药，也没说怎么治疗。但他还是半信半疑地照做了。一个年轻人认为自己整天不高兴，像是患上了抑郁症，于是他去看医生.年轻人看了之后很郁闷，这算什么方子，既没有药，也没说怎么治疗。但他还是半信半疑地照做了。</p>
+        </div>
+    </div>
+
+    <script>
+        let wrap = document.getElementById('f-and-r'),
+            input = wrap.getElementsByTagName('input'),
+            button = wrap.getElementsByTagName('button'),
+            content = wrap.getElementsByTagName('p')[0],
+            txt = content.innerHTML;
+
+        // 查找
+        button[0].onclick = function () {
+            let findValue = input[0].value.trim();
+
+            // 有非空值才查找（替换）
+            if (findValue) {
+                /*
+                * 要查找什么，是已经明确知道的（就是findValue），需要把它拿出来对它处理后再放回去；
+                * 对于明确已知的东西，可以把它当做分割符，运用split（）或join（）方法
+                * 所以，可以把findValue当做分割符，处理后再放回去。
+                * */
+                content.innerHTML = txt.split(findValue).join(`<span>${findValue}</span>`);
+
+            }
+        };
+
+        // 替换
+        button[1].onclick = function () {
+            let findValue = input[0].value.trim(),
+                replaceValue = input[1].value.trim();
+
+            if (findValue) {
+                // let txtCopy = txt.split(findValue);
+                content.innerHTML = txt.split(findValue).join(`<span>${replaceValue}</span>`);
+
+                // 要把 txt 也相应的更新，并且把它变成纯文本，否则<span>标签会越来越多
+                txt = txt.split(findValue).join(replaceValue);
+            }
+        }
+
+    </script>
+</body>
+</html>

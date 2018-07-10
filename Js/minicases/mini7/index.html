@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="Keywords">
+    <meta name="Description" content="Description">
+    <title>计算器</title>
+    <style>
+        /*reset*/
+        body, p, ul, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        /*start*/
+        #calculator {
+            width: 300px;
+            margin: 100px auto;
+            border: 1px solid #aaa;
+            border-radius: 8px;
+            background-color: #fefefe;
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            overflow: hidden;
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, .3);
+        }
+        .panel {
+            padding: 5px 10px;
+            background-color: #999;
+            color: #fff;
+            text-align: right;
+        }
+        .panel p {
+            height: 32px;
+            line-height: 32px;
+            letter-spacing: .1em;
+            overflow: hidden;
+        }
+        .keyboard {
+            text-align: center;
+        }
+        .keyboard::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .keyboard li {
+            float: left;
+            width: 25%;
+            height: 60px;
+            border: 1px solid #ccc;
+            line-height: 60px;
+            box-sizing: border-box;
+            cursor: pointer;
+        }
+        .keyboard .clear, .keyboard .zero {
+            width: 50%;
+        }
+        .keyboard .operator {
+            background-color: #f06923;
+            color: #fff;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <div class="panel">
+            <p class="expression"></p>
+            <p class="result">0</p>
+        </div>
+        <ul class="keyboard">
+            <li class="clear">C</li>
+            <li class="percent">%</li>
+            <li class="equal">=</li>
+            <li class="operator">/</li>
+            <li class="num">7</li>
+            <li class="num">8</li>
+            <li class="num">9</li>
+            <li class="operator">*</li>
+            <li class="num">4</li>
+            <li class="num">5</li>
+            <li class="num">6</li>
+            <li class="operator">-</li>
+            <li class="num">1</li>
+            <li class="num">2</li>
+            <li class="num">3</li>
+            <li class="operator">+</li>
+            <li class="zero num">0</li>
+            <li class="num">.</li>
+        </ul>
+    </div>
+
+    <script>
+        /*
+       * 须知：
+       * 1、浮点数精度问题解决方法：
+       *       根据运算符的不同，将浮点数转为整数运算，再根据运算规则进一步运算使得计算结果不变
+       * 2、ES6 指数运算符： **
+       *
+       * 思路：（不使用正则）
+       * 1、如果使用正则，那么可以直接把输入的数字和运算符都存储在一个变量里，然后利用正则来区分数字和运算符进行计算，但是，不适用正则，就要把数字和运算符分开再存储，如：[1,'+',4, '*', ……]
+       * 2、判断数字输入：数字输入采用拼接，运算符输入之前，可以确定数字输入完毕，另一方面，说明这个数字是字符串类型的，要计算的时候要注意转为数字类型
+       * 3、计算时优先级问题：
+       *      1）按运算符优先级分类：一类是 * 、/ ； 一类是 + 、-
+       *      2）然后同优先级的，按顺序，先把运算符前后两个数字计算了，用结果将“前后两个数和运算”三个替代掉填入数组
+       *      3）如此循环下去直到最后一次计算结果出来
+       * 4、浮点数计算：
+       *      1）判断是否是浮点数
+       *      2）浮点数变整数的进制：用字符串长度-小数点的索引值，得到的结果取大的；
+       *      3）根据运算符进行浮点数计算
+       * 5、
+       * */
+
+
+        /*
+        * 浮点数进制：floatNum(x, y)得到进制
+        *   1、 整数：进制为 10 ** 0 = 1；
+        *   2、 浮点数，进制为 10 ** 小数位数
+        * */
+        let floatNum = function (x, y) {
+
+            // 要注意的是，x、y的数据类型是不确定的，所以要用到的时候要注意进行类型转换
+            let xIsInt = Number.isInteger(x*1),
+                yIsInt = Number.isInteger(y*1),
+                xString = String(x),
+                yString = String(y),
+                xLastIndex = xString.length - 1,
+                yLastIndex = yString.length - 1,
+                xDecimal = xLastIndex - (xIsInt ? xLastIndex : xString.indexOf('.')),  // 整数时为0，不是整数时得到进制
+                yDecimal = yLastIndex - (yIsInt ? yLastIndex : yString.indexOf('.'));
+
+            if (xIsInt && yIsInt) {
+
+                // 都是整数，返回1的进制
+                return 1;
+            } else {
+
+                // 至少有一个是浮点数，至计算它的进制,取大的
+                return xDecimal >= yDecimal ? 10**xDecimal : 10**yDecimal;
+            }
+        };
+
+
+        /* 两数计算：compute(x, y, operator, decimal)
+        *  x, y, 表示两个数字，operator 表示运算符；decimal 表示小数化为整数的进制
+        *  根据进制得出2元计算公式
+        */
+        let compute = function (x, y, operator, decimal) {
+            switch (operator) {
+                case '*' :
+                    return (x * decimal * (y * decimal)) / decimal**2;
+                case '/' :
+                    return x * decimal / (y * decimal);
+                case '+' :
+                    return (x * decimal + (y * decimal)) / decimal;
+                case '-' :
+                    return (x * decimal - (y * decimal)) / decimal;
+                // no default
+            }
+        };
+
+        /*计算器运算函数：arr 表示存储了数字和运算符的数组，从数组的start开始计算到end，默认是全部计算
+        * 过程是：
+        *   根据运算符优先级，依次计算
+        *       1、计算时，先得到进制
+        *       1、然后根据2元计算公式得出计算结果
+        *       3、用得到的计算结果将表达式数组中对应的数据（也就是刚计算过的2个数和1个运算符）替换掉
+        *       4、接着，依次循环，直到得到最后的计算结果
+        * */
+        let calculate = function (arr, start = 0, end = arr.length - 1) {
+            // 创建一个数组副本，防止污染原数组
+            let arrCopy = arr.slice(start, end + 1);
+
+            // 运算符优先级分类
+            let priority1 = arrCopy.filter(value => (value === '*' || value === '/'));
+            let priority2 = arrCopy.filter(value => (value === '+' || value === '-'));
+
+            while (true) {
+                let index, decimal, operator, result;
+                let symbol = priority1.shift() || priority2.shift();
+
+                if (!symbol) {
+                    break;
+                }
+
+                index = arrCopy.indexOf(symbol);
+                operator = symbol;
+                decimal = floatNum(arrCopy[index - 1], arrCopy[index + 1]);
+                result = compute(arrCopy[index - 1], arrCopy[index + 1], operator, decimal);
+                arrCopy.splice(index - 1, index + 2, result);
+                // arr.splice(start, end + 1, result);
+            }
+            return arrCopy.shift(); // 循环结束后，把最后的计算结果return 出去
+        };
+
+        const oCalculator = document.getElementById('calculator'),
+              oExpression = oCalculator.getElementsByClassName('expression')[0],
+              oResult = oCalculator.getElementsByClassName('result')[0],
+              oClear = oCalculator.getElementsByClassName('clear')[0],
+              oPercent = oCalculator.getElementsByClassName('percent')[0],
+              oEqual = oCalculator.getElementsByClassName('equal')[0],
+              aNum = oCalculator.getElementsByClassName('num'),
+              aOperator = oCalculator.getElementsByClassName('operator');
+
+        let num = '', // 数字
+            symbol = '', // 运算符
+            arrExpression = [], // 存储数字和运算符的数组
+            result = '';
+
+        // 数字点击
+        for(let index = 0; index < aNum.length; index++) {
+            aNum[index].onclick = function () {
+
+                // 点击了数字，说明，运算符点击完毕
+                if (symbol !== '') {
+                    arrExpression.push(symbol);
+                    oExpression.innerHTML += symbol;
+                    symbol = '';
+                }
+
+                num += this.innerHTML;
+                oExpression.innerHTML += this.innerHTML;
+
+                console.log(arrExpression);
+            };
+        }
+
+        // 运算符点击
+        for(let index = 0; index < aOperator.length; index++) {
+            aOperator [index].onclick = function () {
+                /*
+                * 1、如果 symbol 为空，说明还没有连续点击运算符，或说还是连续点击中的第一次点击
+                * 2、不过有没有连续点击运算符，都只在一次时push（num）
+                * 3、如果点击了数字，说明，运算符点击完毕，以连续点击的最后一个运算符为准
+                * */
+
+                // 如果已经计算过一次了（result不为空），那么表达式重置为结果值，并清空结果
+                if(result !== '') {
+                    oExpression.innerHTML = result;
+                    result = '';
+                }
+
+                // 点击了运算符，说明数字已经输入完毕
+                if (symbol === '') {
+
+					// 当还没有点击数字时就先就点击了运算符，让 num = 0；
+                    if (num === '') {
+                        num = 0;
+                        oExpression.innerHTML += num;
+                    }
+                    arrExpression.push(num);
+                    num = '';
+                }
+                symbol = this.innerHTML;
+
+                console.log(arrExpression)
+            };
+        }
+
+
+        // 百分号点击
+        oPercent.onclick = function () {
+            if (num === '') {
+                num = 0;
+            }
+            num /= 100 ;
+            if(result !== '') {
+                oExpression.innerHTML = result;
+                result = '';
+            }
+            oExpression.innerHTML += this.innerHTML;
+        };
+
+        // = 号点击
+        oEqual.onclick =function () {
+            if (num === '') {
+                num = 0;
+            }
+            arrExpression.push(num);
+            result = calculate(arrExpression);
+            oResult.innerHTML = result;
+            // 在计算结果出来后，接着计算，就让结果 = num；并且让 arrExpression 清空
+            num = result;
+            symbol = '';
+            arrExpression.length = 0;
+        };
+
+        // clear 清除点击
+        oClear.onclick = function () {
+            num = '';
+            symbol = '';
+            result = '';
+            arrExpression.length = 0;
+            oExpression.innerHTML = '';
+            oResult.innerHTML = 0;
+        };
+
+
+
+
+    </script>
+</body>
+</html>
