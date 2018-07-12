@@ -32,8 +32,72 @@
 </head>
 <body>
 
+    
+
 
     <script>
+	
+	    // template.js 数据说明
+	
+	    Page({
+		    data: {
+			    // icontab 数据模板
+			    iconTab: {
+				    iconPos: 'left', // icon 在文字左面， 默认在上面
+				    icon: '../../images/img/img1.jpg',
+				    txt: '图标名称'
+			    },
+			
+			    // price 价格数据模板
+			    price: {
+				    priceBottom: "price-bottom",
+				    pPrice: '￥34/份', //现价
+				    oPrice: '￥89'  //原价
+			    },
+			
+			    //  ltd 数据模板
+			    ltd: {
+				    heading: '段落标题',
+				    desc: '段落内容、描述等'
+			    },
+			
+			    // media 媒体对象数据模板
+			    media: {
+				    mediaLeft: 'table-cell',
+				    mediaRight: 'none',
+				    mediaImg: '../../images/img/img1.jpg',
+				    mediaHeading: 'media 标题',
+				    mediaDesc: 'media描述'
+			    },
+			
+			    // thumbanil 缩略图数据模板
+			    thumbnail: {
+				    img: '../../images/img/img1.jpg',
+				    heading: 'thumbnail标题',
+				    desc: 'thumbnail 内容、描述等'
+			    },
+			
+			    // jumbotrom 巨幕数据模板
+			    jumbotrom: {
+				    img: '../../images/img/img2.jpg',
+				    heading: '巨幕标题',
+				    summary: '巨幕概述、描述、内容简介',
+				    btn: {
+					    btnTxt: '按钮',
+					    btnSize: 'mini',
+					    btnType: 'default',
+					    btnPlain: true, //按钮是否镂空，背景色透明
+				    }
+			    },
+			
+			    // banner 轮播数据模板
+			    banner: [
+				    "../../assets/images/index/banner1.jpg",
+				    "../../assets/images/index/banner2.jpg",
+				    "../../assets/images/index/banner3.jpg"
+			    ]
+		    }
+	    })
 
     </script>
 </body>
