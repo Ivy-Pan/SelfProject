@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="Author" content="Ivy">
+    <meta name="Keywords" content="Keywords">
+    <meta name="Description" content="Description">
+    <title>常见排序算法和随记排序算法实现</title>
+    <style>
+        /*reset*/
+        body, p, ul, h1, h2, h3, h4, h5, h6 {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            vertical-align: middle;
+        }
+
+        /*start*/
+
+    </style>
+
+</head>
+<body>
+    <div>
+        <dl>
+            <dt>常见排序算法实现</dt>
+            <dd>冒泡排序</dd>
+            <dd>选择排序</dd>
+            <dd>插入排序</dd>
+        </dl>
+        <dl>
+            <dt>常见随机排序算法实现</dt>
+            <dd>冒泡排序</dd>
+            <dd>选择排序</dd>
+            <dd>插入排序</dd>
+        </dl>
+    </div>
+
+    <script>
+        /*
+        * 常见排序算法：
+        *   1、冒泡排序
+        *   2、选择排序
+        *   3、插入排序
+        * */
+
+        let aDataOne = [3, 23, 2, 48, 28, 16, 9, 6, 37, 54, 63, 1],
+            aDataTwo = [17, 24, 8, 45, 20, 6, 19, 5, 27, 78, 63, 4];
+
+        /*
+        * 冒泡排序：bubbleSor() {}
+        *   1、比较相邻两个数的大小，然后根据升序或降序，来判断两个数是否交换顺序，循环一次过后，就排好了最大或最小值
+        *   2、然后依次循环下一个，直到排好序
+        * */
+
+        let bubbleSort = function (arr) {
+            let len = arr.length;
+
+            // 从前面开始
+            for (let i = 0; i < len - 1; i++) {
+                for (let j = 0; j < len - i; j++) {
+                    if (arr[j] > arr[j + 1]) {  // > 表示升序， < 表示降序
+                        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+                    }
+                }
+            }
+
+            /*
+                // 从后面开始
+                for (let i = 0; i < len - 1; i++) {
+                    for (let j = len - 1; j > i; j++) {
+                        if (arr[j] > arr[j - 1]) {  // > 表示降序， < 表示升序
+                            [arr[j], arr[j - 1]] = [arr[j - 1], arr[j]]
+                        }
+                    }
+                }
+            */
+
+            return arr;
+        };
+
+        /*
+        * 选择排序：selectSort() {}
+        *   1、从数组中不断找出最值放到另一个数组中
+        *   2、或者直接不断放到原数组的最开始或最后面
+        * */
+
+        let selectSort = function(arr) {
+            let len = arr.length,
+                minIndex;
+            for (let i = 0; i < len - 1; i++) {
+                minIndex = i;
+                for (let j = i + 1; j < len; j ++) {
+                    if (arr[minIndex] > arr[j]) {  // > 是升序，< 是降序
+                        minIndex = j;
+                    }
+                }
+                [arr[i], arr[minIndex]] = [arr[minIndex], arr[i]];
+            }
+            return arr;
+        };
+
+        /*
+        * 插入排序：insertSort() {}
+        *   1、假设第一个数已经排好序，让第二个数（也就是待比较数）与第一个数比较，这样就排好了第一和第二个数
+        *   2、接着，让第三个数分别于前面排好的两个数比较，这就排好了三个数
+        *   3、一次类推，知道排好所有数
+        *   4、比较时，先让待比较数存起来，空出它位置，然后依次与前面已经排好的数比较大小，判断是否让与它比较的那个数往后移，如果不用往后移了，就让待比较数放到对应的位置
+        * */
+
+        let insertSort = function(arr) {
+        	// 升序
+        	let len = arr.length,
+                sorting;
+            for (i = 1; i < len; i++) {
+            	sorting = arr[i];  // 先把待比较数存好
+            	for (j = i - 1; j >= 0; j--) {
+            		if (sorting < arr[j]) {
+            			// 如果待比较数比较小，则让它的值存到下一个下标位置上，
+            			arr[j + 1] = arr[j];
+                    } else {
+            			// 如果待比较数比较大，就退出当前循环
+            			break;
+                    }
+                }
+                // 并且让待比较数放到这个数的下一个下标位置
+                arr[j + 1] = sorting;
+            }
+            return arr;
+        };
+
+
+        console.log(insertSort(aDataOne));
+        console.log(insertSort(aDataTwo));
+    </script>
+
+    <script>
+        /*
+        * 常见随记排序算法
+        * */
+        let aDataO = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+	        aDataT = [6, 10, 25, 28, 32, 39, 43, 47, 58, 60];
+        
+        /*
+        * 快速随机排序
+        *   这种随机排序方法，每个数的随机概率不一样，不够公平，但简单
+        * */
+        let randomSort = function (arr) {
+	        return arr.sort(() => Math.random() - 0.5);
+        };
+        
+        /*
+        * 洗牌算法实现随机排序
+        *   原理：按照一前一后的顺序，依次让数字跟其它数字随机交换
+        * */
+        
+        let shuffleSort = function(arr) {
+	        let len = arr.length,
+		        k,
+		        randomIndex,
+		        lastIndex = len - 1;
+	
+	        // min,max 表示范围[min, max]; exclude 表示范围内排数的数
+	        let shuffle = function([min, max], exclude) {
+		        let random = Math.floor(Math.random() * (max - min +1) + min);
+		        return random === exclude ? shuffle([min, max], exclude) : random;
+	        };
+	        
+	        // 随机次数越多越好，最好3倍以上
+	        for(var i = 0; i < len * 2; i++) {
+	        	k = i % len; // 对长度取余，保证下标不会超出长度
+		        
+		        // 一次前面的数与其它数交换
+		        randomIndex = shuffle([0, lastIndex], k);
+	        	[arr[k], arr[randomIndex]] = [arr[randomIndex], arr[k]];
+		
+		        // 一次前面的数与其它数交换
+		        randomIndex = shuffle([0, lastIndex], lastIndex - k);
+		        [arr[lastIndex - k], arr[randomIndex]] = [arr[randomIndex], arr[lastIndex - k]]
+	        }
+	        return arr;
+        };
+        
+        
+        console.log(shuffleSort(aDataO));
+        console.log(shuffleSort(aDataT));
+        
+    </script>
+
+</body>
+</html>
