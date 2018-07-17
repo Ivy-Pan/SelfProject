@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="Ivy">
+	<meta name="Keywords" content="Keywords">
+	<meta name="Description" content="Description">
+	<title>bind()的兼容</title>
+</head>
+<body>
+	<script>
+		let obj = {
+			name: 'obj'
+		},
+			fn = function () {
+			console.log(this);
+		};
+		
+		
+		if(!Function.bind) {
+			Function.prototype.bind = function () {
+				let bindThis = arguments[0], // this要指向的对象
+					that = this;
+				
+				// 类数组转数组对象，就可以调用数组方法
+				// 因为数组的 slice（）原理就是，利用this，对调用待方法的数组进行遍历，那么，如果利用call 或者 apply 改变 this 的指向，就可以对非数组进行遍历，并把它转成数组返回出来
+				let parameter = Array.prototype.slice.call(arguments, 1);
+				
+				// 因为bind（）不会自执行，所以要return一个函数出去，当bind（）（）时，才执行bind里面的语句，也就是fn.apply()
+				return function() {
+					that.apply(bindThis, parameter);
+				}
+			};
+		}
+		
+		
+		
+		fn.bind(obj, 1,2,3,4,5)();
+		
+		
+	
+	</script>
+</body>
+</html>

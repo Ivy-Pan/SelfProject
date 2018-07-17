@@ -122,9 +122,9 @@
         	// 升序
         	let len = arr.length,
                 sorting;
-            for (i = 1; i < len; i++) {
+            for (let  i = 1; i < len; i++) {
             	sorting = arr[i];  // 先把待比较数存好
-            	for (j = i - 1; j >= 0; j--) {
+            	for (let j = i - 1; j >= 0; j--) {
             		if (sorting < arr[j]) {
             			// 如果待比较数比较小，则让它的值存到下一个下标位置上，
             			arr[j + 1] = arr[j];
