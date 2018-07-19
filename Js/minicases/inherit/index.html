@@ -30,6 +30,178 @@
 	</style>
 </head>
 <body>
-
+	<script>
+		
+		/*
+		* 继承：
+		* 1、继承属性：利用call改变this指向
+		* 2、继承原型：
+		*   （1）原型直接赋值
+		*   （2）将父类实例化对象赋值给子类原型
+		*   （3）借助中间类，将父类原型直接赋值给中间类原型，然后将中间类的空实例化对象赋值给子类原型
+		*   （4）通过遍历，将父类原型中的函数（方法）赋值给子类原型对应的属性值
+		* 3、建议通过借助中间类来继承原型
+		* */
+		
+		(function () {
+			function Fn() {
+				this.name = arguments[0];
+			}
+			
+			Fn.prototype = {
+				// 最好要用 constructor 属性标明原型所在的类
+				constructor: Fn,
+			};
+			
+			
+			// 不写在原型上，直接用类扩展的属性或方法，叫静态属性或方法，只能被类调用，不能被它的实例化对象调用
+			Fn.staticFn = function () {
+				console.log("静态方法")
+			}
+			
+			let fn = new Fn('ivy');
+			
+			// 判断某个属性是不是在该实例对象的原型上，不管在哪一层原型上
+			console.log(fn.hasOwnProperty("name"));
+			
+			// obj1 instanceof obj2 ：二元操作符，判断obj1 是不是obj2 的实例,主要看obj2 在不在 obj1 的原型链上
+			console.log(Fn instanceof Function);
+			
+			// ES6 定义类
+			class Obj {
+				// constructor 里面的都不在原型上；换句话说，constructor 以外的，都是原型上的
+				constructor(name, age) {
+					this.name = name;
+					this.age = age;
+					
+				} // 这里不要添加任何符号
+				
+				// constructor以外除了函数（方法）以外，其它类型的数据但都不要
+				people() {
+					console.log(this.name + ' is ' + this.age);
+					
+				}  // 这里不要添加任何符号
+			}
+			
+			let obj1 = new Obj('Ivy', '18');
+			obj1.people();
+			// console.log(obj1.name)
+			
+		}());
+		
+		(function () {
+			// 继承
+			function Fn(parameter) {
+				this.name = parameter.name;
+				this.age = parameter.age;
+				this.sex = parameter.sex;
+			}
+			Fn.prototype = {
+				sayName() {
+					console.log(this.name);
+				},
+				sayAge() {
+					console.log(this.age)
+				}
+			};
+			
+			
+			/*Obj 要继承 Fn
+			* 1、继承属
+			* 2、继承原型
+			* */
+			function Obj(parameter) {
+				
+				// 继承属性：利用call（）使 Fn 类的 this 指向 Obj，这样 Obj 就可以继承 Fn 类的属性了
+				Fn.call(this, parameter);
+				
+				// 自行扩展 Obj 属性
+				this.weight = parameter.weight;
+			}
+			
+			/* 继承原型：
+			*  方案一：直接赋值
+			*       缺点：prototype 原型本质是对象，是引用型数据，因此当改变子类原型时，父类原型也会改变，不建议使用
+			* */
+			// Obj.prototype = Fn.prototype;
+			
+			/* 继承原型：
+			*  方案二：先实例化一个父类的对象，将该实例化对象赋值给子类原型
+			*       缺点：实例化对象里包括了类中定义的属性，当把它赋值给子类的原型的时候，把属性也一同赋值给了原型，虽然不会有什么大影响，但是这样不够纯净，不好
+			* */
+			// Obj.prototype = new Fn({name: 'Ivy'});
+			
+			/* 继承原型：
+			*  方案三：结合方案一和方案二，先定义一个中间辅助类，通过这个辅助类来继承原型
+			* */
+			function Assist() {}
+			Assist.prototype = Fn.prototype;
+			Obj.prototype = new Assist();
+			
+			// 扩展子类原型不影响父类原型
+			Obj.prototype.say = function() {
+				console.log(this.sex);
+			};
+			
+			
+			/*
+			*  继承原型：
+			*  方案四：因为原型里，不出意外，都是一些函数（方法），函数（方法）定义之后就没法修改了，对它都只是调用，所以，可以通过遍历，将父类原型中属性的函数（方法）值复制给子类的原型对象的属性
+			*   缺点：只能得到父类的原型，父类原型的原型就不能继承到了
+			* */
+			/*for(let key in Fn.prototype) {
+				Obj.prototype[key] = Fn.prototype[key];
+			}*/
+			
+			
+			/*
+			* 总结： 建议使用方案三
+			* */
+			
+		}());
+		
+		(function () {
+			// ES6 继承：extends
+			class Fn {  // 父类
+				constructor(option) {
+					this.name = option.name;
+				}
+				
+				sayName() {
+					console.log(this.name);
+				}
+				
+				// 用static 关键字定义的函数（方法），不是原型上的，而属于类的静态方法，只能被类调用
+				static say() {
+					console.log('静态方法')
+				}
+			}
+			
+			class Obj extends Fn{  // 子类继承父类:extends
+				constructor(option) {
+					// 必需调用super（）
+					// 使子类继承父类属性，并为子类添加this关键字，否则子类是不存在this的
+					super(option);
+					
+					// 子类自行扩展属性
+					this.age = option.age;
+				}
+				
+				// 子类会自动继承父类原型，不用管，只要自行扩展自己的原型就好了
+				sayAge() {
+					console.log(this.age);
+				}
+			}
+			
+			const fn = new Fn({name: 'ivy'});
+			const obj = new Obj({name: 'i', age:'18'});
+			
+			fn.sayName();
+			obj.sayName();
+			// fn.sayAge();
+			obj.sayAge();
+		}())
+		
+	</script>
 </body>
 </html>

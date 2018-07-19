@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="Ivy">
+	<meta name="Keywords" content="Keywords">
+	<meta name="Description" content="Description">
+	<title>对象的深浅拷贝</title>
+</head>
+<body>
+<script>
+	/*
+	* 对象的深浅拷贝
+	* 1、对引用型数据进行赋值拷贝，仅是对它的存储地址进行赋值，一旦改变，相同地址的变量都会改变。
+	* 2、对象浅拷贝：就是不管是数值型数据还是引用型数据，仅简单地赋值拷贝，不考虑引用型数据的引用地址问题
+	* 3、对象的深拷贝：就区分数值型数据和引用型数据，对引用型数据一直深入拷贝，直到不再是引用型数据为止；
+	* 4、另外，函数虽然也是引用型数据，但是对于函数，在定义时就已经定了，调用时也只是调用，不会改变它，所以函数就不必深入了，跟数值型数据一样简单拷贝就好
+	* 5、所以，对象拷贝，考虑 json格式对象和数组就好了。
+	* */
+	
+	(function () {
+		// 支持对象：{}、[]、function 深浅拷贝
+		function copyObj(option, deep) {  // option是要拷贝的对象，deep是布尔值，true表示深拷贝，false表示浅拷贝
+			
+			let obj = {};
+			
+			// 判断option是json格式对象还是数组
+			if(option instanceof Array) { // 用对象原型中是否包含Array判断是不是数组
+				obj = [];
+			}
+			
+			/*
+			for(let key in option) {
+				// 如果deep是true，进行深拷贝,为防止没有传值是undefined，对它双取反变成布尔值false
+				if(!!deep) {
+					// 判断是否是引用数据类型; {}、[] 和 null，typeof 都返回object，要排出null
+					if(typeof option[key] === 'object' && option[key] !== 'null') {
+						// 如果是[] 和 {}引用型数据，再次调用函数
+						copyObj(option[key], deep);
+					} else {
+						obj[key] = option[key];
+					}
+				
+				} else {
+					obj[key] = option[key];
+				}
+			}*/
+			
+			// 优化版
+			for(let key in option) {
+				let value = option[key];
+				obj[key] = (!!deep && typeof value === 'object' && value !== 'null') ? copyObj(value, deep) : value;
+			}
+			
+			return obj;
+		}
+		
+	}())
+	
+	(function () {
+		// 对象深浅拷贝：支持[]、{}，不支持function
+		
+		function copyObj(option) {
+			// 把对象变成字符串，又再去掉最外层引号，变成JS代码返回出去
+			return JSON.parse(JSON.stringify(option));
+		}
+	}())
+	
+	
+</script>
+</body>
+</html>
