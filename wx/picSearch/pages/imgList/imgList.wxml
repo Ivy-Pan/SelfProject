@@ -1,0 +1,27 @@
+<!--pages/imgList/imgList.wxml-->
+<view class='container'>
+  <scroll-view class='img-field-wrap' scroll-y bindscrolltolower='scrollMore'>
+    <view class='img-field'>
+      <view class='img-list'>
+        <block wx:for='{{imgList.left}}' wx:key='*this'>
+          <view class='img-list-item'>
+            <image src='{{item.url}}' mode='widthFix' bindtap='previewImg' data-url='{{item.url}}'></image>
+            <view class='download' bindtap='saveInternetImg' data-url='{{item.url}}'>
+              <image src='../../assets/icons/download.png' class='download-icon'></image>
+            </view>
+          </view>
+        </block>
+      </view>
+      <view class='img-list'>
+        <block wx:for='{{imgList.right}}' wx:key='*this'>
+          <view class='img-list-item'>
+            <image src='{{item.url}}' mode='widthFix' bindtap='previewImg' data-url='{{item.url}}'></image>
+            <view class='download' bindtap='saveInternetImg' data-url='{{item.url}}'>
+              <image src='../../assets/icons/download.png' class='download-icon'></image>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </scroll-view>
+</view>

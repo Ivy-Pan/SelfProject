@@ -22,28 +22,59 @@
         }
 
         img {
-            vertical-align: middle;
+            /*vertical-align: middle;*/
         }
 
         /*start*/
-
-
-    </style>
+       .box{
+         width: 500px;
+         border: 1px solid #f00;
+         margin: auto;
+         line-height: 200px;
+         text-align: center;
+       }
+       .box .content{
+         display: inline-block;
+         height: auto;
+         line-height:1;
+         width: 400px;
+         background: #ccc;
+       }
+        
+        </style>
 </head>
 <body>
-	
+    <div class="box">
+        <div class="content">
+            <a href="" title="">黄山</a>
+            <span>就会惊慌吹</span>
+        </div><!-- 
+        <div class="content">
+            <a href="" title="">黄山</a>
+            <span>就会惊慌吹</span>
+        </div> -->
+    </div>
+
+
 
     <script>
-	   function Fn() {
-    
-	   }
-	
-	   Fn.say = function () {
-		   console.log('a')
-	   }
-	   Fn.say();
-	    
-
+        function fn() {
+            console.log('3')
+        }
+        function* generate() {
+            
+            yield setTimeout(fn, 5000);
+            yield console.log('2');
+        }
+        let ge = generate();
+        let a = ge.next()
+        if(!a.done) {
+            ge.next()
+        }
+        
+        
+        
+        
     </script>
 </body>
 </html>

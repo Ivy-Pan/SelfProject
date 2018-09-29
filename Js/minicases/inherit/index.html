@@ -160,9 +160,11 @@
 			
 		}());
 		
+		// ES6 继承：extends
 		(function () {
-			// ES6 继承：extends
-			class Fn {  // 父类
+			// 这里用class声明的父类Fn 虽然看起来很像对象，但它是个函数，它的 typeof 返回的是 function
+			
+			class Fn {
 				constructor(option) {
 					this.name = option.name;
 				}
@@ -176,6 +178,7 @@
 					console.log('静态方法')
 				}
 			}
+			console.log(typeof Fn);
 			
 			class Obj extends Fn{  // 子类继承父类:extends
 				constructor(option) {

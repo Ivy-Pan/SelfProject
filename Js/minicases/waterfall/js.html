@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="Ivy">
+	<meta name="Keywords" content="Keywords">
+	<meta name="Description" content="Description">
+	<title>瀑布流布局：原生js</title>
+	<style>
+		/*reset*/
+		body, p, ul, h1, h2, h3, h4, h5, h6 {
+			margin: 0;
+			padding: 0;
+		}
+		
+		ul, ol {
+			list-style: none;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		img {
+			vertical-align: middle;
+		}
+		
+		/*start*/
+		#falls {
+			/*width: 1000px;*/
+			margin: 50px auto;
+			background-color: pink;
+		}
+		#falls ul {
+			position: relative;
+			margin: auto;
+		}
+		#falls li {
+			float: left;
+			padding: 10px;
+		}
+		#falls .item {
+			position: relative;
+			padding: 10px;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			box-shadow: 2px 2px 5px rgba(0, 0, 0, .4);
+		}
+		#falls .pic img {
+			width: 192px;
+		}
+		#falls .close {
+			visibility: hidden;
+			position: absolute;
+			top: -10px;
+			right: -10px;
+			width: 25px;
+			height: 25px;
+			border: 1px solid #ddd;
+			border-radius: 50%;
+			background: url("images/close.png") no-repeat center/contain;
+			cursor: pointer;
+		}
+		#falls li:hover .close {
+			visibility: visible;
+		}
+	
+	</style>
+</head>
+<body>
+	<div id="falls">
+		<ul>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_00.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_01.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_02.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_03.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_04.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_05.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_06.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_07.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_08.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_09.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_010.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_011.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_012.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_013.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_014.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_015.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_016.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_017.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_018.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_019.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_00.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_01.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_02.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_03.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_04.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_05.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_06.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_07.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_08.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_09.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_010.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_011.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_012.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_013.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_014.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_015.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_016.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_017.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_018.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+			<li>
+				<div class="item">
+					<div class="pic"><img src="./images/p_019.jpg" alt=""></div>
+					<div class="close"></div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+	<script>
+		let wrap = document.getElementById('falls'),
+			container = wrap.getElementsByTagName('ul')[0],
+			items = wrap.getElementsByTagName('li'),
+			arrClose = container.getElementsByClassName("close");
+			
+		waterfalls(wrap, container, items, arrClose);
+		
+		
+		/*
+		* waterfalls(wrap, container, items)
+		*   wrap：外层显示容器DOM对象；container：瀑布流容器DOM对象；items：子项目DOM对象集合
+		* */
+		function waterfalls(wrap, container, items, arrClose) {
+			let itemsWidth = items[0].offsetWidth,
+				colNum,
+				minHeight,
+				minIndex;
+			
+			layout();
+			close();
+			
+			function layout() {
+				let arrHeight = [];
+				
+				colNum = Math.floor(wrap.clientWidth / itemsWidth);
+				
+				// 设置container宽度，让其居中
+				container.style.width = itemsWidth * colNum + "px";
+				
+				for(let i = 0; i < items.length; i++) {
+					if(i < colNum) {
+						arrHeight.push(items[i].offsetHeight);
+						items[i].style.position = "static";
+					} else {
+						minHeight = Math.min.apply(null, arrHeight);
+						minIndex = arrHeight.indexOf(minHeight);
+						
+						items[i].style.position = "absolute";
+						items[i].style.left = itemsWidth * minIndex + "px";
+						items[i].style.top = minHeight + 'px';
+						
+						// arrHeight.splice(minIndex, 1, minIndex + items[i].offsetHeight)
+						arrHeight[minIndex] +=items[i].offsetHeight;
+					}
+					
+				}
+				
+				container.style.height = Math.max.apply(null, arrHeight) + "px";
+			}
+			
+			function close() {
+				for(let i = 0; i < arrClose.length; i++) {
+					arrClose[i].onclick = function () {
+						container.removeChild(this.parentNode.parentNode);
+						layout();
+					}
+				}
+			}
+			
+			window.onresize = function() {
+				layout();
+			};
+			
+			
+		}
+		
+		
+	</script>
+</body>
+</html>

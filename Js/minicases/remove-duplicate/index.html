@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="Ivy">
+	<meta name="Keywords" content="Keywords">
+	<meta name="Description" content="Description">
+	<title>Title</title>
+	<style>
+		/*reset*/
+		body, p, ul, h1, h2, h3, h4, h5, h6 {
+			margin: 0;
+			padding: 0;
+		}
+		
+		ul, ol {
+			list-style: none;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		img {
+			vertical-align: middle;
+		}
+		
+		/*start*/
+	
+	</style>
+</head>
+<body>
+<script>
+	let str = 'b ook, des k, pag, food, book, de sk';
+	// 去重，去空格，单词排序
+	//  去空格： replace（/\s/g, ''）
+	// 去重：先变数组 split(',')；然后遍历去重
+	// 排序： sort（），不传参数
+	let arr = str.replace(/\s/g, '').split(',');
+	for(let i = arr.length - 1; i >= 0; i--) {
+		for(let j = i - 1; j >= 0; j--) {
+			if(arr[i] === arr[j]) {
+				arr.splice(i,1);
+				break;
+			}
+		}
+	}
+	
+	
+	/*
+	* 计算数组中重复元素的个数：reduce（）
+	*
+	* */
+	let core = ['ivy', 'john', 'amy', 'wang', 'lina', 'john', 'lina', 'lina', 'john', 'wang', 'wang', 'john', 'lina', 'lina', 'ivy', 'john', 'amy', 'lina']
+	function copyNum(arr) {
+		let obj = {};
+		
+		return arr.reduce((obj,item) => {
+			obj[item] = obj[item] ? ++obj[item] : 1;
+			return obj;
+		}, obj)
+	}
+	
+	
+</script>
+</body>
+</html>

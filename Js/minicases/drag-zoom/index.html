@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="Ivy">
+	<meta name="Keywords" content="Keywords">
+	<meta name="Description" content="Description">
+	<title>拖拽和缩放：头像编辑</title>
+	<style>
+		/*reset*/
+		body, p, ul, h1, h2, h3, h4, h5, h6 {
+			margin: 0;
+			padding: 0;
+		}
+		
+		ul, ol {
+			list-style: none;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		img {
+			vertical-align: middle;
+		}
+		.clearfix::after {
+			display: block;
+			content: "";
+			clear: both;
+		}
+		
+		/*start*/
+		body {
+			background-color: #aaa;
+		}
+		#portrait {
+			padding: 50px;
+		}
+		.edit, .preview {
+			position: relative;
+			float: left;
+			width: 320px;
+			height: 320px;
+			margin-right: 30px;
+		}
+		#portrait .img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+		.edit .initial-img {
+			opacity: .7;
+			filter: alpha(opacity= 70);
+		}
+		.edit .clip-img {
+			clip: rect(110px, 232px, 232px, 110px);
+		}
+		.clip {
+			position: absolute;
+			top: 110px;
+			left: 110px;
+			width: 120px;
+			height: 120px;
+			min-width: 100px;
+			min-height: 100px;
+			border: 1px solid #fff;
+			background: url(./2.png) no-repeat center/contain;
+			cursor: move;
+		}
+		.clip span {
+			position: absolute;
+			width: 7px;
+			height: 7px;
+			border-radius: 50%;
+			background-color: #fff;
+		}
+		.clip .top {
+			top: -4px;
+			left: 50%;
+			margin-left: -4px;
+			cursor: n-resize;
+		}
+		.clip .right {
+			top: 50%;
+			right: -4px;
+			margin-top: -4px;
+			cursor: e-resize;
+		}
+		.clip .bottom {
+			left: 50%;
+			bottom: -4px;
+			cursor: s-resize;
+			margin-left: -4px;
+		}
+		.clip .left {
+			top: 50%;
+			left: -4px;
+			cursor: w-resize;
+			margin-top: -4px;
+		}
+		.clip .left-top {
+			top: -4px;
+			left: -4px;
+			cursor: nw-resize;
+		}
+		.clip .right-top {
+			top: -4px;
+			right: -4px;
+			cursor: ne-resize;
+		}
+		.clip .right-bottom {
+			bottom: -4px;
+			right: -4px;
+			cursor: se-resize;
+		}
+		.clip .left-bottom {
+			left: -4px;
+			bottom: -4px;
+			cursor: sw-resize;
+		}
+		#portrait .preview .preview-img {
+			top: -110px;
+			left: -110px;
+			clip: rect(110px, 232px, 232px, 110px);
+		}
+	</style>
+</head>
+<body>
+	<div id="portrait" class="clearfix">
+		<div class="edit"  ondragstart="return false">
+			<img src="./1.png" class="img initial-img" alt="portrait">
+			<img src="./1.png" class="img clip-img" alt="portrait">
+			<div class="clip">
+				<span class="top"></span>
+				<span class="right"></span>
+				<span class="bottom"></span>
+				<span class="left"></span>
+				<span class="left-top"></span>
+				<span class="right-top"></span>
+				<span class="right-bottom"></span>
+				<span class="left-bottom"></span>
+			</div>
+		</div>
+		<div class="preview">
+			<img src="./1.png" class="img preview-img" alt="portrait">
+		</div>
+	</div>
+	
+	<script>
+		/*
+		* 使用 事件代理
+		* 拖拽：实质是定位的改变
+		* 缩放：实质是定位和宽高的改变
+		* 拖拽和缩放时，不能超过原背景图样大小
+		* */
+		(function () {
+			// 获取dom对象
+			const oPortrait = document.getElementById('portrait'),
+				  oClip = oPortrait.getElementsByClassName('clip')[0],
+				  oInitialImg = oPortrait.getElementsByClassName('initial-img')[0],
+				  oClipImg = oPortrait.getElementsByClassName('clip-img')[0],
+				  oPreviewImg = oPortrait.getElementsByClassName('preview-img')[0];
+			
+			const {max, min} = Math;
+			
+			// 原图样式宽高（包含padding）
+			const initialImgWidth = oInitialImg.clientWidth,
+				  initialImgHeight = oInitialImg.clientHeight;
+			
+			// 事件代理实现拖拽和缩放,并解决兼容性问题
+			document.onmousedown = function (e) {
+				// 兼容
+				e = e || window.event;
+				const target = e.target || e.srcElement;
+				
+				let top,
+					left,
+					width,
+					height;
+				
+				// clip 的初始位置和宽高
+				let clipInitialTop = oClip.offsetTop,
+					clipInitialLeft = oClip.offsetLeft,
+					clipInitialWidth = oClip.offsetWidth,
+					clipInitialHeight = oClip.offsetHeight;
+				console.log(clipInitialTop)
+				
+				// 鼠标按下时，鼠标位置
+				let mouseDownX = e.clientX,
+					mouseDownY = e.clientY;
+				
+				document.onmousemove = function (event) {
+					event = event || window.event;
+					
+					// 鼠标移动间距，注意有正负之分
+					let moveX = event.clientX - mouseDownX,
+						moveY = event.clientY - mouseDownY;
+					
+					// 事件代理
+					// clipImg 和预览图 opreviewImg 处理
+					let imgTop = oClip.offsetTop,
+						imgLeft = oClip.offsetLeft,
+						imgRight = imgLeft + oClip.offsetWidth,
+						imgBottom = imgTop + oClip.offsetHeight;
+					
+					switch (target.className) {
+						case 'clip':
+							// 当前定位
+							top = clipInitialTop + moveY;
+							left = clipInitialLeft + moveX;
+							
+							// 当前定位限制边界
+							top = max(0, top);
+							top = min(initialImgHeight - clipInitialHeight, top);
+							left = max(0, left);
+							left = min(initialImgWidth - clipInitialWidth, left);
+							
+							// 设置当前定位
+							oClip.style.top = top + 'px';
+							oClip.style.left = left + 'px';
+							
+							break;
+						
+						case 'top':
+							// 限制当前定位、宽高，要注意的是moveY有正负之分
+							moveY = max(-clipInitialTop, moveY);
+							moveY = min(moveY, clipInitialHeight - 100);
+							
+							// 设置当前定位、宽高
+							oClip.style.top = clipInitialTop + moveY + 'px';
+							oClip.style.height = clipInitialHeight - moveY + 'px';
+							
+							break;
+							
+						case 'right':
+							width = clipInitialWidth + moveX;
+							
+							width = max(100, width);
+							width = min(width, initialImgWidth - clipInitialLeft - 1);
+							
+							oClip.style.width = width + 'px';
+							
+							break;
+						
+						case 'bottom':
+							height = clipInitialHeight + moveY;
+							
+							height = max(100, height);
+							height = min(height, initialImgHeight - clipInitialTop - 1);
+							
+							oClip.style.height = height + 'px';
+							
+							break;
+						
+						case 'left':
+							moveX = max(-clipInitialLeft, moveX);
+							moveX = min(moveX, clipInitialWidth - 100);
+							
+							oClip.style.left = clipInitialLeft + moveX + 'px';
+							oClip.style.width = clipInitialWidth - moveX + 'px';
+							
+							break;
+						
+						case 'left-top':
+							moveX = max(-clipInitialLeft, moveX);
+							moveX = min(moveX, clipInitialWidth - 100);
+							moveY = max(-clipInitialTop, moveY);
+							moveY = min(moveY, clipInitialHeight - 100);
+							
+							oClip.style.left = clipInitialLeft + moveX + 'px';
+							oClip.style.width = clipInitialWidth - moveX + 'px';
+							oClip.style.top = clipInitialTop + moveY + 'px';
+							oClip.style.height = clipInitialHeight - moveY + 'px';
+							
+							break;
+						
+						case 'right-top':
+							width = clipInitialWidth + moveX;
+							moveY = max(-clipInitialTop, moveY);
+							moveY = min(moveY, clipInitialHeight - 100);
+							
+							width = max(100, width);
+							width = min(width, initialImgWidth - clipInitialLeft - 1);
+							
+							oClip.style.width = width + 'px';
+							oClip.style.top = clipInitialTop + moveY + 'px';
+							oClip.style.height = clipInitialHeight - moveY + 'px';
+							
+							break;
+						
+						case 'right-bottom':
+							width = clipInitialWidth + moveX;
+							height = clipInitialHeight + moveY;
+							
+							width = max(100, width);
+							width = min(width, initialImgWidth - clipInitialLeft - 1);
+							height = max(100, height);
+							height = min(height, initialImgHeight - clipInitialTop - 1);
+							
+							oClip.style.width = width + 'px';
+							oClip.style.height = height + 'px';
+							
+							break;
+						
+						case 'left-bottom':
+							height = clipInitialHeight + moveY;
+							
+							moveX = max(-clipInitialLeft, moveX);
+							moveX = min(moveX, clipInitialWidth - 100);
+							height = max(100, height);
+							height = min(height, initialImgHeight - clipInitialTop - 1);
+							
+							oClip.style.left = clipInitialLeft + moveX + 'px';
+							oClip.style.width = clipInitialWidth - moveX + 'px';
+							oClip.style.height = height + 'px';
+							
+							break;
+						
+						// no default;
+					}
+					
+					oClipImg.style.clip = `rect(${imgTop}px, ${imgRight}px, ${imgBottom}px, ${imgLeft}px)`;
+					
+					oPreviewImg.style.clip = `rect(${imgTop}px, ${imgRight}px, ${imgBottom}px, ${imgLeft}px)`;
+					oPreviewImg.style.left = -imgLeft + 'px';
+					oPreviewImg.style.top = -imgTop + 'px';
+				}
+			};
+			
+			document.onmouseup = function () {
+				this.onmousemove = null;
+			}
+		}())
+	</script>
+</body>
+</html>
