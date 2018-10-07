@@ -1,0 +1,14 @@
+<!-- 下载 -->
+<template name="download">
+	<view class="download" bindtap="{{type ? type : 'saveInternetImg'}}" data-url="{{url}}">
+		<image src="{{icon ? icon : '../../assets/icons/download.png'}}" class='download-icon'></image>
+	</view>
+</template>
+
+<!-- 图片 -->
+<template name="image">
+	<view class="image">
+		<image src="{{url}}" class="image-img" mode="widthFix"  bindtap="previewImg" data-url="{{url}}"></image>
+		<template is="download" data="{{...download, url}}"></template>
+	</view>
+</template>

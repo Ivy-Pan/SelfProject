@@ -15,6 +15,7 @@
       <input class='search-input' name='keyword'></input>
     </form>
   </view>
+	
 
   <!-- 候选词 -->
   <view class='candidate'>

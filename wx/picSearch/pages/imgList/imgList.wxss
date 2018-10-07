@@ -1,4 +1,5 @@
 /* pages/imgList/imgList.wxss */
+@import "../../template/template.wxss";
 
 /* 图片列表 */
 .img-field-wrap {
@@ -11,28 +12,4 @@
 }
 .img-list {
   flex: 1;
-}
-.img-list-item {
-  position: relative;
-  padding: 5rpx;
-}
-
-.img-list image {
-  display: block;
-  width: 100%;
-}
-.img-field .download {
-  position: absolute;
-  bottom: 5rpx;
-  right: 10rpx;
-}
-
-/* 下载按钮 */
-.download {
-  width: 30px;
-  height: 30px;
-}
-.download-icon {
-  width: 100%;
-  height: 100%;
 }
