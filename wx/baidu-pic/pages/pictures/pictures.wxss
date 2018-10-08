@@ -1,0 +1,15 @@
+/* pages/pictures/pictures.wxss */
+@import "../../template/template.wxss";
+
+scroll-view {
+	height: 100vh;
+}
+
+.waterfall {
+	display: flex;
+	justify-content: space-between;
+	padding: 16rpx 8rpx;
+}
+.waterfall .list {
+	flex: 1;
+}

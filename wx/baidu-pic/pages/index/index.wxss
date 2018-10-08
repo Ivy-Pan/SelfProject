@@ -1,0 +1,63 @@
+/**index.wxss**/
+
+/* page 页面 */
+page {
+  overflow: hidden;
+  color: #fff;
+}
+.page-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  filter: blur(28px);
+}
+
+/* logo */
+.logo {
+  width: 360rpx;
+  margin: 200rpx auto 0;
+}
+.logo-img {
+  width: 100%;
+}
+
+/* 搜索条 */
+.search-bar {
+  margin-top: 30rpx;
+  padding: 15px 30px;
+}
+.search-form {
+  display: block;
+  padding: 3px 5px;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.search-btn {
+  float: right;
+  background-color: transparent;
+}
+.search-icon {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+.search-input {
+  height: 32px;
+  line-height: 32px;
+}
+
+/* 候选词 */
+.candidate {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 0 80rpx;
+}
+.candidate-item {
+  padding: 20rpx 30rpx;
+}

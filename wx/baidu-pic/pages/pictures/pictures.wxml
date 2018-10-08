@@ -1,0 +1,9 @@
+<!--pages/pictures/pictures.wxml-->
+<import src="../../template/template.wxml" />
+<view class="container">
+	<scroll-view class="pic-list" scroll-y="true" bindscrolltolower="scrollMore">
+		<view class="scroll-view-inner waterfall" bindtap="imgHandle">
+			<template is="list" wx:for="{{pic}}" wx:for-item="list" wx:key="{{list}}" data="{{list}}"></template>
+		</view>
+	</scroll-view>
+</view>

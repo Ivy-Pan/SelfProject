@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<image src="../../assets/images/search-bg.jpg" class='page-bg'></image>
+<view class='container'>
+  <!-- logo -->
+  <view class='logo'>
+    <image src="../../assets/icons/logo.png" class="logo-img" mode="widthFix"></image>
+  </view>
+
+  <!-- 搜索条 -->
+  <view class='search-bar'>
+    <form class='search-form' bindsubmit='searchImg'>
+      <button class='search-btn' form-type='submit'>
+        <image src="../../assets/icons/search-icon.png" class='search-icon'></image>
+      </button>
+      <input class='search-input' name='keyword'></input>
+    </form>
+  </view>
+	
+
+  <!-- 候选词 -->
+  <view class='candidate'>
+    <block wx:for="{{candidate}}" wx:key="*this">
+      <navigator class='candidate-item' url='../pictures/pictures?word={{item}}' open-type='navigate'>{{item}}</navigator>
+    </block>
+  </view>
+</view>

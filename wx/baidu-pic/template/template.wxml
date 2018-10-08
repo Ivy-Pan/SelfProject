@@ -1,0 +1,16 @@
+<!-- pic -->
+<template name="pic">
+	<view class="pic">
+		<image src="{{thumbUrl}}" class="pic-img" mode="widthFix" data-url="{{middleUrl}}" data-handle="previewImg"></image>
+		<view class="download">
+			<image src="../../assets/icons/download.png" class="download-icon" data-handle="download" data-url="{{middleUrl}}"></image>
+		</view>
+	</view>
+</template>
+
+<!-- list -->
+<template name="list">
+	<view class="list">
+		<template is="pic" data="{{...item}}" wx:for="{{list}}" wx:key="{{item}}"></template>
+	</view>
+</template>

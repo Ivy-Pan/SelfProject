@@ -14,7 +14,7 @@ Page({
 		// 分页加载
 		word: "插画",  // 关键字
 		pageNum: 0,  // 加载第几页
-		perNum: 60,  // 每页加载数量
+		perNum: 50,  // 每页加载数量
 		imgList: {  // 左、右列表存放图片
 			left: [],
 			right: []
@@ -107,7 +107,6 @@ Page({
 				this.getWaterfall(imgData)
 			})
 			.catch(err => {
-				
 				console.log(err)
 			});
 	},
@@ -120,7 +119,6 @@ Page({
 	
 
 	// 预览图片
-// 图片预览
 	previewImg (res) {
 	
 	let urls = [...this.data.imgList.left, ...this.data.imgList.right].map(img => img.url);
