@@ -7,7 +7,7 @@ scroll-view {
 
 .waterfall {
 	display: flex;
-	justify-content: space-between;
+	space-between:justify-content;
 	padding: 16rpx 8rpx;
 }
 .waterfall .list {

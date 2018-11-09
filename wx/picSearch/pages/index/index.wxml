@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--login.wxml-->
 <image src="../../assets/images/search-bg.jpg" class='page-bg'></image>
 <view class='container'>
   <!-- logo -->

@@ -6,6 +6,7 @@
     <meta name="Keywords" content="Keywords">
     <meta name="Description" content="Description">
     <title>测试</title>
+    <script src="./test.js"></script>
     <style>
         /*reset*/
         body, p, ul, h1, h2, h3, h4, h5, h6 {
@@ -42,11 +43,20 @@
        }
         
         </style>
+    <script src="./test.js"></script>
+    <script>
+        console.log('head区内部script');
+    </script>
 </head>
 <body>
-    <div class="box">
+<script>
+	throw new Error('测试')
+    console.log('body：前');
+</script>
+    <div class="box" name="box">
+        
         <div class="content">
-            <a href="" title="">黄山</a>
+            <a href="" title="" class="a">黄山</a>
             <span>就会惊慌吹</span>
         </div><!-- 
         <div class="content">
@@ -58,23 +68,9 @@
 
 
     <script>
-        function fn() {
-            console.log('3')
-        }
-        function* generate() {
-            
-            yield setTimeout(fn, 5000);
-            yield console.log('2');
-        }
-        let ge = generate();
-        let a = ge.next()
-        if(!a.done) {
-            ge.next()
-        }
-        
-        
-        
-        
+	    let test = document.getElementsByClassName('box');
+	    console.log(test[0])
+	    console.log('body：后')
     </script>
 </body>
 </html>
