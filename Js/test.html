@@ -1,76 +1,77 @@
 <!DOCTYPE html>
 <html lang="zh-Hans-Cn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="Author" content="Ivy">
-    <meta name="Keywords" content="Keywords">
-    <meta name="Description" content="Description">
-    <title>测试</title>
-    <script src="./test.js"></script>
-    <style>
-        /*reset*/
-        body, p, ul, h1, h2, h3, h4, h5, h6 {
-            margin: 0;
-            padding: 0;
-        }
-
-        ul, ol {
-            list-style: none;
-        }
-
-        a {
-            text-decoration: none;
-        }
-
-        img {
-            /*vertical-align: middle;*/
-        }
-
-        /*start*/
-       .box{
-         width: 500px;
-         border: 1px solid #f00;
-         margin: auto;
-         line-height: 200px;
-         text-align: center;
-       }
-       .box .content{
-         display: inline-block;
-         height: auto;
-         line-height:1;
-         width: 400px;
-         background: #ccc;
-       }
-        
-        </style>
-    <script src="./test.js"></script>
-    <script>
-        console.log('head区内部script');
-    </script>
+	<meta charset="UTF-8">
+	<meta name="Author" content="Ivy">
+	<meta name="Keywords" content="Keywords">
+	<meta name="Description" content="Description">
+	<title>测试</title>
+	<style>
+		/*reset*/
+		body, p, ul, h1, h2, h3, h4, h5, h6 {
+			margin: 0;
+			padding: 0;
+		}
+		
+		ul, ol {
+			list-style: none;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		img {
+			/*vertical-align: middle;*/
+		}
+		
+		/*start*/
+		.box {
+			width: 500px;
+			border: 1px solid #f00;
+			margin: auto;
+			line-height: 200px;
+			text-align: center;
+		}
+		
+		.box .content {
+			display: inline-block;
+			height: auto;
+			line-height: 1;
+			width: 400px;
+			background: #ccc;
+		}
+	
+	</style>
 </head>
 <body>
 <script>
-	throw new Error('测试')
-    console.log('body：前');
+	function Class1(opt) {
+		this.name = opt.name;
+	}
+	Class1.prototype = {
+		on() {
+			console.log('on')
+		}
+	}
+	
+	function Class2(opt) {
+		Class1.call(this, opt)
+	}
+	
+	let opt = {
+		name: 'Ivy'
+	}
+	// let obj1 = new Class1(opt);
+	let obj1 = {}
+	obj1.prototype = Class1.prototype;
+	
+	Class2.prototype = obj1;
+	
+	let obj2 = new Class2(opt);
+	
+	console.log(obj2)
+
 </script>
-    <div class="box" name="box">
-        
-        <div class="content">
-            <a href="" title="" class="a">黄山</a>
-            <span>就会惊慌吹</span>
-        </div><!-- 
-        <div class="content">
-            <a href="" title="">黄山</a>
-            <span>就会惊慌吹</span>
-        </div> -->
-    </div>
-
-
-
-    <script>
-	    let test = document.getElementsByClassName('box');
-	    console.log(test[0])
-	    console.log('body：后')
-    </script>
 </body>
 </html>
