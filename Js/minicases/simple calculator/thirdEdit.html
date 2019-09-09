@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="UTF-8">
+	<title>简易计算器第三次编辑</title>
+
+	<style>
+    /*reset*/
+    body, p, ul, h1, h2, h3, h4, h5, h6 {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul, ol {
+      list-style: none;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    img {
+      vertical-align: middle;
+    }
+
+    /*start*/
+    #calculator {
+      width: 300px;
+      margin: 100px auto;
+      border: 1px solid #aaa;
+      border-radius: 8px;
+      background-color: #fefefe;
+      color: #333;
+      font-size: 18px;
+      font-weight: bold;
+      overflow: hidden;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, .3);
+    }
+    .panel {
+      padding: 5px 10px;
+      background-color: #999;
+      color: #fff;
+      text-align: right;
+  	}
+    .panel p {
+      height: 32px;
+      line-height: 32px;
+      letter-spacing: .1em;
+      overflow: hidden;
+    }
+    .keyboard {
+      text-align: center;
+    }
+    .keyboard::after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  	.keyboard li {
+      float: left;
+      width: 25%;
+      height: 60px;
+      border: 1px solid #ccc;
+      line-height: 60px;
+      box-sizing: border-box;
+      cursor: pointer;
+    }
+    .keyboard .clear, .keyboard .zero {
+      width: 50%;
+    }
+    .keyboard .operator {
+      background-color: #f06923;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+	<div id="calculator">
+    <div class="panel">
+      <p class="expression"></p>
+      <p class="result">0</p>
+    </div>
+    <ul class="keyboard">
+      <li class="clear">C</li>
+      <li class="percent">%</li>
+      <li class="equal">=</li>
+      <li class="operator">/</li>
+      <li class="num">7</li>
+      <li class="num">8</li>
+      <li class="num">9</li>
+      <li class="operator">*</li>
+      <li class="num">4</li>
+      <li class="num">5</li>
+      <li class="num">6</li>
+      <li class="operator">-</li>
+      <li class="num">1</li>
+      <li class="num">2</li>
+      <li class="num">3</li>
+      <li class="operator">+</li>
+      <li class="zero num">0</li>
+      <li class="num">.</li>
+    </ul>
+  </div>
+
+  <script>
+  	const counter = document.getElementById('calculator'),
+  				numBtns = counter.getElementsByClassName('num'),
+		  		operatorBtns = counter.getElementsByClassName('operator'),
+		  		equalBtn = counter.getElementsByClassName('equal')[0],
+		  		clearBtn = counter.getElementsByClassName('clear')[0],
+		  		panelOutput = counter.getElementsByClassName('expression')[0],
+		  		panelResult = counter.getElementsByClassName('result')[0];
+
+		 let 	operators = ['+', '-', '*', '%'],
+		 			expression = [];
+
+			
+		// 结果行初始化
+		const panelInitial = function (panel) {
+			console.log('panelInitial')
+
+			// panelResult.innerHTML = '';
+
+			return panelResult.innerHTML = ''
+		};
+
+
+	  // 数字输入
+	  [...numBtns].forEach((item, index) => {
+	  	numBtns[index].onclick = function() {
+	  		console.log('numBtns')
+
+
+	  		let resultText = panelResult.innerHTML,
+	  				thisText = this.innerHTML;
+
+	  		/*
+				 * 正式输入数字前，运算符的处理
+				 * ------------------------------------------------------
+	  		*/
+	  		if(resultText in operators) {
+	  			expression.push(resultText)
+	  		}
+	  		
+
+
+	  		/*
+				 * 正式输入数字
+				 * ----------------------------------------------------
+	  		*/
+
+	  		// 结果行显示
+	  		if(resultText === '0') {
+	  			resultText = panelInitial(panelResult);
+	  		}
+	  		// panelResult.innerHTML === '0' || panelInitial(panelResult);
+
+	  		// 小数点前没有其它数字
+	  		if(resultText === '' && thisText === '.') {
+	  			panelResult.innerHTML = '0';
+	  		}
+
+	  		panelResult.innerHTML += thisText;
+
+	  		// 
+	  	};
+	  });
+
+	  // 运算符输入
+	  [...operatorBtns].forEach((item, index) => {
+	  	panelOutput.innerHTML += panelResult.innerHTML;
+
+	  	operatorBtns[index].onclick = function () {
+	  		panelResult.innerHTML = this.innerHTML;
+	  	}
+	  })
+
+
+	  // 清除所有
+	  clearBtn.onclick = function () {
+	  	panelResult.innerHTML = '0';
+	  };
+
+
+
+
+  </script>
+</body>
+</html>

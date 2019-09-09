@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="Ivy">
+	<meta name="Keywords" content="Keywords">
+	<meta name="Description" content="Description">
+	<title>图片飞入</title>
+	<style>
+		/*reset*/
+		body, p, ul, h1, h2, h3, h4, h5, h6 {
+			margin: 0;
+			padding: 0;
+		}
+		ul, ol {
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+		}
+		img {
+			vertical-align: middle;
+		}
+		
+		/*start*/
+		#bg {
+			position: relative;
+			width: 500px;
+			height: 500px;
+			margin: 50px auto;
+			border: 1px solid #ddd;
+		}
+		#bg div {
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+	</style>
+	<script src="animation.js"></script>
+</head>
+<body>
+	<div id="bg">
+	</div>
+	
+	<script>
+		let bg = document.getElementById('bg');
+		let imgElements = bg.getElementsByTagName('div');
+		let row = 10;
+		let col = 10;
+		let imgWidth = Number.parseFloat(window.getComputedStyle(bg).width) / row;
+		let imgHeight = Number.parseFloat(window.getComputedStyle(bg).height) / col;
+		let imgsNum = row * col;
+		let imgIndex = 0;
+		let animateData = [];
+		
+		
+		
+		for (let i = 0; i < row; i++) {
+			for (let j = 0; j < col; j++) {
+				bg.innerHTML += `<div style="width: ${imgWidth}px; height: ${imgHeight}px;"></div>`;
+				animateData.push({top: j * imgWidth, left: i * imgHeight})
+			}
+		}
+		animateData.sort(() => { return Math.random() - 0.5});
+		
+		fly();
+		
+		function fly() {
+			if(imgIndex >= imgsNum) { return; }
+			
+			imgElements[imgIndex].style.background = `url('./images/img.png') no-repeat ${-animateData[imgIndex].left}px ${-animateData[imgIndex].top}px`;
+			
+			animation(imgElements[imgIndex], animateData[imgIndex], 150, () => {
+				imgIndex ++;
+				window.requestAnimationFrame(fly);
+			})
+			
+			
+			
+		}
+		
+	</script>
+</body>
+</html>

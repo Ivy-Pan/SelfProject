@@ -27,50 +27,43 @@
 		
 		/*start*/
 		.box {
-			width: 500px;
-			border: 1px solid #f00;
-			margin: auto;
-			line-height: 200px;
-			text-align: center;
+			padding: 20px;
 		}
-		
-		.box .content {
-			display: inline-block;
-			height: auto;
-			line-height: 1;
-			width: 400px;
-			background: #ccc;
-		}
+    .father {
+      width: 100px;
+      height: 100px;
+      border: 1px solid red;
+    }
+    .son1 {
+      width: 70px;
+      height: 70px;
+      border: 1px solid red;
+    }
+    .son2 {
+      width: 40px;
+      height: 40px;
+      border: 1px solid red;
+    }
 	
 	</style>
 </head>
 <body>
+  <div class='box father'>
+    <div class="box son1">
+      <div class="box son2">
+        
+      </div>
+    </div>
+  </div>
+
 <script>
-	function Class1(opt) {
-		this.name = opt.name;
-	}
-	Class1.prototype = {
-		on() {
-			console.log('on')
-		}
-	}
-	
-	function Class2(opt) {
-		Class1.call(this, opt)
-	}
-	
-	let opt = {
-		name: 'Ivy'
-	}
-	// let obj1 = new Class1(opt);
-	let obj1 = {}
-	obj1.prototype = Class1.prototype;
-	
-	Class2.prototype = obj1;
-	
-	let obj2 = new Class2(opt);
-	
-	console.log(obj2)
+	const test = function() {
+    console.log(this)
+    console.log(typeof this)
+  }
+
+  test.call('string')
+
 
 </script>
 </body>

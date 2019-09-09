@@ -16,49 +16,267 @@
     <favorites_list name="Js" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="test.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-              <folding>
-                <element signature="e#311#369#0" />
-                <element signature="e#386#427#0" />
-                <element signature="e#439#485#0" />
-                <element signature="e#499#546#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/minicases/mini12/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5513784">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/minicases/miniJQuery/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1150">
+                  <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="miniJQ.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/minicases/miniJQuery/miniJQ.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="511">
+                  <caret line="746" column="17" selection-start-line="746" selection-start-column="17" selection-end-line="746" selection-end-column="17" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file leaf-file-name="Fyobject.js" pinned="false" current-in-tab="false">
+            <entry file="file://E:/learning/前端/潭州课堂/JavaScript/jQuery 微型库/第一节课/demo/Fyobject.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="621">
+                  <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
+                  <folding>
+                    <element signature="e#113#569#0" />
+                    <element signature="e#629#1453#0" />
+                    <element signature="e#1981#2843#0" />
+                    <element signature="e#2874#3400#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="Tz-40-js.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/minicases/miniJQuery/Tz-40-js.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="264">
+                  <caret line="669" column="77" selection-start-line="669" selection-start-column="71" selection-end-line="669" selection-end-column="77" />
+                  <folding>
+                    <element signature="e#132#471#0" />
+                    <element signature="e#189#468#0" />
+                    <element signature="e#371#446#0" />
+                    <element signature="e#409#441#0" />
+                    <element signature="e#531#1151#0" />
+                    <element signature="e#578#1148#0" />
+                    <element signature="e#988#1099#0" />
+                    <element signature="e#1194#1283#0" />
+                    <element signature="e#1234#1280#0" />
+                    <element signature="e#1338#1753#0" />
+                    <element signature="e#1432#1501#0" />
+                    <element signature="e#1554#1622#0" />
+                    <element signature="e#1628#1672#0" />
+                    <element signature="e#1822#2133#0" />
+                    <element signature="e#1855#2129#0" />
+                    <element signature="e#1878#1993#0" />
+                    <element signature="e#1915#1947#0" />
+                    <element signature="e#1953#1988#0" />
+                    <element signature="e#2020#2125#0" />
+                    <element signature="e#2048#2079#0" />
+                    <element signature="e#2085#2120#0" />
+                    <element signature="e#2201#2347#0" />
+                    <element signature="e#2234#2276#0" />
+                    <element signature="e#2303#2344#0" />
+                    <element signature="e#2428#2550#0" />
+                    <element signature="e#2466#2498#0" />
+                    <element signature="e#2504#2547#0" />
+                    <element signature="e#2596#2639#0" />
+                    <element signature="e#2694#2887#0" />
+                    <element signature="e#2744#2884#0" />
+                    <element signature="e#2818#2835#0" />
+                    <element signature="e#2860#2880#0" />
+                    <element signature="e#2937#3369#0" />
+                    <element signature="e#2998#3286#0" />
+                    <element signature="e#3497#4790#0" />
+                    <element signature="e#3543#4090#0" />
+                    <element signature="e#3573#3685#0" />
+                    <element signature="e#3713#3813#0" />
+                    <element signature="e#3848#3916#0" />
+                    <element signature="e#3949#4007#0" />
+                    <element signature="e#4031#4085#0" />
+                    <element signature="e#4117#4487#0" />
+                    <element signature="e#4146#4197#0" />
+                    <element signature="e#4148#4155#0" />
+                    <element signature="e#4231#4266#0" />
+                    <element signature="e#4296#4345#0" />
+                    <element signature="e#4374#4398#0" />
+                    <element signature="e#4432#4482#0" />
+                    <element signature="e#4539#4565#0" />
+                    <element signature="e#4603#4641#0" />
+                    <element signature="e#4719#4742#0" />
+                    <element signature="e#4836#6073#0" />
+                    <element signature="e#4916#4923#0" />
+                    <element signature="e#5037#6053#0" />
+                    <element signature="e#5057#6033#0" />
+                    <element signature="e#5116#5577#0" />
+                    <element signature="e#5145#5265#0" />
+                    <element signature="e#5317#5492#0" />
+                    <element signature="e#5520#5570#0" />
+                    <element signature="e#5583#5928#0" />
+                    <element signature="e#5612#5698#0" />
+                    <element signature="e#5749#5843#0" />
+                    <element signature="e#5871#5921#0" />
+                    <element signature="e#5946#6026#0" />
+                    <element signature="e#6115#7219#0" />
+                    <element signature="e#6255#7199#0" />
+                    <element signature="e#6436#7194#0" />
+                    <element signature="e#6470#6849#0" />
+                    <element signature="e#6488#6689#0" />
+                    <element signature="e#6528#6681#0" />
+                    <element signature="e#6695#6842#0" />
+                    <element signature="e#6855#7157#0" />
+                    <element signature="e#6881#7053#0" />
+                    <element signature="e#6948#7045#0" />
+                    <element signature="e#7059#7150#0" />
+                    <element signature="e#7267#8562#0" />
+                    <element signature="e#7347#7354#0" />
+                    <element signature="e#7468#8542#0" />
+                    <element signature="e#7488#8522#0" />
+                    <element signature="e#7547#8036#0" />
+                    <element signature="e#7576#7725#0" />
+                    <element signature="e#7776#7951#0" />
+                    <element signature="e#7979#8029#0" />
+                    <element signature="e#8042#8417#0" />
+                    <element signature="e#8071#8187#0" />
+                    <element signature="e#8238#8332#0" />
+                    <element signature="e#8360#8410#0" />
+                    <element signature="e#8435#8515#0" />
+                    <element signature="e#8625#8766#0" />
+                    <element signature="e#8663#8761#0" />
+                    <element signature="e#8731#8756#0" />
+                    <element signature="e#8810#9057#0" />
+                    <element signature="e#8847#8967#0" />
+                    <element signature="e#8857#8894#0" />
+                    <element signature="e#8905#8946#0" />
+                    <element signature="e#8973#9053#0" />
+                    <element signature="e#9005#9030#0" />
+                    <element signature="e#9083#9354#0" />
+                    <element signature="e#9120#9260#0" />
+                    <element signature="e#9130#9171#0" />
+                    <element signature="e#9182#9239#0" />
+                    <element signature="e#9266#9350#0" />
+                    <element signature="e#9298#9327#0" />
+                    <element signature="e#9380#9651#0" />
+                    <element signature="e#9417#9557#0" />
+                    <element signature="e#9427#9468#0" />
+                    <element signature="e#9479#9536#0" />
+                    <element signature="e#9563#9647#0" />
+                    <element signature="e#9595#9624#0" />
+                    <element signature="e#9700#9861#0" />
+                    <element signature="e#9755#9775#0" />
+                    <element signature="e#9908#9992#0" />
+                    <element signature="e#10026#10463#0" />
+                    <element signature="e#10053#10442#0" />
+                    <element signature="e#10188#10393#0" />
+                    <element signature="e#10239#10387#0" />
+                    <element signature="e#10263#10300#0" />
+                    <element signature="e#10344#10380#0" />
+                    <element signature="e#10500#10864#0" />
+                    <element signature="e#10527#10843#0" />
+                    <element signature="e#10656#10798#0" />
+                    <element signature="e#10709#10792#0" />
+                    <element signature="e#10748#10785#0" />
+                    <element signature="e#10932#11023#0" />
+                    <element signature="e#11080#11265#0" />
+                    <element signature="e#11107#11244#0" />
+                    <element signature="e#11164#11200#0" />
+                    <element signature="e#11206#11239#0" />
+                    <element signature="e#11300#11861#0" />
+                    <element signature="e#11331#11369#0" />
+                    <element signature="e#11375#11404#0" />
+                    <element signature="e#11480#11572#0" />
+                    <element signature="e#11629#11841#0" />
+                    <element signature="e#11680#11835#0" />
+                    <element signature="e#11754#11828#0" />
+                    <element signature="e#11894#12122#0" />
+                    <element signature="e#11949#11981#0" />
+                    <element signature="e#11987#12102#0" />
+                    <element signature="e#12045#12096#0" />
+                    <element signature="e#12155#13187#0" />
+                    <element signature="e#12665#12725#0" />
+                    <element signature="e#12937#13022#0" />
+                    <element signature="e#13215#13796#0" />
+                    <element signature="e#13858#14193#0" />
+                    <element signature="e#14267#14578#0" />
+                    <element signature="e#14610#14822#0" />
+                    <element signature="e#15907#16577#0" />
+                    <element signature="e#15979#16139#0" />
+                    <element signature="e#15996#16134#0" />
+                    <element signature="e#16073#16096#0" />
+                    <element signature="e#16237#16380#0" />
+                    <element signature="e#16246#16314#0" />
+                    <element signature="e#16329#16365#0" />
+                    <element signature="e#16421#16513#0" />
+                    <element signature="e#16459#16509#0" />
+                    <element signature="e#16539#16574#0" />
+                    <element signature="e#16623#16741#0" />
+                    <element signature="e#16657#16737#0" />
+                    <element signature="e#16707#16733#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Number</find>
+      <find>console</find>
+      <find>pattern</find>
+      <find>_addEventFn</find>
+      <find>getNodes</find>
+      <find>modifierHandle</find>
+      <find>_domReadyEvent</find>
+      <find>===</find>
+      <find>console.log</find>
+      <find>copyNodes</find>
+    </findStrings>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/test.html" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/minicases/miniJQuery/miniJQ.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/minicases/miniJQuery/Tz-40-js.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/minicases/motion/motion.html" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/minicases/mini10/index.html" />
-        <option value="$PROJECT_DIR$/test.html" />
         <option value="$PROJECT_DIR$/minicases/mini12/index.html" />
         <option value="$PROJECT_DIR$/minicases/mini7/index1.html" />
         <option value="$PROJECT_DIR$/minicases/mini7/index.html" />
         <option value="$PROJECT_DIR$/minicases/mini7/optimize.html" />
+        <option value="$PROJECT_DIR$/test.js" />
+        <option value="$PROJECT_DIR$/minicases/motion/motion.html" />
+        <option value="$PROJECT_DIR$/minicases/motion/banner.html" />
+        <option value="$PROJECT_DIR$/minicases/motion/animation.js" />
+        <option value="$PROJECT_DIR$/minicases/motion/imgFlyIn.html" />
+        <option value="E:/learning/前端/潭州课堂/JavaScript/jQuery 微型库/第一节课/demo/Fyobject.js" />
+        <option value="$PROJECT_DIR$/test.html" />
+        <option value="E:/learning/前端/潭州课堂/JavaScript/jQuery 微型库/第四节课（完结）/demo/Tz-40-js.js" />
+        <option value="$PROJECT_DIR$/minicases/miniJQuery/Tz-40-js.js" />
+        <option value="$PROJECT_DIR$/minicases/miniJQuery/index.html" />
+        <option value="$PROJECT_DIR$/minicases/miniJQuery/miniJQ.js" />
       </list>
     </option>
   </component>
@@ -69,17 +287,15 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="87" />
-    <option name="y" value="8" />
-    <option name="width" value="1232" />
+    <option name="x" value="112" />
+    <option name="width" value="1255" />
     <option name="height" value="745" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -87,10 +303,27 @@
               <item name="Js" type="b2602c69:ProjectViewProjectNode" />
               <item name="Js" type="462c0819:PsiDirectoryNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
             <path>
-              <item name="Js" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Js" type="462c0819:PsiDirectoryNode" />
-              <item name="minicases" type="462c0819:PsiDirectoryNode" />
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Js" type="cbb8eebc:String" user="Js" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Js" type="cbb8eebc:String" user="Js" />
+              <item name="minicases" type="cbb8eebc:String" user="minicases" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="Js" type="cbb8eebc:String" user="Js" />
+              <item name="minicases" type="cbb8eebc:String" user="minicases" />
+              <item name="miniJQuery" type="cbb8eebc:String" user="miniJQuery" />
             </path>
           </expand>
           <select />
@@ -101,13 +334,13 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../test" />
     <property name="node.js.detected.package.prettier" value="true" />
     <property name="node.js.path.for.package.prettier" value="project" />
     <property name="node.js.selected.package.prettier" value="" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -139,25 +372,41 @@
       <workItem from="1530752247302" duration="1326000" />
       <workItem from="1530924146910" duration="21986000" />
       <workItem from="1531183774298" duration="17607000" />
+      <workItem from="1539668477239" duration="4268000" />
+      <workItem from="1545644716916" duration="4309000" />
+      <workItem from="1545705215639" duration="21947000" />
+      <workItem from="1545791238934" duration="24031000" />
+      <workItem from="1545890145273" duration="4059000" />
+      <workItem from="1545981577055" duration="10582000" />
+      <workItem from="1546058112087" duration="9742000" />
+      <workItem from="1546147759487" duration="8239000" />
+      <workItem from="1546230493042" duration="3943000" />
+      <workItem from="1546319626215" duration="14337000" />
+      <workItem from="1546400748401" duration="23585000" />
+      <workItem from="1546490520929" duration="16405000" />
+      <workItem from="1546580886883" duration="19374000" />
+      <workItem from="1546667857902" duration="17064000" />
+      <workItem from="1546752451111" duration="18128000" />
+      <workItem from="1551011761354" duration="25000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="79550000" />
+    <option name="totallyTimeSpent" value="279588000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="87" y="8" width="1232" height="745" extended-state="0" />
+    <frame x="112" y="0" width="1255" height="745" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" anchor="right" content_ui="combo" id="Project" order="3" sideWeight="0.49917898" visible="true" weight="0.121805795" />
+      <window_info anchor="right" content_ui="combo" x="440" y="68" width="284" height="609" id="Project" order="3" sideWeight="0.49917898" weight="0.15789473" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" sideWeight="0.500821" side_tool="true" weight="0.24937657" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Favorites" order="0" sideWeight="0.500821" side_tool="true" weight="0.24937657" />
+      <window_info id="Favorites" order="0" sideWeight="0.500821" side_tool="true" weight="0.24895397" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -165,6 +414,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,40 +430,147 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="14" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/motion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5152">
+          <caret line="224" column="6" selection-start-line="53" selection-start-column="4" selection-end-line="224" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/banner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8257">
+          <caret line="359" column="37" selection-start-line="359" selection-start-column="37" selection-end-line="359" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/animation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4439">
+          <caret line="193" column="12" lean-forward="true" selection-start-line="193" selection-start-column="12" selection-end-line="193" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/imgFlyIn.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/motion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5152">
+          <caret line="224" column="6" selection-start-line="53" selection-start-column="4" selection-end-line="224" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/banner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8257">
+          <caret line="359" column="37" selection-start-line="359" selection-start-column="37" selection-end-line="359" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/animation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4807">
+          <caret line="209" column="17" lean-forward="true" selection-start-line="209" selection-start-column="17" selection-end-line="209" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/imgFlyIn.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1725">
+          <caret line="75" column="35" lean-forward="true" selection-start-line="75" selection-start-column="35" selection-end-line="75" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/motion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5152">
+          <caret line="224" column="6" selection-start-line="53" selection-start-column="4" selection-end-line="224" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/banner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2093">
+          <caret line="91" column="33" lean-forward="true" selection-start-line="91" selection-start-column="33" selection-end-line="91" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/motion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5152">
+          <caret line="224" column="6" selection-start-line="53" selection-start-column="4" selection-end-line="224" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/banner.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9913">
+          <caret line="431" column="6" lean-forward="true" selection-start-line="431" selection-start-column="6" selection-end-line="431" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/motion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6210">
+          <caret line="270" column="16" lean-forward="true" selection-start-line="270" selection-start-column="16" selection-end-line="270" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="21" lean-forward="true" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/motion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1219">
+          <caret line="53" column="6" lean-forward="true" selection-start-line="53" selection-start-column="6" selection-end-line="53" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1035">
+          <caret line="45" column="37" lean-forward="true" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="1" selection-start-line="1" selection-end-line="1" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-          <folding>
-            <element signature="e#311#369#0" />
-            <element signature="e#386#427#0" />
-            <element signature="e#439#485#0" />
-            <element signature="e#499#546#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/minicases/mini7/optimize.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2323">
-          <caret line="101" column="7" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#3452#3484#0" />
-            <element signature="e#4168#4200#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/minicases/mini7/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5313">
-          <caret line="231" selection-start-line="231" selection-end-line="231" />
         </state>
       </provider>
     </entry>
@@ -221,108 +578,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-          <folding>
-            <element signature="e#311#369#0" />
-            <element signature="e#386#427#0" />
-            <element signature="e#439#485#0" />
-            <element signature="e#499#546#0" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/minicases/mini7/optimize.html">
+    <entry file="file://$PROJECT_DIR$/minicases/mini7/optimize.html" />
+    <entry file="file://$PROJECT_DIR$/minicases/mini7/index.html" />
+    <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2323">
-          <caret line="101" column="7" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#3452#3484#0" />
-            <element signature="e#4168#4200#0" />
-          </folding>
+        <state relative-caret-position="621">
+          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/minicases/mini7/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2852">
-          <caret line="124" column="11" lean-forward="true" selection-start-line="124" selection-start-column="11" selection-end-line="124" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/mini7/optimize.html" />
+    <entry file="file://$PROJECT_DIR$/minicases/mini7/index.html" />
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="27" column="17" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-          <folding>
-            <element signature="e#311#369#0" />
-            <element signature="e#386#427#0" />
-            <element signature="e#439#485#0" />
-            <element signature="e#499#546#0" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/minicases/mini7/optimize.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2323">
-          <caret line="101" column="7" lean-forward="true" selection-start-line="101" selection-start-column="7" selection-end-line="101" selection-end-column="7" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#3452#3484#0" />
-            <element signature="e#4168#4200#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/minicases/mini7/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/mini7/optimize.html" />
+    <entry file="file://$PROJECT_DIR$/minicases/mini7/index.html" />
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="621">
           <caret line="27" column="17" lean-forward="true" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
-          <folding>
-            <element signature="e#311#369#0" />
-            <element signature="e#386#427#0" />
-            <element signature="e#439#485#0" />
-            <element signature="e#499#546#0" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/minicases/mini12/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1311">
-          <caret line="57" column="29" lean-forward="true" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/mini12/index.html" />
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
           <caret line="30" column="7" selection-start-line="30" selection-start-column="7" selection-end-line="30" selection-end-column="7" />
-          <folding>
-            <element signature="e#311#369#0" />
-            <element signature="e#386#427#0" />
-            <element signature="e#439#485#0" />
-            <element signature="e#499#546#0" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/minicases/mini10/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9890">
-          <caret line="430" column="17" lean-forward="true" selection-start-line="430" selection-start-column="17" selection-end-line="430" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/mini10/index.html" />
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -330,13 +624,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/minicases/mini10/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6371">
-          <caret line="277" column="10" lean-forward="true" selection-start-line="277" selection-start-column="10" selection-end-line="277" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/mini10/index.html" />
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="805">
@@ -344,50 +632,251 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/minicases/mini10/index.html">
+    <entry file="file://$PROJECT_DIR$/minicases/mini10/index.html" />
+    <entry file="file://$PROJECT_DIR$/minicases/mini7/index.html" />
+    <entry file="file://$PROJECT_DIR$/minicases/mini7/optimize.html" />
+    <entry file="file://$PROJECT_DIR$/minicases/mini12/index.html" />
+    <entry file="file://$PROJECT_DIR$/minicases/motion/motion.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="351" column="23" lean-forward="true" selection-start-line="351" selection-start-column="23" selection-end-line="351" selection-end-column="23" />
+        <state relative-caret-position="4393">
+          <caret line="224" column="6" selection-start-line="53" selection-start-column="4" selection-end-line="224" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/minicases/mini7/index.html">
+    <entry file="file://$PROJECT_DIR$/minicases/motion/banner.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="471">
-          <caret line="260" column="23" selection-start-line="260" selection-start-column="23" selection-end-line="260" selection-end-column="52" />
+        <state relative-caret-position="2806">
+          <caret line="359" column="37" selection-start-line="359" selection-start-column="37" selection-end-line="359" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/minicases/mini7/optimize.html">
+    <entry file="file://$PROJECT_DIR$/minicases/motion/animation.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="223" column="55" lean-forward="true" selection-start-line="223" selection-start-column="55" selection-end-line="223" selection-end-column="55" />
-          <folding>
-            <element signature="n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#ul#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="e#3452#3484#0" />
-            <element signature="e#4168#4200#0" />
-          </folding>
+        <state relative-caret-position="506">
+          <caret line="193" column="12" selection-start-line="193" selection-start-column="12" selection-end-line="193" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/motion/imgFlyIn.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="77" column="6" lean-forward="true" selection-start-line="77" selection-start-column="6" selection-end-line="77" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="27" column="17" selection-start-line="27" selection-start-column="17" selection-end-line="27" selection-end-column="17" />
+        <state relative-caret-position="150">
+          <caret line="64" column="32" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/learning/前端/潭州课堂/JavaScript/jQuery 微型库/第四节课（完结）/demo/Tz-40-js.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="186">
+          <caret line="190" column="23" selection-start-line="190" selection-start-column="23" selection-end-line="190" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://E:/learning/前端/潭州课堂/JavaScript/jQuery 微型库/第一节课/demo/Fyobject.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="621">
+          <caret line="62" column="17" selection-start-line="62" selection-start-column="17" selection-end-line="62" selection-end-column="17" />
           <folding>
-            <element signature="e#311#369#0" />
-            <element signature="e#386#427#0" />
-            <element signature="e#439#485#0" />
-            <element signature="e#499#546#0" />
+            <element signature="e#113#569#0" />
+            <element signature="e#629#1453#0" />
+            <element signature="e#1981#2843#0" />
+            <element signature="e#2874#3400#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/minicases/mini12/index.html">
+    <entry file="file://$PROJECT_DIR$/minicases/miniJQuery/Tz-40-js.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="6" lean-forward="true" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        <state relative-caret-position="264">
+          <caret line="669" column="77" selection-start-line="669" selection-start-column="71" selection-end-line="669" selection-end-column="77" />
+          <folding>
+            <element signature="e#132#471#0" />
+            <element signature="e#189#468#0" />
+            <element signature="e#371#446#0" />
+            <element signature="e#409#441#0" />
+            <element signature="e#531#1151#0" />
+            <element signature="e#578#1148#0" />
+            <element signature="e#988#1099#0" />
+            <element signature="e#1194#1283#0" />
+            <element signature="e#1234#1280#0" />
+            <element signature="e#1338#1753#0" />
+            <element signature="e#1432#1501#0" />
+            <element signature="e#1554#1622#0" />
+            <element signature="e#1628#1672#0" />
+            <element signature="e#1822#2133#0" />
+            <element signature="e#1855#2129#0" />
+            <element signature="e#1878#1993#0" />
+            <element signature="e#1915#1947#0" />
+            <element signature="e#1953#1988#0" />
+            <element signature="e#2020#2125#0" />
+            <element signature="e#2048#2079#0" />
+            <element signature="e#2085#2120#0" />
+            <element signature="e#2201#2347#0" />
+            <element signature="e#2234#2276#0" />
+            <element signature="e#2303#2344#0" />
+            <element signature="e#2428#2550#0" />
+            <element signature="e#2466#2498#0" />
+            <element signature="e#2504#2547#0" />
+            <element signature="e#2596#2639#0" />
+            <element signature="e#2694#2887#0" />
+            <element signature="e#2744#2884#0" />
+            <element signature="e#2818#2835#0" />
+            <element signature="e#2860#2880#0" />
+            <element signature="e#2937#3369#0" />
+            <element signature="e#2998#3286#0" />
+            <element signature="e#3497#4790#0" />
+            <element signature="e#3543#4090#0" />
+            <element signature="e#3573#3685#0" />
+            <element signature="e#3713#3813#0" />
+            <element signature="e#3848#3916#0" />
+            <element signature="e#3949#4007#0" />
+            <element signature="e#4031#4085#0" />
+            <element signature="e#4117#4487#0" />
+            <element signature="e#4146#4197#0" />
+            <element signature="e#4148#4155#0" />
+            <element signature="e#4231#4266#0" />
+            <element signature="e#4296#4345#0" />
+            <element signature="e#4374#4398#0" />
+            <element signature="e#4432#4482#0" />
+            <element signature="e#4539#4565#0" />
+            <element signature="e#4603#4641#0" />
+            <element signature="e#4719#4742#0" />
+            <element signature="e#4836#6073#0" />
+            <element signature="e#4916#4923#0" />
+            <element signature="e#5037#6053#0" />
+            <element signature="e#5057#6033#0" />
+            <element signature="e#5116#5577#0" />
+            <element signature="e#5145#5265#0" />
+            <element signature="e#5317#5492#0" />
+            <element signature="e#5520#5570#0" />
+            <element signature="e#5583#5928#0" />
+            <element signature="e#5612#5698#0" />
+            <element signature="e#5749#5843#0" />
+            <element signature="e#5871#5921#0" />
+            <element signature="e#5946#6026#0" />
+            <element signature="e#6115#7219#0" />
+            <element signature="e#6255#7199#0" />
+            <element signature="e#6436#7194#0" />
+            <element signature="e#6470#6849#0" />
+            <element signature="e#6488#6689#0" />
+            <element signature="e#6528#6681#0" />
+            <element signature="e#6695#6842#0" />
+            <element signature="e#6855#7157#0" />
+            <element signature="e#6881#7053#0" />
+            <element signature="e#6948#7045#0" />
+            <element signature="e#7059#7150#0" />
+            <element signature="e#7267#8562#0" />
+            <element signature="e#7347#7354#0" />
+            <element signature="e#7468#8542#0" />
+            <element signature="e#7488#8522#0" />
+            <element signature="e#7547#8036#0" />
+            <element signature="e#7576#7725#0" />
+            <element signature="e#7776#7951#0" />
+            <element signature="e#7979#8029#0" />
+            <element signature="e#8042#8417#0" />
+            <element signature="e#8071#8187#0" />
+            <element signature="e#8238#8332#0" />
+            <element signature="e#8360#8410#0" />
+            <element signature="e#8435#8515#0" />
+            <element signature="e#8625#8766#0" />
+            <element signature="e#8663#8761#0" />
+            <element signature="e#8731#8756#0" />
+            <element signature="e#8810#9057#0" />
+            <element signature="e#8847#8967#0" />
+            <element signature="e#8857#8894#0" />
+            <element signature="e#8905#8946#0" />
+            <element signature="e#8973#9053#0" />
+            <element signature="e#9005#9030#0" />
+            <element signature="e#9083#9354#0" />
+            <element signature="e#9120#9260#0" />
+            <element signature="e#9130#9171#0" />
+            <element signature="e#9182#9239#0" />
+            <element signature="e#9266#9350#0" />
+            <element signature="e#9298#9327#0" />
+            <element signature="e#9380#9651#0" />
+            <element signature="e#9417#9557#0" />
+            <element signature="e#9427#9468#0" />
+            <element signature="e#9479#9536#0" />
+            <element signature="e#9563#9647#0" />
+            <element signature="e#9595#9624#0" />
+            <element signature="e#9700#9861#0" />
+            <element signature="e#9755#9775#0" />
+            <element signature="e#9908#9992#0" />
+            <element signature="e#10026#10463#0" />
+            <element signature="e#10053#10442#0" />
+            <element signature="e#10188#10393#0" />
+            <element signature="e#10239#10387#0" />
+            <element signature="e#10263#10300#0" />
+            <element signature="e#10344#10380#0" />
+            <element signature="e#10500#10864#0" />
+            <element signature="e#10527#10843#0" />
+            <element signature="e#10656#10798#0" />
+            <element signature="e#10709#10792#0" />
+            <element signature="e#10748#10785#0" />
+            <element signature="e#10932#11023#0" />
+            <element signature="e#11080#11265#0" />
+            <element signature="e#11107#11244#0" />
+            <element signature="e#11164#11200#0" />
+            <element signature="e#11206#11239#0" />
+            <element signature="e#11300#11861#0" />
+            <element signature="e#11331#11369#0" />
+            <element signature="e#11375#11404#0" />
+            <element signature="e#11480#11572#0" />
+            <element signature="e#11629#11841#0" />
+            <element signature="e#11680#11835#0" />
+            <element signature="e#11754#11828#0" />
+            <element signature="e#11894#12122#0" />
+            <element signature="e#11949#11981#0" />
+            <element signature="e#11987#12102#0" />
+            <element signature="e#12045#12096#0" />
+            <element signature="e#12155#13187#0" />
+            <element signature="e#12665#12725#0" />
+            <element signature="e#12937#13022#0" />
+            <element signature="e#13215#13796#0" />
+            <element signature="e#13858#14193#0" />
+            <element signature="e#14267#14578#0" />
+            <element signature="e#14610#14822#0" />
+            <element signature="e#15907#16577#0" />
+            <element signature="e#15979#16139#0" />
+            <element signature="e#15996#16134#0" />
+            <element signature="e#16073#16096#0" />
+            <element signature="e#16237#16380#0" />
+            <element signature="e#16246#16314#0" />
+            <element signature="e#16329#16365#0" />
+            <element signature="e#16421#16513#0" />
+            <element signature="e#16459#16509#0" />
+            <element signature="e#16539#16574#0" />
+            <element signature="e#16623#16741#0" />
+            <element signature="e#16657#16737#0" />
+            <element signature="e#16707#16733#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/miniJQuery/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1150">
+          <caret line="50" column="26" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/minicases/miniJQuery/miniJQ.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="511">
+          <caret line="746" column="17" selection-start-line="746" selection-start-column="17" selection-end-line="746" selection-end-column="17" />
         </state>
       </provider>
     </entry>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="Ivy">
+	<meta name="Keywords" content="motion">
+	<meta name="Description" content="Description">
+	<title>motion</title>
+	<style>
+		/*reset*/
+		body, p, ul, h1, h2, h3, h4, h5, h6 {
+			margin: 0;
+			padding: 0;
+		}
+		
+		ul, ol {
+			list-style: none;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		img {
+			vertical-align: middle;
+		}
+		
+		/*start*/
+		body {
+			position: relative;
+		}
+		
+		.box {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 50px;
+			height: 80px;
+			background-color: pink;
+		}
+	
+	</style>
+</head>
+<body>
+
+<div class="box"></div>
+
+<script>
+	let box = document.getElementsByClassName('box')[0];
+	
+	function animation(obj, endData, time = 800, callback = () => {
+	}) {
+		// tween 运动库
+		const _Tween = {
+			Linear: {
+				Linear: function (t, b, c, d) {
+					return c * t / d + b;
+				}
+			},
+			Quad: {
+				easeIn: function (t, b, c, d) {
+					return c * (t /= d) * t + b;
+				},
+				easeOut: function (t, b, c, d) {
+					return -c * (t /= d) * (t - 2) + b;
+				},
+				easeInOut: function (t, b, c, d) {
+					if ((t /= d / 2) < 1) return c / 2 * t * t + b;
+					return -c / 2 * ((--t) * (t - 2) - 1) + b;
+				}
+			},
+			Cubic: {
+				easeIn: function (t, b, c, d) {
+					return c * (t /= d) * t * t + b;
+				},
+				easeOut: function (t, b, c, d) {
+					return c * ((t = t / d - 1) * t * t + 1) + b;
+				},
+				easeInOut: function (t, b, c, d) {
+					if ((t /= d / 2) < 1) return c / 2 * t * t * t + b;
+					return c / 2 * ((t -= 2) * t * t + 2) + b;
+				}
+			},
+			Quart: {
+				easeIn: function (t, b, c, d) {
+					return c * (t /= d) * t * t * t + b;
+				},
+				easeOut: function (t, b, c, d) {
+					return -c * ((t = t / d - 1) * t * t * t - 1) + b;
+				},
+				easeInOut: function (t, b, c, d) {
+					if ((t /= d / 2) < 1) return c / 2 * t * t * t * t + b;
+					return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
+				}
+			},
+			Quint: {
+				easeIn: function (t, b, c, d) {
+					return c * (t /= d) * t * t * t * t + b;
+				},
+				easeOut: function (t, b, c, d) {
+					return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
+				},
+				easeInOut: function (t, b, c, d) {
+					if ((t /= d / 2) < 1) return c / 2 * t * t * t * t * t + b;
+					return c / 2 * ((t -= 2) * t * t * t * t + 2) + b;
+				}
+			},
+			Sine: {
+				easeIn: function (t, b, c, d) {
+					return -c * Math.cos(t / d * (Math.PI / 2)) + c + b;
+				},
+				easeOut: function (t, b, c, d) {
+					return c * Math.sin(t / d * (Math.PI / 2)) + b;
+				},
+				easeInOut: function (t, b, c, d) {
+					return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
+				}
+			},
+			Expo: {
+				easeIn: function (t, b, c, d) {
+					return (t === 0) ? b : c * Math.pow(2, 10 * (t / d - 1)) + b;
+				},
+				easeOut: function (t, b, c, d) {
+					return (t === d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
+				},
+				easeInOut: function (t, b, c, d) {
+					if (t === 0) return b;
+					if (t === d) return b + c;
+					if ((t /= d / 2) < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
+					return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
+				}
+			},
+			Circ: {
+				easeIn: function (t, b, c, d) {
+					return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b;
+				},
+				easeOut: function (t, b, c, d) {
+					return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
+				},
+				easeInOut: function (t, b, c, d) {
+					if ((t /= d / 2) < 1) return -c / 2 * (Math.sqrt(1 - t * t) - 1) + b;
+					return c / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1) + b;
+				}
+			},
+			Elastic: {
+				easeIn: function (t, b, c, d, a, p) {
+					var s;
+					if (t === 0) return b;
+					if ((t /= d) === 1) return b + c;
+					if (typeof p === "undefined") p = d * .3;
+					if (!a || a < Math.abs(c)) {
+						s = p / 4;
+						a = c;
+					} else {
+						s = p / (2 * Math.PI) * Math.asin(c / a);
+					}
+					return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+				},
+				easeOut: function (t, b, c, d, a, p) {
+					var s;
+					if (t === 0) return b;
+					if ((t /= d) === 1) return b + c;
+					if (typeof p === "undefined") p = d * .3;
+					if (!a || a < Math.abs(c)) {
+						a = c;
+						s = p / 4;
+					} else {
+						s = p / (2 * Math.PI) * Math.asin(c / a);
+					}
+					return (a * Math.pow(2, -10 * t) * Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b);
+				},
+				easeInOut: function (t, b, c, d, a, p) {
+					var s;
+					if (t === 0) return b;
+					if ((t /= d / 2) === 2) return b + c;
+					if (typeof p === "undefined") p = d * (.3 * 1.5);
+					if (!a || a < Math.abs(c)) {
+						a = c;
+						s = p / 4;
+					} else {
+						s = p / (2 * Math.PI) * Math.asin(c / a);
+					}
+					if (t < 1) return -.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+					return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p) * .5 + c + b;
+				}
+			},
+			Back: {
+				easeIn: function (t, b, c, d, s) {
+					if (typeof s === "undefined") s = 1.70158;
+					return c * (t /= d) * t * ((s + 1) * t - s) + b;
+				},
+				easeOut: function (t, b, c, d, s) {
+					if (typeof s === "undefined") s = 1.70158;
+					return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
+				},
+				easeInOut: function (t, b, c, d, s) {
+					if (typeof s === "undefined") s = 1.70158;
+					if ((t /= d / 2) < 1) return c / 2 * (t * t * (((s *= (1.525)) + 1) * t - s)) + b;
+					return c / 2 * ((t -= 2) * t * (((s *= (1.525)) + 1) * t + s) + 2) + b;
+				}
+			},
+			Bounce: {
+				easeIn: function (t, b, c, d) {
+					return c - _Tween.Bounce.easeOut(d - t, 0, c, d) + b;
+				},
+				easeOut: function (t, b, c, d) {
+					if ((t /= d) < (1 / 2.75)) {
+						return c * (7.5625 * t * t) + b;
+					} else if (t < (2 / 2.75)) {
+						return c * (7.5625 * (t -= (1.5 / 2.75)) * t + .75) + b;
+					} else if (t < (2.5 / 2.75)) {
+						return c * (7.5625 * (t -= (2.25 / 2.75)) * t + .9375) + b;
+					} else {
+						return c * (7.5625 * (t -= (2.625 / 2.75)) * t + .984375) + b;
+					}
+				},
+				easeInOut: function (t, b, c, d) {
+					if (t < d / 2) {
+						return _Tween.Bounce.easeIn(t * 2, 0, c, d) * .5 + b;
+					} else {
+						return _Tween.Bounce.easeOut(t * 2 - d, 0, c, d) * .5 + c * .5 + b;
+					}
+				}
+			}
+		};
+		
+		// requestAnimationFrame 不兼容 IE
+		window.requestAnimationFrame = window.requestAnimationFrame || function (callback) {
+			return setTimeout(callback, 1000 / 60);
+		};
+		
+		const {parseFloat} = Number;
+		const objCssStyle = getComputedStyle(obj);
+		let startData = {};
+		let variation = {};
+		let startTime = new Date();
+		
+		for (let key in endData) {
+			if (key !== 'option') {
+				startData[key] = parseFloat(objCssStyle[key]);
+				variation[key] = endData[key] - startData[key]
+			}
+		}
+		let option = endData.option || {mode: 'Linear', speed: 'Linear'};
+		let getSpeed = _Tween[option.mode][option.speed];
+		
+		/*function move() {
+			let spendTime = new Date() - startTime;
+			let rate = spendTime / time;
+			
+			if(rate <= 1) {
+				requestAnimationFrame(move)
+			} else {
+				rate = 1;
+			}
+			
+			for(let key in endData) {
+				obj.style[key] = rate * variation[key] + startData[key] + 'px'
+			}
+			
+			if(rate === 1) {
+				// 动画结束，执行回调函数
+				callback();
+			}
+		}*/
+		
+		function move() {
+			let nowTime = new Date() - startTime;
+			
+			if (nowTime <= time) {
+				requestAnimationFrame(move);
+			} else {
+				nowTime = time;
+				callback();
+			}
+			
+			for (let key in endData) {
+				let currentData = getSpeed(nowTime, startData[key], variation[key], time);
+				if (key === 'opacity') {
+					obj.style[key] = currentData;
+					// 兼容 IE
+					obj.style.filter = `alpha(opacity=${currentData * 100})`;
+				} else {
+					obj.style[key] = currentData + 'px';
+				}
+			}
+		}
+		
+		move();
+		
+	}
+	
+	animation(box, {
+		top: 100,
+		left: 200,
+		width: 150,
+		height: 300,
+		option: {
+			mode: 'Quad',
+			speed: 'easeOut'
+		}
+	}, 2000, () => {
+		console.log('动画执行结束');
+	});
+
+</script>
+</body>
+</html>

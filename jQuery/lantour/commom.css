@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+/* reset */
+body {
+	background-color: #fff;
+	font-size: 14px;
+	font-family: 'Microsoft yahei',Verdana, Arial, Helvetica, sans-serif;
+	color: #333;
+}
+body, p, ul, h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	padding: 0;
+}
+ul, ol {
+	list-style: none;
+}
+a {
+	color: #333;
+	text-decoration: none;
+}
+img {
+	vertical-align: middle;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.clearfix::after {
+	display: block;
+	content: "";
+	height: 0;
+	clear: both;
+}
+.clearfix {
+	*zoom: 1;
+}
+.clear {
+	overflow: hidden;
+}

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-Hans-Cn">
+<head>
+	<meta charset="UTF-8">
+	<meta name="Author" content="Ivy">
+	<meta name="Keywords" content="banner">
+	<meta name="Description" content="Description">
+	<title>无缝轮播</title>
+	<style>
+		/*reset*/
+		body, p, ul, h1, h2, h3, h4, h5, h6 {
+			margin: 0;
+			padding: 0;
+		}
+		
+		ul, ol {
+			list-style: none;
+		}
+		
+		a {
+			text-decoration: none;
+		}
+		
+		img {
+			vertical-align: middle;
+		}
+		.clear {
+			overflow: hidden;
+		}
+		
+		/*start*/
+		#banner {
+			position: relative;
+			width: 500px;
+			height: 280px;
+			margin: 100px auto;
+			overflow: hidden;
+		}
+		.banner-imgs {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 3000px;
+		}
+		.banner-imgs li {
+			float: left;
+		}
+		.banner-imgs li img {
+			width: 500px;
+			height: 280px;
+		}
+		
+		.banner-points {
+			position: absolute;
+			left: 50%;
+			bottom: 30px;
+			transform: translateX(-50%);
+			background-color: rgba(0, 0, 0, .3);
+			border-radius: 30px;
+			font-size: 0;
+		}
+		.banner-points li {
+			display: inline-block;
+			width: 12px;
+			height: 12px;
+			margin: 5px;
+			background-color: #fafafa;
+			border-radius: 50%;
+			cursor: pointer;
+		}
+		.banner-points .current-point {
+			position: absolute;
+			top: 0;
+			left: 0;
+			background-color: green;
+			opacity: 1;
+		}
+		
+		.banner-arrows .arrow {
+			position: absolute;
+			top: 50%;
+			padding: 30px 8px;
+			background-color: rgba(0, 0, 0, .3);
+			transform: translateY(-50%);
+			color: #f5f5f5;
+			font-size: 20px;
+			cursor: pointer;
+		}
+		.banner-arrows .arrow-left {
+			left: 0;
+		}
+		.banner-arrows .arrow-right {
+			right: 0;
+		}
+	
+	</style>
+</head>
+<body>
+	<div id="banner">
+		<ul class="banner-imgs clear">
+			<li><img src="./images/img1.jpg" alt="banner"></li>
+			<li><img src="./images/img2.jpg" alt="banner"></li>
+			<li><img src="./images/img3.jpg" alt="banner"></li>
+			<li><img src="./images/img4.jpg" alt="banner"></li>
+			<li><img src="./images/img5.jpg" alt="banner"></li>
+			<li><img src="./images/img1.jpg" alt="banner"></li>
+		</ul>
+		<ul class="banner-points">
+			<li class="current-point"></li>
+			<li class="point"></li>
+			<li class="point"></li>
+			<li class="point"></li>
+			<li class="point"></li>
+			<li class="point"></li>
+		</ul>
+		<div class="banner-arrows">
+			<div class="arrow-left arrow"> &lt; </div>
+			<div class="arrow-right arrow"> &gt; </div>
+		</div>
+	</div>
+	
+	<script>
+		let banner = document.getElementById('banner');
+		let bannerImg = banner.getElementsByClassName('banner-imgs')[0];
+		let bannerPointWrap = banner.getElementsByClassName('banner-points')[0];
+		let bannerPoints = [...banner.getElementsByClassName('point')];
+		let bannerCurrentPoint = banner.getElementsByClassName('current-point')[0];
+		let bannerPrew = banner.getElementsByClassName('arrow-left')[0];
+		let bannerNext = banner.getElementsByClassName('arrow-right')[0];
+		let { parseFloat } = Number;
+		
+		let bannerWidth = Number.parseFloat(window.getComputedStyle(banner).width);
+		let bannerIndex = 0;
+		let bannerImgNum = bannerPoints.length;
+		let bannerClickTime;
+		let pointStyle = window.getComputedStyle(bannerCurrentPoint) || bannerCurrentPoint.currentStyle;
+		let pointMoveWidth = parseFloat(pointStyle.width) + parseFloat(pointStyle.marginLeft) + parseFloat(pointStyle.marginRight);
+		let bannerPattern = { mode: 'Quad', speed: 'easeInOut' };
+		
+		function consecutiveClick() {
+			
+			return !bannerClickTime || (new Date() - bannerClickTime) > 1000
+		}
+		
+		function animation(ele, end, time = 800, callback = () => {}) {
+			const _Tween = {  // t:当前时间; b:初始值; c:变化量; d:持续时间
+				Linear: {
+					Linear: function (t, b, c, d) {
+						return c * t / d + b;
+					}
+				},
+				Quad: {
+					easeIn: function (t, b, c, d) {
+						return c * (t /= d) * t + b;
+					},
+					easeOut: function (t, b, c, d) {
+						return -c * (t /= d) * (t - 2) + b;
+					},
+					easeInOut: function (t, b, c, d) {
+						if ((t /= d / 2) < 1) return c / 2 * t * t + b;
+						return -c / 2 * ((--t) * (t - 2) - 1) + b;
+					}
+				},
+				Cubic: {
+					easeIn: function (t, b, c, d) {
+						return c * (t /= d) * t * t + b;
+					},
+					easeOut: function (t, b, c, d) {
+						return c * ((t = t / d - 1) * t * t + 1) + b;
+					},
+					easeInOut: function (t, b, c, d) {
+						if ((t /= d / 2) < 1) return c / 2 * t * t * t + b;
+						return c / 2 * ((t -= 2) * t * t + 2) + b;
+					}
+				},
+				Quart: {
+					easeIn: function (t, b, c, d) {
+						return c * (t /= d) * t * t * t + b;
+					},
+					easeOut: function (t, b, c, d) {
+						return -c * ((t = t / d - 1) * t * t * t - 1) + b;
+					},
+					easeInOut: function (t, b, c, d) {
+						if ((t /= d / 2) < 1) return c / 2 * t * t * t * t + b;
+						return -c / 2 * ((t -= 2) * t * t * t - 2) + b;
+					}
+				},
+				Quint: {
+					easeIn: function (t, b, c, d) {
+						return c * (t /= d) * t * t * t * t + b;
+					},
+					easeOut: function (t, b, c, d) {
+						return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
+					},
+					easeInOut: function (t, b, c, d) {
+						if ((t /= d / 2) < 1) return c / 2 * t * t * t * t * t + b;
+						return c / 2 * ((t -= 2) * t * t * t * t + 2) + b;
+					}
+				},
+				Sine: {
+					easeIn: function (t, b, c, d) {
+						return -c * Math.cos(t / d * (Math.PI / 2)) + c + b;
+					},
+					easeOut: function (t, b, c, d) {
+						return c * Math.sin(t / d * (Math.PI / 2)) + b;
+					},
+					easeInOut: function (t, b, c, d) {
+						return -c / 2 * (Math.cos(Math.PI * t / d) - 1) + b;
+					}
+				},
+				Expo: {
+					easeIn: function (t, b, c, d) {
+						return (t === 0) ? b : c * Math.pow(2, 10 * (t / d - 1)) + b;
+					},
+					easeOut: function (t, b, c, d) {
+						return (t === d) ? b + c : c * (-Math.pow(2, -10 * t / d) + 1) + b;
+					},
+					easeInOut: function (t, b, c, d) {
+						if (t === 0) return b;
+						if (t === d) return b + c;
+						if ((t /= d / 2) < 1) return c / 2 * Math.pow(2, 10 * (t - 1)) + b;
+						return c / 2 * (-Math.pow(2, -10 * --t) + 2) + b;
+					}
+				},
+				Circ: {
+					easeIn: function (t, b, c, d) {
+						return -c * (Math.sqrt(1 - (t /= d) * t) - 1) + b;
+					},
+					easeOut: function (t, b, c, d) {
+						return c * Math.sqrt(1 - (t = t / d - 1) * t) + b;
+					},
+					easeInOut: function (t, b, c, d) {
+						if ((t /= d / 2) < 1) return -c / 2 * (Math.sqrt(1 - t * t) - 1) + b;
+						return c / 2 * (Math.sqrt(1 - (t -= 2) * t) + 1) + b;
+					}
+				},
+				Elastic: {
+					easeIn: function (t, b, c, d, a, p) {
+						var s;
+						if (t === 0) return b;
+						if ((t /= d) === 1) return b + c;
+						if (typeof p === "undefined") p = d * .3;
+						if (!a || a < Math.abs(c)) {
+							s = p / 4;
+							a = c;
+						} else {
+							s = p / (2 * Math.PI) * Math.asin(c / a);
+						}
+						return -(a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+					},
+					easeOut: function (t, b, c, d, a, p) {
+						var s;
+						if (t === 0) return b;
+						if ((t /= d) === 1) return b + c;
+						if (typeof p === "undefined") p = d * .3;
+						if (!a || a < Math.abs(c)) {
+							a = c;
+							s = p / 4;
+						} else {
+							s = p / (2 * Math.PI) * Math.asin(c / a);
+						}
+						return (a * Math.pow(2, -10 * t) * Math.sin((t * d - s) * (2 * Math.PI) / p) + c + b);
+					},
+					easeInOut: function (t, b, c, d, a, p) {
+						var s;
+						if (t === 0) return b;
+						if ((t /= d / 2) === 2) return b + c;
+						if (typeof p === "undefined") p = d * (.3 * 1.5);
+						if (!a || a < Math.abs(c)) {
+							a = c;
+							s = p / 4;
+						} else {
+							s = p / (2 * Math.PI) * Math.asin(c / a);
+						}
+						if (t < 1) return -.5 * (a * Math.pow(2, 10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p)) + b;
+						return a * Math.pow(2, -10 * (t -= 1)) * Math.sin((t * d - s) * (2 * Math.PI) / p) * .5 + c + b;
+					}
+				},
+				Back: {
+					easeIn: function (t, b, c, d, s) {
+						if (typeof s === "undefined") s = 1.70158;
+						return c * (t /= d) * t * ((s + 1) * t - s) + b;
+					},
+					easeOut: function (t, b, c, d, s) {
+						if (typeof s === "undefined") s = 1.70158;
+						return c * ((t = t / d - 1) * t * ((s + 1) * t + s) + 1) + b;
+					},
+					easeInOut: function (t, b, c, d, s) {
+						if (typeof s === "undefined") s = 1.70158;
+						if ((t /= d / 2) < 1) return c / 2 * (t * t * (((s *= (1.525)) + 1) * t - s)) + b;
+						return c / 2 * ((t -= 2) * t * (((s *= (1.525)) + 1) * t + s) + 2) + b;
+					}
+				},
+				Bounce: {
+					easeIn: function (t, b, c, d) {
+						return c - _Tween.Bounce.easeOut(d - t, 0, c, d) + b;
+					},
+					easeOut: function (t, b, c, d) {
+						if ((t /= d) < (1 / 2.75)) {
+							return c * (7.5625 * t * t) + b;
+						} else if (t < (2 / 2.75)) {
+							return c * (7.5625 * (t -= (1.5 / 2.75)) * t + .75) + b;
+						} else if (t < (2.5 / 2.75)) {
+							return c * (7.5625 * (t -= (2.25 / 2.75)) * t + .9375) + b;
+						} else {
+							return c * (7.5625 * (t -= (2.625 / 2.75)) * t + .984375) + b;
+						}
+					},
+					easeInOut: function (t, b, c, d) {
+						if (t < d / 2) {
+							return _Tween.Bounce.easeIn(t * 2, 0, c, d) * .5 + b;
+						} else {
+							return _Tween.Bounce.easeOut(t * 2 - d, 0, c, d) * .5 + c * .5 + b;
+						}
+					}
+				}
+			};
+			let start = {};
+			let variation = {};
+			let startTime = new Date();
+			let eleStyle = window.getComputedStyle(ele) || ele.currentStyle;
+			
+			for(let key in end) {
+				if(key !== 'pattern') {
+					start[key] = parseFloat(eleStyle[key]);
+					variation[key] = end[key] - start[key]
+				}
+			}
+			
+			let pattern = end.pattern || { mode:'Linear', speed: 'Linear' };
+			let getPattern = _Tween[pattern.mode][pattern.speed];
+			
+			(function move() {
+				let currentTime = new Date() - startTime;
+				
+				if(currentTime <= time) {
+					window.requestAnimationFrame(move);
+				} else {
+					currentTime = time;
+				}
+				
+				for(let key in end) {
+					let current = getPattern(currentTime, start[key], variation[key], time);
+					
+					if(key !== 'opacity') {
+						ele.style[key] = current + 'px';
+					} else {
+						ele.style[key] = current;
+						ele.style.filter = `alpha(opacity=${ current * 100 })`
+					}
+				}
+				
+				if (currentTime === time) {
+					callback();
+				}
+			}());
+			
+		}
+		
+		bannerNext.onclick = function () {
+			if(consecutiveClick()) {
+				bannerClickTime = new Date();
+				bannerIndex ++;
+				animation(bannerImg, {
+					left: - bannerWidth * bannerIndex,
+					pattern: bannerPattern
+				}, 1000, () => {
+					if(bannerIndex >= bannerImgNum) {
+						bannerImg.style.left = 0;
+						bannerIndex = 0
+					}
+				});
+				if(bannerIndex >=bannerImgNum || bannerIndex === 0) {
+					animation(bannerCurrentPoint, {
+						opacity: 0
+					}, 500, () => {
+						bannerCurrentPoint.style.left = 0;
+						animation(bannerCurrentPoint, {
+							opacity: 1
+						}, 500);
+					});
+				} else {
+					animation(bannerCurrentPoint, {
+						left: pointMoveWidth * bannerIndex,
+						pattern: bannerPattern
+					}, 1000);
+				}
+				
+			} else {
+				console.log('请不要疯狂点击！')
+			}
+		};
+		bannerPrew.onclick = function () {
+			if(consecutiveClick()) {
+				bannerClickTime = new Date();
+				bannerIndex --;
+				if(bannerIndex < 0) {
+					bannerImg.style.left = - bannerWidth * bannerImgNum + 'px';
+					bannerIndex = bannerImgNum - 1;
+				}
+				animation(bannerImg, {
+					left: - bannerWidth * bannerIndex,
+					pattern: bannerPattern
+				}, 1000);
+				if(bannerIndex === bannerImgNum - 1) {
+					animation(bannerCurrentPoint, {
+						opacity: 0
+					}, 500, () => {
+						bannerCurrentPoint.style.left = pointMoveWidth * bannerImgNum + 'px';
+						animation(bannerCurrentPoint, {
+							opacity: 1
+						}, 500);
+					});
+				}
+				animation(bannerCurrentPoint, {
+					left: pointMoveWidth * bannerIndex,
+					pattern: bannerPattern
+				}, 1000);
+			} else {
+				console.log('请不要疯狂点击！')
+			}
+		};
+		
+		let bannerSlider = setInterval(bannerNext.onclick, 2000);
+		
+		banner.onmouseenter = function () {
+			clearInterval(bannerSlider);
+		};
+		banner.onmouseleave = function () {
+			clearInterval(bannerSlider);
+			bannerSlider = setInterval(bannerNext.onclick, 2000)
+		};
+		
+		bannerPoints.forEach((item, index) => {
+			item.onclick = function () {
+				if(consecutiveClick()) {
+					bannerClickTime = new Date();
+					if((bannerIndex + 1) === index || (bannerIndex - 1) === index) {
+						animation(bannerCurrentPoint, {
+							left: pointMoveWidth * index,
+							pattern: bannerPattern
+						}, 1000);
+					} else {
+						animation(bannerCurrentPoint, {
+							opacity: 0
+						}, 500, () => {
+							bannerCurrentPoint.style.left = pointMoveWidth * index + 'px';
+							animation(bannerCurrentPoint, {
+								opacity: 1
+							}, 500);
+						});
+					}
+					animation(bannerImg, {
+						left: - bannerWidth * index,
+						pattern: bannerPattern
+					}, 1000);
+					
+					bannerIndex = index;
+				} else {
+					console.log('请不要疯狂点击！')
+				}
+			}
+		});
+		bannerPointWrap.onmouseenter = function () {
+			this.style.transform = 'translateX(-50%) scale(1.3)';
+		};
+		bannerPointWrap.onmouseleave = function () {
+			this.style.transform = 'translateX(-50%)';
+		}
+	
+	</script>
+</body>
+</html>
